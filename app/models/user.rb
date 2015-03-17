@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
 	has_many :items
-	validates_presence_of :name
-	validates_presence_of :fb_id
+
+	validates :name, 
+			  presence: true
+	validates :fb_id, 
+			   presence: true, 
+			   uniqueness: true
+
 end
