@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/same', as: 'rails_admin'
+  root to: 'odi#preview'
+
   get 'odi/preview'
 
   get 'odi/tender'
 
   get 'odi/results'
 
-  get 'results/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
