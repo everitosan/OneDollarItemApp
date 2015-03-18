@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: ODIapp_production
-  username: ODIapp
-  password: <%= ENV['ODIAPP_DATABASE_PASSWORD'] %>
+  database: db77m061rpa1n
+  username: 'enbwtjkeulbklv'
+  password: <%= ENV['GjO1gblVqFF0iI7dlT1c5BlLAm'] %>
