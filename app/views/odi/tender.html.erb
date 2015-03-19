@@ -1,17 +1,25 @@
-<script>
-					  
-</script>
+
 
 
 <div>
 	<h1>Odi#tender</h1>
 	<p> {{2+3+4}} </p>
 	<div ng-controller="FaceAppCtrl as face" >
-		<fb:login-button scope="public_profile,email" onlogin="face.checkLoginState();" ng-show="face.showFBbutton">
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" ng-show="face.showFBbutton">
 		</fb:login-button>
 
 		<div id="status">
 		</div>
+
+		<script>
+			var checkLoginState = function() {
+				FB.getLoginStatus(function(response) {
+					console.log(response);
+					console.log(face);
+					face.statusChangeCallback(response);
+				});
+			}	  
+		</script>
 	</div>
 </div>
 	
