@@ -7,6 +7,9 @@
 		})
 		.controller('FaceAppCtrl', 
 			function FaceAppCtrl ($scope, Facebook) {
+
+				$scope.facebookReady = false;
+				
 				$scope.login = function(){
 					Facebook.login(function(response){
 						console.log(response);
