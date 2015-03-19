@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/same', as: 'rails_admin'
-  root to: 'odi#preview'
+  root to: 'odi#tender'
 
   get 'odi/preview'
 
