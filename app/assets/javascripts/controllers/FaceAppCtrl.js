@@ -7,7 +7,7 @@
 	     // use the shortcut in the initialize method directly.
 	     FacebookProvider.init('1560451627557497');
 	  })
-		.controller('authenticationCtrl', function($scope, Facebook) {
+		.controller('authenticationCtrl',['$scope', 'Facebook', function($scope, Facebook) {
 			$scope.user = {};
 			$scope.loggedIn = false;
 
@@ -60,5 +60,5 @@
 		    });
 		  };
 
-	});
+	}]);
 })();

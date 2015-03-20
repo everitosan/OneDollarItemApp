@@ -32,7 +32,7 @@ provides: [facebook]
   /**
    * Facebook module
    */
-  angular.module('facebook', ['ngRoute']).
+  angular.module('facebook', []).
 
     // Declare module settings value
     value('settings', settings).
