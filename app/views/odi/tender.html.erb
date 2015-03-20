@@ -5,7 +5,11 @@
 		<button ng-show="!loggedIn" ng-click="IntentLog()">Facebook: {{loggedIn}}</button>
 		<div id="status">
 		</div>
-		<img ng-show="loggedIn" id="photoUrl" src="" alt="">
+
+		<div ng-show="loggedIn">
+			<img  id="photoUrl" src="" alt="">
+			<button data-ct-checkout="eve.alain-carvajal" >Donate</button>
+		</div>
 		
 	</div>
 </div>
