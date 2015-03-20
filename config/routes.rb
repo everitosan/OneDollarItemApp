@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'donator/all'
+
+  post 'donator/prepost'
+
   mount RailsAdmin::Engine => '/same', as: 'rails_admin'
   root to: 'odi#tender'
 
