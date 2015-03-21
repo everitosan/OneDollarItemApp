@@ -21,7 +21,7 @@
       var PostData = function (data){
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
-
+        data.item_id = 1;
         console.log(data);
 
         $http.post('/donator/prepost', data).

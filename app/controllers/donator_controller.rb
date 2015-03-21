@@ -9,15 +9,22 @@ class DonatorController < ApplicationController
   end
 
   def prepost
-  	
-  	@data_name=params[:name]
-  	@data_first_N=params[:first_n]
-  	@data_last_n=params[:last_n]
-  	@data_locale=params[:locale]
-  	@data_email=params[:email]
 
   	@User = User.find_by_fb_id(params[:id])
 
-  	render json: { status: :ok, owner: @User }
+  	if (@User == null)
+  		@NewUser=User.create({:fb_id => params[:id], :name => params[:name], :first_n => params[:first_n],:last_n => params[:last_n], :locale => params[:locale], :email => params[:email]})
+  		@NewUser.save
+  		@User = User.last
+  	end
+  	@idItem = params[:item_id]
+  	
+  	@CurrentItem = Item.find(@idItem)
+  	@CurrentItem.user = @User
+  	@CurrentItem.save
+
+
+  	render json: { status: :ok, owner: @CurrentItem.user.name }
+
   end
 end
