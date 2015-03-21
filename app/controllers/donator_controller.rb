@@ -17,9 +17,9 @@ class DonatorController < ApplicationController
   		@NewUser.fb_id = params[:id]
   		@NewUser.name = params[:name]
   		@NewUser.email = params[:email]
-  		@NewUser.first_n = params[:first_n]
-  		@NewUser.last_n = params[:last_n]
-  		@NewUser.locate = params[:locate]
+  		@NewUser.first_n = params[:first_name]
+  		@NewUser.last_n = params[:last_name]
+  		@NewUser.locate = params[:locale]
   		@NewUser.save
   		@User = User.last
   	end
