@@ -13,10 +13,13 @@ class DonatorController < ApplicationController
   	@User = User.find_by_fb_id(params[:id])
 
   	if @User.nil?
-  		@NewUser=User.create({:fb_id => params[:id], :name => params[:name], :first_n => params[:first_n],:last_n => params[:last_n], :locale => params[:locale], :email => params[:email]})
+  		@NewUser = User.new
+  		@NewUser.fb_id = params[:id]
+  		@NewUser.name = params[:name]
+  		@NewUser.email = params[:email]
   		@NewUser.save
   		@User = User.last
-  		render json: { status: :ok, owner: @NewUser}
+  		#render json: { status: :ok, owner: @NewUser}
   	end
   	@idItem = params[:item_id]
   	
