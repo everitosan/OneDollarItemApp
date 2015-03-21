@@ -19,18 +19,12 @@
       };
 
       var PostData = function (data){
-        $http.post('/donator', data).
+        $http.post('/donator/prepost', data).
           success(function(data, status, headers, config) {
             console.log(data);
-            console.log(status);
-            console.log(headers);
-            console.log(config);
           }).
           error(function(data, status, headers, config) {
-            console.log(data);
             console.log(status);
-            console.log(headers);
-            console.log(config);
           });
       };
 
