@@ -1,6 +1,4 @@
 class DonatorController < ApplicationController
-  #skip_before_action :verify_authenticity_token
-  #protect_from_forgery with: :null_session
 
   def all
   	@items = Item.all
@@ -11,8 +9,15 @@ class DonatorController < ApplicationController
   end
 
   def prepost
-  	@dataUser_Id=params[:id]
-  	@dataUser_email=params[:email]
-  	render json: { status: :ok, owner: @dataUser_Id }
+  	
+  	@data_name=params[:name]
+  	@data_first_N=params[:first_n]
+  	@data_last_n=params[:last_n]
+  	@data_locale=params[:locale]
+  	@data_email=params[:email]
+
+  	@User = User.find_by_fb_id(params[:id])
+
+  	render json: { status: :ok, owner: @User }
   end
 end

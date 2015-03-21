@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150317150859) do
   add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.integer  "fb_id"
+    t.string   "fb_id"
     t.string   "name"
     t.string   "first_n"
     t.string   "last_n"

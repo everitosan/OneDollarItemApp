@@ -22,6 +22,8 @@
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
 
+        console.log(data);
+
         $http.post('/donator/prepost', data).
           success(function(data, status, headers, config) {
             console.log(data);
@@ -29,6 +31,7 @@
           error(function(data, status, headers, config) {
             console.log(status);
           });
+
       };
 
     }])
