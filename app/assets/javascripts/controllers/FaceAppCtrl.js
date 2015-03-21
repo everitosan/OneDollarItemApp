@@ -1,12 +1,12 @@
 (function(){
   'use strict';
 
-  angular.module('odiApp.controllers', ['facebook'])
+  angular.module('odiApp.controllers', ['facebook', 'ngCookies'])
     .config(function(FacebookProvider) {
       FacebookProvider.init('1560451627557497');
     })
 
-    .controller('paymentCtrl', ['$scope', 'User', '$http', function($scope, User, $http){
+    .controller('paymentCtrl', ['$scope', 'User', '$http', '$cookies', function($scope, User, $http, $cookies){
       $scope.PaymentPlataform = '';
       
       $scope.paymentMode = function (mode){
@@ -19,6 +19,9 @@
       };
 
       var PostData = function (data){
+        var TOKEN = $cookies['XSRF-TOKEN'];
+        data.authenticity_token = TOKEN;
+
         $http.post('/donator/prepost', data).
           success(function(data, status, headers, config) {
             console.log(data);
