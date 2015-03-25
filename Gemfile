@@ -37,6 +37,9 @@ gem "figaro"
 gem 'actionpack-page_caching'
 ## gzip enable for heroku
 gem 'rack-zippy'
+##PaypalGem
+gem 'paypal-sdk-rest'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

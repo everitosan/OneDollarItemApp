@@ -113,6 +113,10 @@ GEM
     nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    paypal-sdk-rest (1.1.2)
+      multi_json (~> 1.0)
+      uuidtools (~> 2.1)
+      xml-simple
     pg (0.18.1)
     rack (1.6.0)
     rack-pjax (0.8.0)
@@ -216,11 +220,13 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.5)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -234,6 +240,7 @@ DEPENDENCIES
   half-pipe!
   jbuilder (~> 2.0)
   jquery-rails
+  paypal-sdk-rest
   pg
   rack-zippy
   rails (= 4.2.0)
