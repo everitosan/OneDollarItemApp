@@ -62,7 +62,6 @@
       var me = function() {
         Facebook.api('/me', function(response) {
           User.data = response;
-          setPhoto('http://graph.facebook.com/'+response.id+'/picture?type=small');
         });
       };
 

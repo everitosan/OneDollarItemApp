@@ -2,16 +2,28 @@
 	<h1>App that connects with Facebook</h1>
 	<div ng-controller="authenticationCtrl" >
 		
-		<button ng-show="!loggedIn" ng-click="IntentLog()">Facebook: {{loggedIn}}</button>
+		<button ng-show="!loggedIn" ng-click="IntentLog()">Facebook</button>
 		<div id="status">
 		</div>
 
 		<div ng-show="loggedIn">
-			<img  id="photoUrl" src="" alt="">
+			<!-- <img  id="photoUrl" src="" alt=""> -->
 			<div ng-controller="paymentCtrl">  
-
-				<div id="donatebuttons">	
-					<button ng-click="paymentMode('OpenTilt')" >OpenTilt</button>
+	
+			<% @items.each do |item| %>
+				<div class="item">	
+					<span class="item_des">
+						<%=item.description %>
+					</span>				
+					<span class="item_condition">
+						<%=item.condition.description %>
+					</span>
+					<span class="item_belong">
+						<%=item.user.name %>
+						<img src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?type=small" alt="">
+						
+					</span>
+					<%=item.img %>
 					
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
@@ -19,15 +31,10 @@
 					<input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
 					<img alt="" border="0" src="https://www.paypalobjects.com/es_XC/i/scr/pixel.gif" width="1" height="1">
 					</form>
-
-
 				</div>
+			<% end %>
 
-
-				<div id="OpenTiltLightBox" class="hide" ng-class="{show: PaymentPlataform === 'OpenTilt'}">
-					<iframe  src="https://eve.tilt.com/alain-carvajal/checkout/payment" width="490px" height="1000px" style="border-radius:3px;" frameBorder="0"></iframe>
-				</div>
-				<button class="hide" ng-class="{show: PaymentPlataform === 'OpenTilt'}" ng-click="CloseLightBox()" id="CloseLightBox">close</button>
+				
 				
 
 			</div>

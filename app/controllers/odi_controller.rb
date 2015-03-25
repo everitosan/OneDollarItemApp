@@ -5,6 +5,7 @@ class OdiController < ApplicationController
   end
 
   def tender
+  	@items = Item.all
   end
 
   def results

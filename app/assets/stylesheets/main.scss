@@ -1,20 +1,4 @@
-#OpenTiltLightBox {
-	height: 100%;
-	left: 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	iframe {
-		width: 100%;
-	}
-}
 
-#CloseLightBox {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	z-index: 999;
-}
 
 .hide {
 	display: none;
