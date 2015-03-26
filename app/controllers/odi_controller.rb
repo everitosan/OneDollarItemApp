@@ -5,7 +5,7 @@ class OdiController < ApplicationController
   end
 
   def tender
-  	@items = Item.all
+  	@items = Item.all.order(:id)
   end
 
   def results
