@@ -6,7 +6,7 @@
       FacebookProvider.init('1560451627557497');
     })
 
-    .controller('paymentCtrl', ['$scope', 'User', '$http', '$cookies', function($scope, User, $http, $cookies){
+    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', function($scope, UserSrv, PostDataSrv, $cookies){
       $scope.PaymentPlataform = '';
       
       $scope.paymentMode = function (mode){
@@ -15,28 +15,25 @@
 
       $scope.CloseLightBox = function (){
         $scope.PaymentPlataform='';
-        PostData(User.data);
+        PostData(UserSrv.data);
       };
 
       var PostData = function (data){
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
         data.item_id = 1;
-        console.log(data);
 
-        $http.post('/donator/prepost', data).
-          success(function(data, status, headers, config) {
-            console.log(data);
-          }).
-          error(function(data, status, headers, config) {
-            console.log(status);
-          });
+        PostDataSrv.postD(data).then(function(dataReturn) {
+          console.log(dataReturn);
+        }, function (reason){
+          console.log('Reason: '+reason);
+        });        
 
       };
 
     }])
     
-    .controller('authenticationCtrl',['$scope', 'Facebook', 'User', function($scope, Facebook, User) {
+    .controller('authenticationCtrl',['$scope', 'Facebook', 'UserSrv', function($scope, Facebook, UserSrv) {
       $scope.loggedIn = false;
 
       $scope.IntentLog = function () {
@@ -61,7 +58,7 @@
 
       var me = function() {
         Facebook.api('/me', function(response) {
-          User.data = response;
+          UserSrv.data = response;
         });
       };
 
