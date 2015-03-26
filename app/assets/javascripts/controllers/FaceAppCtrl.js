@@ -13,15 +13,15 @@
         $scope.PaymentPlataform = mode;
       };
 
-      $scope.CloseLightBox = function (){
+      $scope.CloseLightBox = function (id_item){
         $scope.PaymentPlataform='';
+        UserSrv.data.item_id= id_item;
         PostData(UserSrv.data);
       };
 
       var PostData = function (data){
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
-        data.item_id = 1;
 
         PostDataSrv.postD(data).then(function(dataReturn) {
           console.log(dataReturn);

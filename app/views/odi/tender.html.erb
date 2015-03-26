@@ -21,10 +21,10 @@
 					<span class="item_belong">
 						<%=item.user.name %>
 						<img src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?type=small" alt="">
-						
 					</span>
+						
 					<%=item.img %>
-					<div ng-click="CloseLightBox()"> Change </div>
+					<div ng-click="CloseLightBox( <%=item.id %> )"> Change </div>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="AG5J8536PZVPC">
