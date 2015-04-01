@@ -1,3 +1,64 @@
 // Place all the styles related to the ODI controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background: image-url("Background.jpg");
+	background-size: 100%;
+	background-position: center 0px;
+	background-repeat: no-repeat;
+	color:white;
+	width: 100%;
+	height: 1000px;
+	padding-top: 5em;
+}
+
+h1 {
+	margin: 0;
+}
+
+#menu {
+		background: url("menu.png");
+		background-position: center;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		text-align: center;
+		height: 130px;
+		position: fixed;
+		top:0;
+		left: 0;
+		width: 100%;
+	ul {
+		margin :0;
+		padding :0;
+		a, a:visited {
+			color: inherit;
+			text-decoration: none;
+		}
+		li {
+			display: inline-block;
+			vertical-align: top;
+			padding: 1em;
+		}
+		#logomini {
+			background: url("minilogo.png");
+			padding: 0;
+		}
+	}
+}
+
+#about {
+
+}
+
+#teamvenados {
+
+}
+
+#share {
+
+}
+
+#sponsors {
+
+}
