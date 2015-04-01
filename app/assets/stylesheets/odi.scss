@@ -18,7 +18,7 @@ h1 {
 }
 
 #menu {
-		background: url("menu.png");
+		background: image-url("menu.png");
 		background-position: center;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
@@ -41,7 +41,7 @@ h1 {
 			padding: 1em;
 		}
 		#logomini {
-			background: url("minilogo.png");
+			background: image-url("minilogo.png");
 			padding: 0;
 		}
 	}
