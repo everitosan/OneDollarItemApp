@@ -12,5 +12,15 @@
 			};
 
 			return definitionObject;
+		})
+		.directive('apAppDirective', function apDirective (){
+			var definitionObject = {
+				restrict: 'E',
+				scope: { content:'@' },
+				replace:true,
+				templateUrl:'templates/app.html'
+			};
+
+			return definitionObject;
 		});
 })();

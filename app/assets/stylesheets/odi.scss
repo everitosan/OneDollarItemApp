@@ -29,22 +29,37 @@ h1 {
 		left: 0;
 		width: 100%;
 	ul {
-		margin :0;
+		margin :0 auto;
 		padding :0;
+		display: flex;
+		width: 60%;
 		a, a:visited {
 			color: inherit;
 			text-decoration: none;
 		}
 		li {
-			display: inline-block;
-			vertical-align: top;
-			padding: 1em;
+			padding: 1em 0;
+			flex: 1;
+			list-style: none;
 		}
 		#logomini {
+			background-position: right bottom;
+			background-repeat: no-repeat;
 			background: image-url("minilogo.png");
+			flex: 0;
+			height: 100px;
+			padding-top: 1em;
 			padding: 0;
+			transition: all ease-out .5s;
 		}
 	}
+}
+
+#app {
+	background: url("deckClean.png");
+	background-size: 100% 100%;
+	background-position: center;
+	width: 100%;
 }
 
 #about {
