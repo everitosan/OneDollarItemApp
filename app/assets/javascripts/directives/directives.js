@@ -10,7 +10,7 @@
 
 			function link (scope, elem) {
 				var $logo =$(elem).find('#logomini');
-				$('#app').on('scroll', MyScroll);
+				//$logo.css('flex','0');
 			}
 
 			var definitionObject = {

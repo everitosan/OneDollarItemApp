@@ -12,24 +12,29 @@
 	ul {
 		margin :0 auto;
 		padding :0;
-		display: flex;
-		width: 60%;
+		//display: flex;
+		//width: 50%;
 		a, a:visited {
 			color: inherit;
 			text-decoration: none;
 		}
 		li {
-			padding: 1em 0;
-			flex: 1;
+			font-family: 'geared_slabregular';
+			font-size: 1.3em;
+			font-weight: 100;
+			padding: 1em;
+			//flex: 2;
 			list-style: none;
+			display: inline-block;
+			vertical-align: top;
 		}
 		#logomini {
 			background-position: right bottom;
 			background-repeat: no-repeat;
 			background: image-url("minilogo.png");
-			flex: 0;
-			height: 100px;
-			padding-top: 1em;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			width: 0;
 			padding: 0;
 			transition: all ease-out .5s;
 		}
