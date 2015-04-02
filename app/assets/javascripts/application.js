@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+
+//= require angular.min.js
+//= require angular-rails-templates
+//= require angular-cookies.js
+//= require angular-facebook.js
+//= require angular-route.min.js
+
+//= require_tree ./directives
+//= require_tree ./services
+//= require_tree ./controllers
+//= require_tree ./templates
+
+//= require odi.js
