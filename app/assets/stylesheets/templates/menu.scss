@@ -9,9 +9,12 @@
 		top:0;
 		left: 0;
 		width: 100%;
+		position: absolute;
+		z-index:100;
 	ul {
 		margin :0 auto;
 		padding :0;
+		height: 100%;
 		//display: flex;
 		//width: 50%;
 		a, a:visited {
@@ -19,24 +22,36 @@
 			text-decoration: none;
 		}
 		li {
-			font-family: 'geared_slabregular';
-			font-size: 1.3em;
-			font-weight: 100;
-			padding: 1em;
+			-webkit-transform: skewX(-10deg);
 			//flex: 2;
-			list-style: none;
+			border-right: 2px solid white;
 			display: inline-block;
+			font-family: 'geared_slabregular';
+			font-size: 1.5em;
+			font-weight: 100;
+			list-style: none;
+			margin-top: 1em;
+			padding: 0 1em;
 			vertical-align: top;
+
+			&:last-child {
+				border-right: none;
+			}
 		}
 		#logomini {
-			background-position: right bottom;
-			background-repeat: no-repeat;
-			background: image-url("minilogo.png");
-			background-size: 100%;
-			background-repeat: no-repeat;
-			width: 0;
 			padding: 0;
-			transition: all ease-out .5s;
+			li {
+				background: image-url("minilogo.png");
+				background-repeat: no-repeat;
+				background-repeat: no-repeat;
+				background-position: right 0px;
+				border-right: none;
+				height: 100%;
+				-webkit-transform: skewX(0deg);
+				-webkit-transition: all ease-out .5s;
+				padding: 0;
+				width: 0;
+			}
 		}
 	}
 }

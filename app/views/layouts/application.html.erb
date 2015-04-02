@@ -5,17 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
   </head>
 <body>
 
 	<ap-menu-directive>
 	</ap-menu-directive>
 
-	<ap-app-directive>
-	</ap-app-directive>
-	
+	<div id="app" >
+		<%= image_tag 'deckClean.png', :id => "deck" %>
+		<ap-counter-directive>
+		</ap-counter-directive>
+		<%= yield %>
+	</div>
 
-<%= yield %>
 
 
   </body>
