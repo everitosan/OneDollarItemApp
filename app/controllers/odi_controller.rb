@@ -1,5 +1,7 @@
 class OdiController < ApplicationController
 	after_filter :set_csrf_cookie_for_ng
+  before_action :time
+
 
   def preview
   end
@@ -9,6 +11,27 @@ class OdiController < ApplicationController
   end
 
   def results
+  end
+
+  def time
+    sections = request.original_url.split('/')
+    
+    if sections.at(sections.size - 1) != actionToGo()
+      redirect_to action: actionToGo()
+    end
+
+  end
+
+  def actionToGo
+    date = Time.new
+
+    if date.day < 16 && date.month <= 4 && date.year == 2015 # && sections.at(sections.size - 1) != "preview"
+      return 'preview'
+    elsif date.day == 16 && date.month == 4 && date.year == 2015# && sections.at(sections.size - 1) != "tender"
+      return 'tender'
+    else
+      return 'results'
+    end    
   end
 
   def set_csrf_cookie_for_ng

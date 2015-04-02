@@ -14,6 +14,10 @@ body {
 h1 {
 	margin: 0;
 }
+.relativeContent {
+	position: relative;
+	top: 15em;
+}
 
 ::-webkit-scrollbar { 
     display: none; 
