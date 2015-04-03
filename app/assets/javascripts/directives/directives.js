@@ -42,9 +42,16 @@
 			return definitionObject;
 		})
 		.directive('apCounterDirective', function counterDirective (){
+			function ressize() {
+				var factor = parseInt($('body').css('width')) * .3011;
+				$('.relativeContent').css('top', factor);
 
+				$('#counter').css('height', $('#counter').css('width'));
+			}
 
 			function link () {
+				$(window).on('resize', ressize);
+				ressize();
 				$('#app').css('height', window.innerHeight ); //#FIX mover al controlador
 			}
 

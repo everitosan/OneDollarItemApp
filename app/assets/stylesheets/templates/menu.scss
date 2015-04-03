@@ -55,3 +55,28 @@
 		}
 	}
 }
+
+@media screen and (max-width:865px)
+{
+	#menu {
+		ul {
+			li {
+				font-size: 1.1em;
+			}
+		}
+	}
+
+}
+
+@media screen and (max-width:700px)
+{
+	#menu {
+		ul {
+
+			li:not(#logo) {
+				display: none;
+			}
+		}
+	}
+
+}
