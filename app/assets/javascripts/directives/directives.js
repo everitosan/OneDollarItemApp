@@ -9,7 +9,7 @@
 				var Scroll = (-1) * ($('#deck').position().top) ;
 
 				var inicioAnimacion = 200;
-				var ancho_final = 200;
+				var ancho_final = 1;
 				var rango_animacion = 20;
 				var ancho;
 
@@ -23,11 +23,11 @@
 					ancho = ancho_final;
 				}
 
-				event.data.logo.css('width', ancho);
+				event.data.logo.css('opacity', ancho);
 			}			
 
 			function link (scope, elem) {
-				var $logo = $(elem).find('#logomini li');
+				var $logo = $(elem).find('#logo');
 				$('#app').on('scroll', {logo: $logo}, MyScroll);
 			}
 
