@@ -1,7 +1,7 @@
 class OdiController < ApplicationController
 	after_filter :set_csrf_cookie_for_ng
-  before_action :time
-
+    before_action :time
+	after_filter :languageConf
 
   def preview
   end
@@ -38,9 +38,21 @@ class OdiController < ApplicationController
 		cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
 	end
 
+	def languageConf
+		#I18n.locale = params[:locale] || I18n.default_locale
+		#I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
+		logger.debug I18n.locale
+	end
+
+	private
+  	def extract_locale_from_accept_language_header
+    	request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
 	protected
 		def verified_request?
 	    super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
 		end
+
 
 end

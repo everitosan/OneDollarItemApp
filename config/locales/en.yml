@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  about:
+  	title: "Since the beginning, the children of Mesa de las Tablas were destined to ride their longboards with the wind."
+  	title2: "Skate Slate"
+  	p1: "With a meager population of 174, the community of Mesa de las Tablas has one of the best longboarding spots in Northern Mexico. Our mission is to help these young athletes to compete in the “Maryhill Festival of Speed 2015”."
+  	p2: "The One Dollar Item project is a non-profit initiative developed by The Digital Invaders Interactive School and supported by Patrick Switzer, Rayne Longboards, Orangatang Wheels, Triple 8 Helmets, Holsom Pucks and Edge Longboard store. " 
+  team:
+  	p1: "The local crew of troublemakers Toro, Tito, Gerardo and Uriel have been practicing their Longboarding skills for a little more than 4 years."
+  	p2: "Ever since they met the city longboarders that wandered through their town."
+	p3: "Longboarding it’s a very new sport in Mexico but these boys are determined to go against the current, and ride the hills as fast as the wind. It's time to face the... challenge."
