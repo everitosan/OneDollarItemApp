@@ -42,8 +42,10 @@
 			return definitionObject;
 		})
 		.directive('apCounterDirective', function counterDirective (){
+			var porcentual = .3011;
+			
 			function ressize() {
-				var factor = parseInt($('body').css('width')) * .3011;
+				var factor = parseInt($('body').css('width')) * porcentual;
 				$('.relativeContent').css('top', factor);
 
 				$('#counter').css('height', $('#counter').css('width'));
@@ -60,6 +62,29 @@
 				scope: { content:'@' },
 				replace:true,
 				templateUrl:'counter.html',
+				link: link
+			};
+
+			return definitionObject;
+		})
+		.directive('apAboutDirective', function AboutDirective() {
+			var porcentual = 1.192;
+
+			function ressize() {
+				var factor = parseInt( $('#about').css('width') ) * porcentual;
+				$('#about').css('height', factor);
+			}
+
+			function link () {
+				$(window).on('resize', ressize);
+				ressize();
+			}
+
+			var definitionObject = {
+				restrict: 'E',
+				scope: { content:'@' },
+				replace:true,
+				templateUrl:'about.html',
 				link: link
 			};
 
