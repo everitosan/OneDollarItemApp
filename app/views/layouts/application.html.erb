@@ -13,17 +13,30 @@
 	</ap-menu-directive>
 
 	<div id="app" >
-		<%= image_tag 'deckClean.png', :id => "deck" %>
-		<div class="relativeContent">
-			<%= yield %>
+		<div id="deck" >
+			<div class="relativeContent">
 
-			<ap-about-directive>		
-			</ap-about-directive>		
+				<%= yield %>
+				
+				<ap-about-directive 
+					title="<%= t ('about.title') %>" 
+					title2="<%= t ('about.title2') %>" 
+					par1="<%= t ('about.p1') %>" 
+					par2="<%= t ('about.p2') %>">	
+				</ap-about-directive>	
+
+				<ap-team-directive>		
+				</ap-team-directive>
+				
+				<ap-share-directive>		
+				</ap-share-directive>
+
+			</div>
 		</div>
 	
 	</div>
 
-
+	sponsores
 
   </body>
 </html>
