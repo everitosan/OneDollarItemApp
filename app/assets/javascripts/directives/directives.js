@@ -1,6 +1,14 @@
 (function(){
 	'use strict';
 
+	var minMobile = 815;
+	function porcentajeEscala (elem, porcentual, attr) {
+		var anchoElemento = parseInt( $(elem).css('width') );
+		var factor =  anchoElemento * porcentual;
+
+		$(elem).css(attr||'height', factor);
+	}
+
 	angular
 		.module('odiApp.directives',['templates'])
 		.directive('apMenuDirective', function MenuDirective (){
@@ -42,13 +50,20 @@
 			return definitionObject;
 		})
 		.directive('apCounterDirective', function counterDirective (){
-			var porcentual = .3011;
-			
-			function ressize() {
-				var factor = parseInt($('body').css('width')) * porcentual;
-				$('.relativeContent').css('top', factor);
+			var porcentual = 0.3011;
+			var porcentualmobile = 0.424;
 
-				$('#counter').css('height', $('#counter').css('width'));
+			function escala () {
+				if(window.innerWidth <= minMobile) {
+					return porcentualmobile;
+				}
+				return porcentual;
+			}
+
+			function ressize() {
+				porcentajeEscala('.relativeContent', escala(), 'top');
+				porcentajeEscala('#counter', 1);
+				porcentajeEscala('#deck', 3.06);
 			}
 
 			function link () {
@@ -68,11 +83,51 @@
 			return definitionObject;
 		})
 		.directive('apAboutDirective', function AboutDirective() {
-			var porcentual = 1.192;
+			var porcentual = 1.235;
+			var porcentualPaddingText = 0.658;
 
 			function ressize() {
-				var factor = parseInt( $('#about').css('width') ) * porcentual;
-				$('#about').css('height', factor);
+
+				if(window.innerWidth >= minMobile) {
+					porcentajeEscala('#about', porcentual);
+				}
+				else {
+					$('#about').css('height','auto');
+				}
+
+				if (parseInt($('#about').css('width') ) >= 633){
+					porcentajeEscala('#about .text', 1, 'padding-top');
+				}
+				else {
+					porcentajeEscala('#about .text', porcentualPaddingText, 'padding-top');
+				}
+
+			}
+
+			function link () {
+				$(window).on('resize', ressize);
+				ressize();
+			}
+
+			var definitionObject = {
+				restrict: 'E',
+				scope: { title: '@',
+						 title2: '@',
+						 par1: '@',
+						 par2: '@'},
+				replace:true,
+				transclude: true,
+				templateUrl:'about.html',
+				link: link
+			};
+
+			return definitionObject;
+		})
+		.directive('apTeamDirective', function TeamDirective() {
+			var porcentual = 1.229;
+
+			function ressize() {
+				porcentajeEscala('#team', porcentual);
 			}
 
 			function link () {
@@ -84,7 +139,30 @@
 				restrict: 'E',
 				scope: { content:'@' },
 				replace:true,
-				templateUrl:'about.html',
+				templateUrl:'team.html',
+				link: link
+			};
+
+			return definitionObject;
+		})
+		.directive('apShareDirective', function ShareDirective() {
+			var porcentual = 0.8748;
+
+			function ressize() {
+				var factor = parseInt( $('#share').css('width') ) * porcentual;
+				$('#share').css('height', factor);
+			}
+
+			function link () {
+				$(window).on('resize', ressize);
+				ressize();
+			}
+
+			var definitionObject = {
+				restrict: 'E',
+				scope: { content:'@' },
+				replace:true,
+				templateUrl:'share.html',
 				link: link
 			};
 
