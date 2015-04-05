@@ -1,5 +1,6 @@
 (function(){
 	'use strict';
+	var Mytop = 0;
 
 	var minMobile = 815;
 	function porcentajeEscala (elem, porcentual, attr) {
@@ -12,6 +13,16 @@
 	angular
 		.module('odiApp.directives',['templates'])
 		.directive('apMenuDirective', function MenuDirective (){
+			function scrollUp() {
+
+				if( $('#app').scrollTop() > Mytop ){
+					Mytop = $('#app').scrollTop();
+				}
+				else {
+				 	Mytop = 0;
+					$('body').scrollTop(Mytop);
+				}
+			}
 
 			function MyScroll(event) {
 				var Scroll = (-1) * ($('#deck').position().top) ;
@@ -32,6 +43,8 @@
 				}
 
 				event.data.logo.css('opacity', ancho);
+
+				scrollUp();
 			}			
 
 			function link (scope, elem) {
