@@ -84,11 +84,16 @@
 {
 	#menu {
 		ul {
-
-			li:not(#logo) {
-				display: none;
-			}
+			display: none;
 		}
+	}
+
+}
+
+@media screen and (max-width:480px)
+{
+	#menu {
+		height: 60px;
 	}
 
 }
