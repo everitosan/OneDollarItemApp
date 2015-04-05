@@ -61,9 +61,16 @@
 			}
 
 			function ressize() {
-				porcentajeEscala('.relativeContent', escala(), 'top');
+				if(window.innerWidth <= minMobile) {
+					porcentajeEscala('.relativeContent', porcentualmobile, 'top');
+					porcentajeEscala('#deck', 4.421);
+				}
+				else {
+					porcentajeEscala('.relativeContent', porcentual, 'top');
+					porcentajeEscala('#deck', 3.06);
+				}
+
 				porcentajeEscala('#counter', 1);
-				porcentajeEscala('#deck', 3.06);
 			}
 
 			function link () {
@@ -125,9 +132,22 @@
 		})
 		.directive('apTeamDirective', function TeamDirective() {
 			var porcentual = 1.229;
-
+			var porcentualPaddingText = 0.839;
 			function ressize() {
-				porcentajeEscala('#team', porcentual);
+
+				if(window.innerWidth >= minMobile) {
+					porcentajeEscala('#team', porcentual);
+				}
+				else {
+					$('#team').css('height','auto');
+				}
+
+				if (parseInt($('#team').css('width') ) >= 633){
+					porcentajeEscala('#team .text', 1.48, 'padding-top');
+				}
+				else {
+					porcentajeEscala('#team .text', porcentualPaddingText, 'padding-top');
+				} 
 			}
 
 			function link () {
@@ -137,8 +157,11 @@
 
 			var definitionObject = {
 				restrict: 'E',
-				scope: { content:'@' },
-				replace:true,
+				scope: { par1:'@',
+						 par2:'@',
+						 par3:'@' },
+				transclude: true,
+				replace: true,
 				templateUrl:'team.html',
 				link: link
 			};
@@ -160,7 +183,6 @@
 
 			var definitionObject = {
 				restrict: 'E',
-				scope: { content:'@' },
 				replace:true,
 				templateUrl:'share.html',
 				link: link
