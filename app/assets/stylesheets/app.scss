@@ -5,10 +5,36 @@
 	position: relative;
 	width: 100%;
 	#deck {
+		background: image-url("deckClean.png");
+		background-size: 100%;
+		background-position: top;
 		position: absolute;
 		top: 3em;
 		z-index: 0;
 		left: 0;
 		width: 100%;
 	}
+
+	section {
+		overflow: hidden;
+		position: relative;
+		margin: 0 auto;
+		width: 55%;
+	}
+}
+
+
+@media screen and (max-width:815px)
+{
+	#app {
+		#deck {
+			background: image-url("deckCleanmobile.png");
+			background-size: 100%;
+			background-position: top;
+		}
+		section {
+			width: 75%;
+		}
+	}
+
 }
