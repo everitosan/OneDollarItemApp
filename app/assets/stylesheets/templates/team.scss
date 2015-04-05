@@ -3,5 +3,93 @@
 	background-position: center top;
 	background-size: 100%;
 	background-repeat:no-repeat;
-	
+	#gallerybutton {
+		position: absolute;
+		bottom: 30%;
+		width: 40%;
+		font-size: 0;
+		div {
+			display: inline-block;
+			vertical-align: top;
+			width: 40%;
+			margin: 4%;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	.text {
+		width: 60%;
+		p{
+			font-family: "klavika_regularregular";
+			color: #969e9c;
+			span {
+				color: white;
+				font-family: "klavika_bdbold_italic";
+  				font-weight: 100;
+			}
+		}
+		img {
+			cursor: pointer;
+			width: 100%;
+		}
+	}
+}
+
+@media screen and  (min-width: 1151px) and (max-width: 1260px) {
+	#team{
+		.text{
+			img {
+				width: 80%;
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+@media screen and (max-width: 1150px) {
+
+  #team {
+    background: image-url("venadosbgmobile.png");
+    background-position: center top;
+    background-size: 100%;
+    background-repeat:no-repeat;
+    #gallerybutton {
+		position: absolute;
+		bottom: 32%;
+		width: 100%;
+		img {
+			width: 40%;
+		}
+		div {
+			width: 50%;
+			margin: 0;
+			&:last-child {
+				text-align: right;
+			}
+		}
+
+	}
+    .text {
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 680px) {
+	#team {
+		#gallerybutton {
+			bottom: 36%;
+		}
+	}
+}
+
+@media screen and (max-width: 680px) {
+	#team {
+		#gallerybutton {
+			bottom:42%;
+		}
+	}
 }

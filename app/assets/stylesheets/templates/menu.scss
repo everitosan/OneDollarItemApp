@@ -83,17 +83,10 @@
 @media screen and (max-width:700px)
 {
 	#menu {
+		height: 60px;
 		ul {
 			display: none;
 		}
-	}
-
-}
-
-@media screen and (max-width:480px)
-{
-	#menu {
-		height: 60px;
 	}
 
 }

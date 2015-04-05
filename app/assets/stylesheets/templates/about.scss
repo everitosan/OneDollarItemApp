@@ -24,6 +24,7 @@
   		}
   		p {
   			font-family: "klavika_regularregular";
+        color : #969e9c;
   		}
       img {
         cursor: pointer;
@@ -58,4 +59,20 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 550px) {
+
+  #about {
+    .text {
+      h2 {
+        font-size: 1.3em;
+      }
+      h3 {
+        font-size: 1em;
+      }
+
+    }
+  }
+
 }
