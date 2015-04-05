@@ -23,3 +23,32 @@ h1 {
     display: none; 
 }
 
+#shareFacebook {
+	display:block;
+	margin: 2em auto;
+	width: 20%;
+}
+
+footer {
+	font-family: "klavika_regularregular";
+	text-align: center;
+	padding-bottom: 50em;
+	#sponsorLogos {
+		img {
+			width: 15%;
+			vertical-align: middle;
+		}
+	}
+	p {
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: .4em;
+	}
+}
+
+@media screen and (max-width: 815px) {
+	#shareFacebook {
+		margin: 2em auto;
+		width: 30%;
+	}
+}
