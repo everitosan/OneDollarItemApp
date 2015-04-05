@@ -1,7 +1,7 @@
 class OdiController < ApplicationController
 	after_filter :set_csrf_cookie_for_ng
-    before_action :time
-	after_filter :languageConf
+  #before_action :time
+	before_action :languageConf
 
   def preview
   end
@@ -39,7 +39,7 @@ class OdiController < ApplicationController
 	end
 
 	def languageConf
-		#I18n.locale = params[:locale] || I18n.default_locale
+		I18n.locale = params[:locale] || I18n.default_locale
 		#I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
 		logger.debug I18n.locale
 	end
