@@ -156,7 +156,7 @@
 			return definitionObject;
 		})
 		.directive('apTeamDirective', function TeamDirective() {
-			var porcentual = 1.229;
+			var porcentual = 1.268;
 			var porcentualPaddingText = 0.839;
 			function ressize() {
 
@@ -184,7 +184,16 @@
 				restrict: 'E',
 				scope: { par1:'@',
 						 par2:'@',
-						 par3:'@' },
+						 par3:'@', 
+						 irvingdes:'@', 
+						 irvinginfo:'@', 
+						 hectordes:'@', 
+						 hectorinfo:'@', 
+						 gerardodes:'@', 
+						 gerardoinfo:'@', 
+						 ulisesdes:'@', 
+						 ulisesinfo:'@' 
+						},
 				transclude: true,
 				replace: true,
 				templateUrl:'team.html',
@@ -228,15 +237,15 @@
 				$( event.data.element.find('.closelightbox') ).fadeIn();
 			}
 
-			function ressize() {
-				$(window).on('resize', ressize);
+			function ressize(event) {
+				$( event.data.element.find('.lightbox')).css('height', window.innerHeight);
 			}
 
 			function link(scope, element) {
 				var $elem = $(element);
-				$( $elem.find('.lightbox')).css('height', window.innerHeight);
 				$( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
 				$( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
+				$(window).on('resize', {element: $elem }, ressize);
 			}			
 
 			var definitionObject = {
