@@ -1,0 +1,81 @@
+.lightbox {
+	display: none;
+	position: fixed;
+ 	z-index: 100;
+ 	top: 0;
+ 	left: 0;
+ 	height: 100%;
+	width: 100%;
+	.content {
+		position: relative;
+		margin: 0 auto;
+	}
+}
+
+#howit {
+	background: image-url("how-it-worksbg.png"),
+				rgba(0,0,0,.6);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 80% 80%,auto;
+	.content {
+		overflow-y: scroll;
+		height: 70%;
+		top: 16%;
+		width: 66%;
+		h2 {
+			font-family: 'klavika_bdbold_italic';
+			text-align: center;
+			font-size: 1.3em;
+		}
+		p {
+			font-family: 'klavika_regularregular';
+			font-style: italic;
+			text-align: center;
+			 font-size: 1.1em;
+			 margin-top: 0;
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+
+#meetthe {
+	background: image-url("meetthe.png"),
+				rgba(0,0,0,.6);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 50%,auto;
+}
+
+.containerLight {
+	height: 0;
+	overflow: hidden;
+}
+
+.closelightbox {
+	cursor: pointer;
+	position: fixed;
+  	right: 9%;
+  	top: 90px;
+  	width: 60px;
+  	z-index: 1001;
+}
+
+
+
+
+@media screen and (max-width: 815px) {
+	.closelightbox {
+		  right: 5%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.closelightbox {
+		  right: 0%;
+		  top: 40px;
+	}
+	
+}

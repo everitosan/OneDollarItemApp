@@ -37,7 +37,7 @@
 		.link {
 			margin-top: 1em;
 			padding: .1em .3em 0 .3em;
-			-webkit-transform: skewX(-10deg);
+			transform: skewX(-10deg);
 			border-right: 2px solid white;
 
 		}
@@ -48,7 +48,7 @@
 	opacity: 0;
 	margin: .5em 0em;
 	padding: 0;
-	-webkit-transition: all ease-out .5s;
+	transition: all ease-out .5s;
 }
 
 #menu-links {
@@ -80,7 +80,7 @@
 
 }
 
-@media screen and (max-width:700px)
+@media screen and (max-width:815px)
 {
 	#menu {
 		height: 60px;
@@ -90,3 +90,5 @@
 	}
 
 }
+
+

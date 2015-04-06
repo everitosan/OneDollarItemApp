@@ -26,7 +26,7 @@
   			font-family: "klavika_regularregular";
         color : #969e9c;
   		}
-      img {
+      .lightboxbutton {
         cursor: pointer;
         width: 100%;
       }
@@ -52,7 +52,7 @@
 @media screen and (max-width: 950px) and (min-width: 800px){
   #about {
     .text {
-      img {
+      .lightboxbutton {
         display: block;
         width: 80%;
         margin: 0 auto;

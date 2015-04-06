@@ -19,6 +19,10 @@ h1 {
 	top: 19.5em;
 }
 
+.hidden {
+	display: none;
+}
+
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -32,7 +36,7 @@ h1 {
 footer {
 	font-family: "klavika_regularregular";
 	text-align: center;
-	padding-bottom: 50em;
+	padding-bottom: 5em;
 	#sponsorLogos {
 		img {
 			width: 15%;

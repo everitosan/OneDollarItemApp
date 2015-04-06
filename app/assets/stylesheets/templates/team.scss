@@ -29,7 +29,7 @@
   				font-weight: 100;
 			}
 		}
-		img {
+		.lightboxbutton {
 			cursor: pointer;
 			width: 100%;
 		}
@@ -39,7 +39,7 @@
 @media screen and  (min-width: 1151px) and (max-width: 1260px) {
 	#team{
 		.text{
-			img {
+			.lightboxbutton {
 				width: 80%;
 				display: block;
 				margin: 0 auto;
