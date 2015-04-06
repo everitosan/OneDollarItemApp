@@ -27,9 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin'
 ##heroku gem
 gem 'rails_12factor', group: :production
-##angular Gem
+##angular Gem for templates
 gem 'angular-rails-templates'
-
+## gem for prefix
+gem "autoprefixer-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

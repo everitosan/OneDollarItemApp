@@ -57,6 +57,9 @@ GEM
       sprockets
       tilt
     arel (6.0.0)
+    autoprefixer-rails (5.1.8)
+      execjs
+      json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -219,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
+  autoprefixer-rails
   byebug
   half-pipe!
   jbuilder (~> 2.0)
