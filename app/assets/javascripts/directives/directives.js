@@ -74,6 +74,8 @@
 			}
 
 			function ressize() {
+				$('#app').css('height', window.innerHeight ); //#FIX mover al controlador
+				
 				if(window.innerWidth <= minMobile) {
 					porcentajeEscala('.relativeContent', porcentualmobile, 'top');
 					porcentajeEscala('#deck', 4.421);
@@ -89,7 +91,6 @@
 			function link () {
 				$(window).on('resize', ressize);
 				ressize();
-				$('#app').css('height', window.innerHeight ); //#FIX mover al controlador
 			}
 
 			var definitionObject = {
@@ -134,7 +135,18 @@
 				scope: { title: '@',
 						 title2: '@',
 						 par1: '@',
-						 par2: '@'},
+						 par2: '@',
+						 howq1: '@',
+						 howa1: '@',						 
+						 howq2: '@',
+						 howa2: '@',						 
+						 howq3: '@',
+						 howa3: '@',						 
+						 howq4: '@',
+						 howa4: '@',						 
+						 howq5: '@',
+						 howa5: '@'
+						},
 				replace:true,
 				transclude: true,
 				templateUrl:'about.html',
@@ -198,6 +210,42 @@
 				restrict: 'E',
 				replace:true,
 				templateUrl:'share.html',
+				link: link
+			};
+
+			return definitionObject;
+		})
+		.directive('apLightboxDirective', function LightboxDirective() {
+			function hidelight(event) {
+				$('#menu').css('z-index','100');
+				$( event.data.element.find('.lightbox') ).fadeOut();
+				$( event.data.element.find('.closelightbox') ).fadeOut();
+			}
+
+			function showlight(event) {
+				$('#menu').css('z-index','0');
+				$( event.data.element.find('.lightbox') ).fadeIn();
+				$( event.data.element.find('.closelightbox') ).fadeIn();
+			}
+
+			function ressize() {
+				$(window).on('resize', ressize);
+			}
+
+			function link(scope, element) {
+				var $elem = $(element);
+				$( $elem.find('.lightbox')).css('height', window.innerHeight);
+				$( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
+				$( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
+			}			
+
+			var definitionObject = {
+				restrict: 'E',
+				priority: 1,
+				scope: {but:'@'},
+				replace: true,
+				transclude: true,
+				templateUrl:'lightBox.html',
 				link: link
 			};
 
