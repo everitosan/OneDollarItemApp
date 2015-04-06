@@ -13,5 +13,3 @@
 /tmp
 node_modules
 bower_components
-public/assets/*
-!public/assets/images
