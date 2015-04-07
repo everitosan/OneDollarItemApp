@@ -55,9 +55,9 @@
         scrollUp();
       }   
 
-        function toggleActive() {
+        function toggleActive(anchor) {
           $('#menu-links a').removeClass('active');
-          $(this).addClass('active');
+          $(anchor).addClass('active');
         }
 
       function animateScroll(event) {
@@ -91,7 +91,7 @@
           
         }
 
-        toggleActive();
+        toggleActive(this);
         $('#menu').toggleClass('menuactive');
 
        
