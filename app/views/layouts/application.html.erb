@@ -53,7 +53,11 @@
 				<ap-share-directive>		
 				</ap-share-directive>
 
-				<%= image_tag 'shareButton.png', :id =>"shareFacebook" %>
+				<span ng-controller="shareMenuCtrl">
+					<span class="click" ng-click="shareFacebook()">
+						<%= image_tag 'shareButton.png', :id =>"shareFacebook" %>
+					</span>
+				</span>
 			</div>
 		</div>
 	

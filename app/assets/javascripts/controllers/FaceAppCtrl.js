@@ -96,7 +96,7 @@
       $scope.shareFacebook =function() {
         Facebook.ui({
           method: 'share',
-          href: 'https://www.facebook.com/pages/Mesa-de-las-Tablas-Longboarding-Spot/316121765098532?fref=ts',
+          href: 'http://onedollaritem.org',
         }, function(response){});
       };
       
