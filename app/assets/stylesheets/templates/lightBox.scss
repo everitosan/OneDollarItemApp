@@ -151,10 +151,13 @@
 		  right: 5%;
 	}
 	#meetthe {
-		background-size: 70% 100%;
-		ul {
-			right: 0;
-			width: 90%;
+		ul {	
+			.content {
+				width: 40%;
+				img {
+					width: 70%;
+				}
+			}
 		}
 	}
 	.face {
@@ -166,5 +169,35 @@
 	.closelightbox {
 		  right: 0%;
 		  top: 40px;
+	}
+	#meetthe {
+		ul li {
+			overflow-y: scroll;
+  			height: 65%;
+		}
+	}
+}
+
+//  ***********
+@media screen and (max-width: 376px) and (orientation: portrait) {
+	#meetthe {
+		ul{
+			top: 24%;
+			li {
+				width: 25%;
+  				height: 35%;
+			}
+		} 
+	}
+}
+
+@media screen and (max-width: 637px) and (orientation: landscape) {
+	#meetthe {
+		.diamantes {
+			display: none;
+		}
+		ul {
+			height: 77%;
+		}
 	}
 }

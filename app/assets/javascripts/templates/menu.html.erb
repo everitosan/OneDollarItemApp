@@ -27,7 +27,7 @@
 			<a href="#sponsors">  SPONSORS </a>
 		</li>
 	</ul>
-	<ul id="share-menu">
+	<ul id="share-menu" ng-controller="langCtrl">
 		<li>
 			<a href=""> 
 				<%= image_tag 'facebook-icon.png' %>
@@ -39,10 +39,10 @@
 			</a>
 		</li>
 		<li class="link">
-			<a href="" class="active" >ESP</a>
+			<a href="#" ng-click="lang('es')">ESP</a>
 		</li>
 		<li class="link">
-			<a href="">ENG</a>
+			<a href="#" ng-click="lang('en')">ENG</a>
 		</li>
 	</ul>
 

@@ -55,10 +55,13 @@
 				scrollUp();
 			}		
 
-      function animateScroll(event) {
-        $('#menu a').removeClass('active');
+      function toggleActive() {
+        $('#menu-links a').removeClass('active');
         $(this).addClass('active');
+      }
 
+      function animateScroll(event) {
+        
         event.preventDefault();
         scrollTap = true;
         var toHref = $(this).attr('href');
@@ -87,6 +90,8 @@
           }, 1500, function() {scrollTap = false;});
           
         }
+
+        toggleActive();
         $('#menu').toggleClass('menuactive');
 
        
@@ -96,7 +101,7 @@
 				var $logo = $(elem).find('#logo');
 				$('#app').on('scroll', {logo: $logo}, MyScroll);
         $('#menumobile').on('click', showMobileMenu);
-			  $('#menu a').on('click', animateScroll);
+			  $('#menu-links a').on('click', animateScroll);
       }
 
 			var definitionObject = {
@@ -350,5 +355,6 @@
 			};
 
 			return definitionObject;
-		});
+		})
+    ;
 })();
