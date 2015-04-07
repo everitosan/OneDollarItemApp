@@ -1,14 +1,10 @@
 #menu {
-		background: image-url("menu.png");
-		background-position: center;
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
 		text-align: center;
-		height: 130px;
 		position: fixed;
 		top:0;
 		left: 0;
 		width: 100%;
+		transition: ease-in all .5s;
 		z-index:100;
 	ul {
 		display: inline-block;
@@ -42,6 +38,14 @@
 
 		}
 	}
+}
+
+.deactive {
+	background: image-url("menu.png");
+	background-position: center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 130px;
 }
 
 #menumobile {
@@ -87,10 +91,11 @@
 @media screen and (max-width:815px)
 {
 	#menu {
-		background: none;
-		height: 60px;
 		ul {
 			display: none;
+			.link {
+				border-right: none;
+			}
 		}
 		#menumobile{
 		  display: block;
@@ -99,6 +104,25 @@
 		  width: 50px;
 		  border: 1px solid rgb(150, 158, 156);
 		  border-radius: 6px;
+		}
+	}
+
+	.deactive {
+		background: none;
+		height: auto;
+	}
+	
+	.menuactive {
+		background: rgba(0,0,0,0.8);
+		height: 100%;
+
+		#menu-links {
+			margin-top: 100px;
+			display: block;
+			li {
+				font-size: 1.5em;
+				display: block;
+			}
 		}
 	}
 
