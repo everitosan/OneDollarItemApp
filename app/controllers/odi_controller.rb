@@ -4,6 +4,8 @@ class OdiController < ApplicationController
 	before_action :languageConf
 
   def preview
+    date = Time.new
+    @daysLeft = 16 - date.day
   end
 
   def tender
