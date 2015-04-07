@@ -78,5 +78,21 @@
         });
       }; 
 
-  }]);
+    }])
+    .controller('langCtrl',['$scope','$window' , function($scope, $window){
+      $scope.lang = function(lan) {
+          if(lan === 'es')
+            {
+              $window.location.href='?locale=es';
+            }
+          else{
+            $window.location.href='/';
+            }
+      }
+
+    
+      
+
+
+    }]);
 })();
