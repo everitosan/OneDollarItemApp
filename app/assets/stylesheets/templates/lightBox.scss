@@ -49,27 +49,33 @@
  	background-size: 70%;
 	ul {
 		margin: 0 auto;
+	  	display: flex;
 	  	height: 80%;
 	  	overflow-y: scroll;
 	  	padding: 0;
 	  	position: relative;
-	  	right: 4em;
+	  	right: 0;
 	  	text-align: center;
-	  	top: 10%;
-	  	width: 60%;
+	  	top: 20%;
+	  	transition: ease-out all 1s;
+	  	width: 400%;
 	  	li {
+	  		flex: 1;
 	  		list-style: none;
-	  		display: none;
+	  		opacity: 0;
+	  		transition: ease-in all 1.5s;
+	  		width: 25%;
 	  	}
   		.activeTeam {
+	  		opacity: 1;
   			display: block;
   		}
 	  	.face {
 	  		vertical-align: middle;
-	  		width: 40%;
+	  		width: 25%;
 	  	}
 	  	.content {
-	  		width: 55%;
+	  		width: 30%;
 	  		display: inline-block;
 	  		vertical-align: middle;
 	  		.des {
@@ -85,6 +91,8 @@
 	  	}
 	}
 	#prev {
+		cursor: pointer;
+		display: none;
 		transform: rotate(-90deg);
 		position: fixed;
 		left: 1%;
@@ -93,6 +101,7 @@
 		top: 40%;
 	}
 	#next {
+		cursor: pointer;
 		right: 1%;
 		height: 60px;
 		width: 60px;
@@ -126,7 +135,6 @@
 @media screen and (orientation: portrait) and (min-width: 815px)  {
 	#meetthe {
 		ul {
-			top: 24%;
 		}
 	}
 }
