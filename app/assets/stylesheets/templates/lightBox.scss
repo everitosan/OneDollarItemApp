@@ -165,6 +165,7 @@
 	}
 }
 
+
 @media screen and (max-width: 600px) {
 	.closelightbox {
 		  right: 0%;
@@ -198,6 +199,15 @@
 		}
 		ul {
 			height: 77%;
+		}
+	}
+}
+
+@media screen and (min-width: 1025px) and (orientation: landscape) {
+	#meetthe {
+		background-size: 63%;
+		ul {
+			top: 10%;
 		}
 	}
 }
