@@ -44,6 +44,10 @@
 	}
 }
 
+#menumobile {
+	display: none;
+}
+
 #logo {
 	opacity: 0;
 	margin: .5em 0em;
@@ -83,9 +87,18 @@
 @media screen and (max-width:815px)
 {
 	#menu {
+		background: none;
 		height: 60px;
 		ul {
 			display: none;
+		}
+		#menumobile{
+		  display: block;
+		  float: right;
+		  margin: 1em;
+		  width: 50px;
+		  border: 1px solid rgb(150, 158, 156);
+		  border-radius: 6px;
 		}
 	}
 

@@ -2,7 +2,8 @@
 	'use strict';
 	var Mytop = 0;
 
-	var minMobile = 815;
+  var minMobile = 815;
+	var minMinMobile = 374;
 	function porcentajeEscala (elem, porcentual, attr) {
 		var anchoElemento = parseInt( $(elem).css('width') );
 		var factor =  anchoElemento * porcentual;
@@ -23,6 +24,10 @@
 					$('body').scrollTop(Mytop);
 				}
 			}
+
+      function showMobileMenu() {
+
+      }
 
 			function MyScroll(event) {
 				var Scroll = (-1) * ($('#deck').position().top) ;
@@ -50,6 +55,7 @@
 			function link (scope, elem) {
 				var $logo = $(elem).find('#logo');
 				$('#app').on('scroll', {logo: $logo}, MyScroll);
+        $('#menumobile').on('click', showMobileMenu);
 			}
 
 			var definitionObject = {
@@ -95,13 +101,17 @@
 				//#FIX mover al controlador
 				$('#app').css('height', window.innerHeight ); 
 				
-				if(window.innerWidth <= minMobile) {
+				if(window.innerWidth <= minMobile && window.innerWidth >= minMinMobile ) {
+          porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+          porcentajeEscala('#deck', 4.421);
+        }
+        else if(window.innerWidth <= minMinMobile) {
 					porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
-					porcentajeEscala('#deck', 4.421);
-				}
-				else {
-					porcentajeEscala('.relativeContent', porcentualrelative, 'top');
-					porcentajeEscala('#deck', 3.06);
+					porcentajeEscala('#deck', 4.890);
+        }
+        else {
+          porcentajeEscala('.relativeContent', porcentualrelative, 'top');
+          porcentajeEscala('#deck', 3.06);
 				}
 				//#FIX mover al controlador
 
