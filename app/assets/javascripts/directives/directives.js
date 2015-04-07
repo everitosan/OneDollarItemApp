@@ -4,6 +4,9 @@
 
   var minMobile = 815;
 	var minMinMobile = 374;
+
+  var scrollTap = false;
+
 	function porcentajeEscala (elem, porcentual, attr) {
 		var anchoElemento = parseInt( $(elem).css('width') );
 		var factor =  anchoElemento * porcentual;
@@ -16,7 +19,7 @@
 		.directive('apMenuDirective', function MenuDirective (){
 			function scrollUp() {
 
-				if( $('#app').scrollTop() > Mytop ){
+				if( $('#app').scrollTop() > Mytop && !scrollTap){
 					Mytop = $('#app').scrollTop();
 				}
 				else {
@@ -26,7 +29,7 @@
 			}
 
       function showMobileMenu() {
-
+        $('#menu').toggleClass('menuactive');
       }
 
 			function MyScroll(event) {
@@ -50,13 +53,51 @@
 				event.data.logo.css('opacity', ancho);
 
 				scrollUp();
-			}			
+			}		
+
+      function animateScroll(event) {
+        $('#menu a').removeClass('active');
+        $(this).addClass('active');
+
+        event.preventDefault();
+        scrollTap = true;
+        var toHref = $(this).attr('href');
+        var scrollInt; 
+
+        if (toHref === '#sponsors') {
+          scrollInt = parseInt($('#deck').css('height'));
+          $('#app').animate({
+            scrollTop: scrollInt
+          }, 500, function(){
+            scrollInt = $(toHref).position().top ;
+            $('body').scrollTop(scrollInt);
+          });
+
+          
+        }
+        else{
+
+          scrollInt = $(toHref).position().top + parseInt( $('.relativeContent').css('top') );
+          $('body, html').animate({
+            scrollTop: 0
+          }, 1500);
+
+          $('#app').animate({
+            scrollTop: scrollInt
+          }, 1500, function() {scrollTap = false;});
+          
+        }
+        $('#menu').toggleClass('menuactive');
+
+       
+      }	
 
 			function link (scope, elem) {
 				var $logo = $(elem).find('#logo');
 				$('#app').on('scroll', {logo: $logo}, MyScroll);
         $('#menumobile').on('click', showMobileMenu);
-			}
+			  $('#menu a').on('click', animateScroll);
+      }
 
 			var definitionObject = {
 				restrict: 'E',
