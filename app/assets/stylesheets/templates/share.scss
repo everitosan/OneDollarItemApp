@@ -1,0 +1,11 @@
+#share {
+	background: image-url("sharebg.png");
+	background-position: center top;
+	background-size: 100%;
+}
+
+@media screen and (max-width: 550px) {
+	#share {
+		display: none;
+	}
+}

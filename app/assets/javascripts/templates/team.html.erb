@@ -1,0 +1,94 @@
+<section id="team">
+	<div id="gallerybutton">
+		<div>
+			<%= image_tag 'videoButton.png' %>
+		</div>
+		<div>
+			<%= image_tag 'photoButton.png' %>
+		</div>
+	</div>
+	
+	<div class="text">
+		<p>
+			<span>
+				{{par1}}
+			</span> 
+			{{par2}}
+		</p>
+		<p>
+			{{par3}}
+		</p>
+
+		<ap-lightbox-directive but="met-the-kids.png">
+			<div class="hidden lightbox" id="meetthe">
+				<ul>
+					<li id="irving" class="activeTeam">
+						<%= image_tag 'irvingFace.png', :class => 'face' %>
+						<div class="content">
+						<%= image_tag 'Irving.png' %>
+							<p class="des" >
+								{{irvingdes}}
+							</p>
+							<%= image_tag 'adonroAbout.png' %>
+							<p class="info">
+								{{irvinginfo}}
+							</p>
+						</div>
+						
+					</li>
+					<li id="hector">
+						<%= image_tag 'hectorFace.png', :class => 'face' %>
+						<div class="content">
+						<%= image_tag 'hector.png' %>
+							<p class="des" >
+								{{hectordes}}
+							</p>
+							<%= image_tag 'adonroAbout.png' %>
+							<p class="info">
+								{{hectorinfo}}
+							</p>
+						</div>
+						
+					</li>
+					<li id="gerardo">
+						<%= image_tag 'geraFace.png', :class => 'face' %>
+						<div class="content">
+						<%= image_tag 'gera.png' %>
+							<p class="des" >
+								{{gerardodes}}
+							</p>
+							<%= image_tag 'adonroAbout.png' %>
+							<p class="info">
+								{{gerardoinfo}}
+							</p>
+						</div>
+						
+					</li>
+					<li id="ulises">
+						<%= image_tag 'ulisesFace.png', :class => 'face' %>
+						<div class="content">
+						<%= image_tag 'ulises.png' %>
+							<p class="des" >
+								{{ulisesdes}}
+							</p>
+							<%= image_tag 'adonroAbout.png' %>
+							<p class="info">
+								{{ulisesinfo}}
+							</p>
+						</div>
+						
+					</li>
+					
+				</ul>
+
+				<%= image_tag 'diamantes.png', :class => 'diamantes' %>
+
+				<%= image_tag 'botonregresar.png', :id => 'prev' %>
+				<%= image_tag 'botonregresar.png', :id => 'next' %>
+
+			</div>
+		</ap-lightbox-directive>
+		
+	</div>
+
+</section>

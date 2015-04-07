@@ -1,0 +1,213 @@
+.lightbox {
+	display: none;
+	position: fixed;
+ 	z-index: 100;
+ 	top: 0;
+ 	left: 0;
+ 	height: 100%;
+	width: 100%;
+	.content {
+		position: relative;
+		margin: 0 auto;
+	}
+}
+
+#howit {
+	background: image-url("how-it-worksbg.png"),
+				rgba(0,0,0,.6);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 80% 80%,auto;
+	.content {
+		overflow-y: scroll;
+		height: 70%;
+		top: 16%;
+		width: 66%;
+		h2 {
+			font-family: 'klavika_bdbold_italic';
+			text-align: center;
+			font-size: 1.3em;
+		}
+		p {
+			font-family: 'klavika_regularregular';
+			font-style: italic;
+			text-align: center;
+			 font-size: 1.1em;
+			 margin-top: 0;
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+
+#meetthe {
+	background: image-url("meetthe.png"),
+				rgba(0,0,0,.6);
+	background-repeat: no-repeat;
+	background-position: center 30%;
+ 	background-size: 70%;
+	ul {
+		margin: 0 auto;
+	  	display: flex;
+	  	height: 80%;
+	  	overflow-y: scroll;
+	  	padding: 0;
+	  	position: relative;
+	  	right: 0;
+	  	text-align: center;
+	  	top: 20%;
+	  	transition: ease-out all 1s;
+	  	width: 400%;
+	  	li {
+	  		flex: 1;
+	  		list-style: none;
+	  		opacity: 0;
+	  		transition: ease-in all 1.5s;
+	  		width: 25%;
+	  	}
+  		.activeTeam {
+	  		opacity: 1;
+  			display: block;
+  		}
+	  	.face {
+	  		vertical-align: middle;
+	  		width: 25%;
+	  	}
+	  	.content {
+	  		width: 30%;
+	  		display: inline-block;
+	  		vertical-align: middle;
+	  		.des {
+	  			font-family: "klavika_bdbold_italic";
+	  			color: white;
+	  		}
+	  		.info {
+	  			text-align: left;
+	  		}
+	  		img {
+	  			width: 100%;
+	  		}
+	  	}
+	}
+	#prev {
+		cursor: pointer;
+		display: none;
+		transform: rotate(-90deg);
+		position: fixed;
+		left: 1%;
+		height: 60px;
+		width: 60px;
+		top: 40%;
+	}
+	#next {
+		cursor: pointer;
+		right: 1%;
+		height: 60px;
+		width: 60px;
+		transform: rotate(90deg);
+		position: fixed;
+		top: 40%;
+	}
+	.diamantes {
+		margin: 0 auto;
+		position: relative;
+		top:5%;
+		display: none;
+
+	}
+}
+
+.containerLight {
+	height: 0;
+	overflow: hidden;
+}
+
+.closelightbox {
+	cursor: pointer;
+	position: fixed;
+  	right: 9%;
+  	top: 90px;
+  	width: 60px;
+  	z-index: 1001;
+}
+
+@media screen and (orientation: portrait) and (min-width: 815px)  {
+	#meetthe {
+		ul {
+		}
+	}
+}
+
+@media screen and (orientation: landscape) {
+	#meetthe {
+		.diamantes {
+			display: block;
+		}
+ 	}
+}
+@media screen and (max-width: 815px) {
+	.closelightbox {
+		  right: 5%;
+	}
+	#meetthe {
+		ul {	
+			.content {
+				width: 40%;
+				img {
+					width: 70%;
+				}
+			}
+		}
+	}
+	.face {
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+	.closelightbox {
+		  right: 0%;
+		  top: 40px;
+	}
+	#meetthe {
+		ul li {
+			overflow-y: scroll;
+  			height: 65%;
+		}
+	}
+}
+
+//  ***********
+@media screen and (max-width: 376px) and (orientation: portrait) {
+	#meetthe {
+		ul{
+			top: 24%;
+			li {
+				width: 25%;
+  				height: 35%;
+			}
+		} 
+	}
+}
+
+@media screen and (max-width: 637px) and (orientation: landscape) {
+	#meetthe {
+		.diamantes {
+			display: none;
+		}
+		ul {
+			height: 77%;
+		}
+	}
+}
+
+@media screen and (min-width: 1025px) and (orientation: landscape) {
+	#meetthe {
+		background-size: 63%;
+		ul {
+			top: 10%;
+		}
+	}
+}

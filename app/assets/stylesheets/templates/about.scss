@@ -1,0 +1,78 @@
+#about {
+	background: image-url("aboutbg.png");
+	background-position: center top;
+	background-size: 100%;
+	background-repeat:no-repeat;
+
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+	.text {
+  		padding-left: 31%;
+  		width: 65%;
+  		h2 {
+  			font-family: "geared_slabextrabold";
+  			font-weight: 100;
+  			font-style: italic;
+  			margin-bottom: 0;
+  		}
+  		h3 {
+  			font-family: "klavika_bdbold_italic";
+  			font-weight: 100;
+  			margin: 0;
+  			text-align: right;
+  		}
+  		p {
+  			font-family: "klavika_regularregular";
+        color : #969e9c;
+  		}
+      .lightboxbutton {
+        cursor: pointer;
+        width: 100%;
+      }
+	}
+}
+
+@media screen and (max-width: 1150px) {
+
+  #about {
+    background: image-url("aboutbgmobile.png");
+    background-position: center top;
+    background-size: 100%;
+    background-repeat:no-repeat;
+    .text {
+      font-size: 14px;
+      padding-left: 0%;
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 950px) and (min-width: 800px){
+  #about {
+    .text {
+      .lightboxbutton {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  #about {
+    .text {
+      h2 {
+        font-size: 1.3em;
+      }
+      h3 {
+        font-size: 1em;
+      }
+
+    }
+  }
+
+}

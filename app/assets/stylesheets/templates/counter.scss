@@ -1,0 +1,42 @@
+#counter {
+	background: image-url("counterbg.png");
+	background-position: center top;
+	background-size: 100%;
+	background-repeat:no-repeat;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+}
+
+#initshare {
+	text-align:center;
+	position: absolute;
+  	bottom: 15%;
+  	width: 100%;
+  	img {
+  		width : 16%;
+  	}
+}
+
+#countdown {
+	position: absolute;
+	top: 2.5em;
+	text-align: center;
+	width: 100%;
+
+	#numberdays {
+		width: 25%;
+	}
+
+	#daysLeft {
+		position: relative;
+		bottom: 1em;
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#countdown {
+		  top: 1em;
+	}
+}
