@@ -38,3 +38,15 @@
 	}
 
 }
+
+@media screen and (max-width:374px)
+{
+	#app {
+		#deck {
+			background: image-url("deckCleanmobile2.png");
+			background-size: 100%;
+			background-position: top;
+		}
+	}
+
+}

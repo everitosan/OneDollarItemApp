@@ -63,28 +63,7 @@
 			return definitionObject;
 		})
 		.directive('apCounterDirective', function counterDirective (){
-			var porcentual = 0.3011;
-			var porcentualmobile = 0.424;
-
-			function escala () {
-				if(window.innerWidth <= minMobile) {
-					return porcentualmobile;
-				}
-				return porcentual;
-			}
-
 			function ressize() {
-				$('#app').css('height', window.innerHeight ); //#FIX mover al controlador
-				
-				if(window.innerWidth <= minMobile) {
-					porcentajeEscala('.relativeContent', porcentualmobile, 'top');
-					porcentajeEscala('#deck', 4.421);
-				}
-				else {
-					porcentajeEscala('.relativeContent', porcentual, 'top');
-					porcentajeEscala('#deck', 3.06);
-				}
-
 				porcentajeEscala('#counter', 1);
 			}
 
@@ -107,7 +86,24 @@
 			var porcentual = 1.235;
 			var porcentualPaddingText = 0.658;
 
+			var porcentualrelative = 0.3011;
+			var porcentualrelativemobile = 0.424;
+
+
 			function ressize() {
+				
+				//#FIX mover al controlador
+				$('#app').css('height', window.innerHeight ); 
+				
+				if(window.innerWidth <= minMobile) {
+					porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+					porcentajeEscala('#deck', 4.421);
+				}
+				else {
+					porcentajeEscala('.relativeContent', porcentualrelative, 'top');
+					porcentajeEscala('#deck', 3.06);
+				}
+				//#FIX mover al controlador
 
 				if(window.innerWidth >= minMobile) {
 					porcentajeEscala('#about', porcentual);
@@ -159,6 +155,8 @@
 			var porcentual = 1.268;
 			var porcentualPaddingText = 0.839;
 			function ressize() {
+
+
 
 				if(window.innerWidth >= minMobile) {
 					porcentajeEscala('#team', porcentual);
@@ -241,11 +239,53 @@
 				$( event.data.element.find('.lightbox')).css('height', window.innerHeight);
 			}
 
-			function link(scope, element) {
-				var $elem = $(element);
-				$( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
-				$( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
-				$(window).on('resize', {element: $elem }, ressize);
+      function nextKid(event) {
+        var $ul = $(event.data.element.find('ul'));
+        var $active = $($ul.find('.activeTeam'));
+
+        $active.next().addClass('activeTeam');
+        $active.removeClass('activeTeam');
+        $ul.css('right', (parseInt($ul.css('right')) + window.innerWidth) );
+        hideButtons();
+        
+        $( event.data.element.find('#prev')).fadeIn();
+        
+        if($active.next().next().length===0)
+        {
+          $( event.data.element.find('#next')).fadeOut();
+        }
+      }
+      function prevKid(event) {
+        var $ul = $(event.data.element.find('ul'));
+        var $active = $($ul.find('.activeTeam'));
+
+        $active.prev().addClass('activeTeam');
+        $active.removeClass('activeTeam');
+        $ul.css('right', (parseInt($ul.css('right')) - window.innerWidth) );
+
+        $( event.data.element.find('#next')).fadeIn();
+        
+        if($active.prev().prev().length === 0)
+        {
+          $( event.data.element.find('#prev')).fadeOut();
+        }
+
+      }
+
+      function hideButtons() {
+
+      }
+
+      function link(scope, element) {
+        var $elem = $(element);
+        $( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
+        $( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
+        $(window).on('resize', {element: $elem }, ressize);
+
+        $($elem.find('#next')).on('click', {element: $elem}, nextKid);
+        $($elem.find('#prev')).on('click', {element: $elem}, prevKid);
+
+
 			}			
 
 			var definitionObject = {
