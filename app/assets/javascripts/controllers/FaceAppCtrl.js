@@ -79,7 +79,10 @@
       }; 
 
     }])
-    .controller('langCtrl',['$scope','$window' , function($scope, $window){
+    .controller('shareMenuCtrl',['$scope','$window', 'Facebook' , function($scope, $window, Facebook){
+      
+
+
       $scope.lang = function(lan) {
           if(lan === 'es')
             {
@@ -88,11 +91,14 @@
           else{
             $window.location.href='/';
             }
-      }
+      };
 
-    
+      $scope.shareFacebook =function() {
+        Facebook.ui({
+          method: 'share',
+          href: 'https://www.facebook.com/pages/Mesa-de-las-Tablas-Longboarding-Spot/316121765098532?fref=ts',
+        }, function(response){});
+      };
       
-
-
     }]);
 })();

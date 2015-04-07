@@ -27,11 +27,9 @@
 			<a href="#sponsors">  SPONSORS </a>
 		</li>
 	</ul>
-	<ul id="share-menu" ng-controller="langCtrl">
-		<li>
-			<a href=""> 
+	<ul id="share-menu" ng-controller="shareMenuCtrl">
+		<li ng-click="shareFacebook()">
 				<%= image_tag 'facebook-icon.png' %>
-			</a>
 		</li>
 		<li>
 			<a href=""> 
