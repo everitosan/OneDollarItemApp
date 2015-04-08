@@ -1,0 +1,37 @@
+@mixin back($url) {
+	background: {
+		image: image-url($url);
+		position: center top;
+		size: 100%;
+		repeat: no-repeat;
+	}
+}
+
+@mixin animateElementBg($url) {
+	@include back($url);
+	transition: {
+		delay: 0;
+		duration: .5s;
+		property: opacity;
+		timing-function: cubic-bezier(.05,.48,.94,.48);
+	}
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+}
+
+@mixin buttonLightBox ($url, $urlHover) {
+	background:image-url($url);
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	&:hover {
+		background:image-url($urlHover);
+		background-size: 108%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+}

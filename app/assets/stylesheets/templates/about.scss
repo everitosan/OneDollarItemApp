@@ -1,36 +1,54 @@
-#about {
-	background: image-url("aboutbg.png");
-	background-position: center top;
-	background-size: 100%;
-	background-repeat:no-repeat;
+@import 'mixings';
 
-	overflow: hidden;
-	margin: 0 auto;
-	position: relative;
-	.text {
-  		padding-left: 31%;
-  		width: 65%;
-  		h2 {
-  			font-family: "geared_slabextrabold";
-  			font-weight: 100;
-  			font-style: italic;
-  			margin-bottom: 0;
-  		}
-  		h3 {
-  			font-family: "klavika_bdbold_italic";
-  			font-weight: 100;
-  			margin: 0;
-  			text-align: right;
-  		}
-  		p {
-  			font-family: "klavika_regularregular";
+#about {
+  @include back("aboutbg.png");
+  transition: all linear 1s;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  .text {
+      position: relative;
+      z-index: 2;
+      padding-left: 31%;
+      width: 65%;
+      h2 {
+        font-family: "geared_slabextrabold";
+        font-weight: 100;
+        font-style: italic;
+        margin-bottom: 0;
+      }
+      h3 {
+        font-family: "klavika_bdbold_italic";
+        font-weight: 100;
+        margin: 0;
+        text-align: right;
+      }
+      p {
+        font-family: "klavika_regularregular";
         color : #969e9c;
-  		}
+      }
       .lightboxbutton {
         cursor: pointer;
         width: 100%;
       }
-	}
+  }
+
+}
+
+
+@media screen and (min-width: 1151px) and (orientation: landscape) {
+  #about {
+    @include animateElementBg("aboutbgOff.png");
+    .title {
+      @include animateElementBg("aboutbgOff1.png");
+    }
+    .eye {
+      @include animateElementBg("aboutbgOff2.png");
+    }
+    .kid {
+      @include animateElementBg("aboutbgOff3.png");
+    }
+  }
 }
 
 @media screen and (max-width: 1150px) {

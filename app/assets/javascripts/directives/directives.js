@@ -1,110 +1,59 @@
 (function(){
   'use strict';
-  var Mytop = 0;
-
-  var minMobile = 815;
-  var minMinMobile = 374;
-
-  var scrollTap = false;
-
-  function porcentajeEscala (elem, porcentual, attr) {
-    var anchoElemento = parseInt( $(elem).css('width') );
-    var factor =  anchoElemento * porcentual;
-
-    $(elem).css(attr||'height', factor);
-  }
-
-  $(window).load(function() {
-           $('#deck').removeClass('unloaded').addClass('loaded');
-           $('#menu').removeClass('unloaded').addClass('loaded');
-          });
-
   angular
     .module('odiApp.directives',['templates'])
     .directive('apMenuDirective', function MenuDirective (){
-      function scrollUp() {
+      
 
-        if( $('#app').scrollTop() > Mytop && !scrollTap){
-          Mytop = $('#app').scrollTop();
+        function showMobileMenu() {
+          $('#menu').toggleClass('menuactive');
         }
-        else {
-          Mytop = 0;
-          $('body').scrollTop(Mytop);
-        }
-      }
-
-          function showMobileMenu() {
-            $('#menu').toggleClass('menuactive');
-          }
-
-      function MyScroll(event) {
-        var Scroll = (-1) * ($('#deck').position().top) ;
-
-        var inicioAnimacion = 200;
-        var ancho_final = 1;
-        var rango_animacion = 20;
-        var ancho;
-
-        if (Scroll <= inicioAnimacion) {
-          ancho = 0;
-        }
-        else if(Scroll >= inicioAnimacion && Scroll <= (inicioAnimacion + rango_animacion) ) {
-          ancho = (Scroll - inicioAnimacion) / rango_animacion * ancho_final ;
-        }
-        else if ( Scroll > (inicioAnimacion + rango_animacion) ) {
-          ancho = ancho_final;
-        }
-
-        event.data.logo.css('opacity', ancho);
-
-        scrollUp();
-      }   
 
         function toggleActive(anchor) {
           $('#menu-links a').removeClass('active');
           $(anchor).addClass('active');
         }
 
-      function animateScroll(event) {
-        
-        event.preventDefault();
-        scrollTap = true;
-        var toHref = $(this).attr('href');
-        var scrollInt; 
-
-        if (toHref === '#sponsors') {
-          scrollInt = parseInt($('#deck').css('height'));
-          $('#app').animate({
-            scrollTop: scrollInt
-          }, 500, function(){
-            scrollInt = $(toHref).position().top ;
-            $('body').scrollTop(scrollInt);
-          });
-
+        function animateScroll(event) {
           
-        }
-        else{
+          event.preventDefault();
+          scrollTap = true;
+          var toHref = $(this).attr('href');
+          var scrollInt; 
 
-          scrollInt = $(toHref).position().top + parseInt( $('.relativeContent').css('top') );
-          $('body, html').animate({
-            scrollTop: 0
-          }, 1500);
+          if (toHref === '#sponsors') {
+            scrollInt = parseInt($('#deck').css('height'));
+            $('#app').animate({
+              scrollTop: scrollInt
+            }, 500, function(){
+              scrollInt = $(toHref).position().top ;
+              $('body').scrollTop(scrollInt);
+            });
 
-          $('#app').animate({
-            scrollTop: scrollInt
-          }, 1500, function() {scrollTap = false;});
-          
-        }
+            
+          }
+          else{
 
-        toggleActive(this);
-        $('#menu').toggleClass('menuactive');
+            scrollInt = $(toHref).position().top + parseInt( $('.relativeContent').css('top') );
+            $('body, html').animate({
+              scrollTop: 0
+            }, 1500);
 
-       
-      } 
+            $('#app').animate({
+              scrollTop: scrollInt
+            }, 1500, function() {scrollTap = false;});
+            
+          }
 
-      function link (scope, elem) {
-        var $logo = $(elem).find('#logo');
-        $('#app').on('scroll', {logo: $logo}, MyScroll);
+          toggleActive(this);
+          $('#menu').toggleClass('menuactive');
+
+         
+        } 
+
+      function link (scope, element) {
+        var $elem = $(element);
+        $('#app').on('scroll', {element: $elem, EA:'#logo', top:200}, MyScrollAnimate);
         $('#menumobile').on('click', showMobileMenu);
         $('#menu-links a').not('.contact').on('click', animateScroll);
       }
@@ -124,37 +73,14 @@
         porcentajeEscala('#counter', 1);
       }
 
-       function MyScroll(event) {
-
-        
-        var Scroll = (-1) * ($('#deck').position().top) ;
-        var $ornamental = $(event.data.element.find('.ornamental') );
-
-        var inicioAnimacion = 100;
-        var ancho_final = 1;
-        var rango_animacion = 20;
-        var ancho;
-
-
-        if (Scroll <= inicioAnimacion) {
-          ancho = 0;
-        }
-        else if(Scroll >= inicioAnimacion && Scroll <= (inicioAnimacion + rango_animacion) ) {
-          ancho = (Scroll - inicioAnimacion) / rango_animacion * ancho_final ;
-        }
-        else if ( Scroll > (inicioAnimacion + rango_animacion) ) {
-          ancho = ancho_final;
-        }
-
-        $ornamental.css('opacity', ancho);
-
-
-      }  
       function link (scope, element) {
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        $('#app').on('scroll', {element: $elem}, MyScroll);
+        $('#app').on('scroll', {element: $elem, EA:'#counter', top:-200}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'.ornamental', top:-100}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'.whiteroll', top:-50}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'.itemsGreen', top:-50}, MyScrollAnimate);
 
       }
 
@@ -213,9 +139,15 @@
 
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem=element;
+        $('#app').on('scroll', {element: $elem, EA:'#about', top:500}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#about .eye', top:600}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#about .kid', top:700}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#about .title', top:850}, MyScrollAnimate);
+
       }
 
       var definitionObject = {
@@ -265,9 +197,15 @@
         } 
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem =  $(element);
+        $('#app').on('scroll', {element: $elem, EA:'#team', top: 1200}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#team .ornamental', top: 1500}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#team .title', top: 1700}, MyScrollAnimate);
+        $('#app').on('scroll', {element: $elem, EA:'#team .kid', top: 1750}, MyScrollAnimate);
+
       }
 
       var definitionObject = {
@@ -361,9 +299,6 @@
         }
 
       }
-
-   
-
       function link(scope, element) {
         var $elem = $(element);
         $( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
@@ -386,6 +321,61 @@
       };
 
       return definitionObject;
-    })
-    ;
+    });
+      var Mytop = 0;
+
+  var minMobile = 815;
+  var minMinMobile = 374;
+
+  var scrollTap = false;
+
+
+ //***// Loader
+  $(window).load(function() {
+           $('#deck').removeClass('unloaded').addClass('loaded');
+           $('#menu').removeClass('unloaded').addClass('loaded');
+          });
+//***// Loader
+
+  function porcentajeEscala (elem, porcentual, attr) {
+    var anchoElemento = parseInt( $(elem).css('width') );
+    var factor =  anchoElemento * porcentual;
+
+    $(elem).css(attr||'height', factor);
+  }
+
+  function animate(flag, elem) {
+    if (flag === 1 ) {
+      $( elem ).css('opacity', 1);
+    }
+    else { 
+      $( elem ).css('opacity', 0);
+    }
+  }
+
+  function MyScrollAnimate(event) {
+
+    scrollUp()
+    
+    var Scroll = (-1) * ($('#deck').position().top);
+    var $ornamental = $(event.data.element.find(event.data.EA) );
+
+    if (Scroll >= event.data.top) {
+      animate(1, event.data.EA);
+      }
+    else {
+      animate(0, event.data.EA);
+    }  
+  }
+
+  function scrollUp() {
+
+        if( $('#app').scrollTop() > Mytop && !scrollTap){
+          Mytop = $('#app').scrollTop();
+        }
+        else {
+          Mytop = 0;
+          $('body').scrollTop(Mytop);
+        }
+      }
 })();

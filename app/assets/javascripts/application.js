@@ -19,6 +19,7 @@
 //= require angular-cookies.js
 //= require angular-facebook.js
 //= require angular-route.min.js
+//= require animations
 
 //= require_tree ./directives
 //= require_tree ./services
