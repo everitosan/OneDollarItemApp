@@ -2,10 +2,6 @@
 	background: rgba(0,0,0,.6);
 	background-repeat: no-repeat;
 	background-position: center;
-	position: fixed;
- 	z-index: 100;
- 	top: 0;
- 	left: 0;
  	display: none;
  	overflow-y: scroll;
  	overflow-x: hidden;
@@ -60,7 +56,6 @@
 		margin: 0 auto;
 		position: relative;
 		padding: 4em 2.5em;
-
 	}
 }
 
@@ -173,7 +168,6 @@
   	width: 60px;
   	z-index: 1001;
 }
-
 
 
 @media screen and (orientation: landscape) {
