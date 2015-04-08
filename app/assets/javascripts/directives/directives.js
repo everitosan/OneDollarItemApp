@@ -281,19 +281,16 @@
     .directive('apLightboxDirective', function LightboxDirective() {
       function hidelight(event) {
         $('#menu').css('z-index','100');
-        $( event.data.element.find('.lightbox') ).fadeOut();
+        $( event.data.element.find('.containerLightBox') ).fadeOut();
         $( event.data.element.find('.closelightbox') ).fadeOut();
       }
 
       function showlight(event) {
         $('#menu').css('z-index','0');
-        $( event.data.element.find('.lightbox') ).fadeIn();
+        $( event.data.element.find('.containerLightBox') ).fadeIn();
         $( event.data.element.find('.closelightbox') ).fadeIn();
       }
 
-      function ressize(event) {
-        $( event.data.element.find('.lightbox')).css('height', window.innerHeight);
-      }
 
       function nextKid(event) {
         var $ul = $(event.data.element.find('ul'));
@@ -301,8 +298,8 @@
 
         $active.next().addClass('activeTeam');
         $active.removeClass('activeTeam');
-        $ul.css('right', (parseInt($ul.css('right')) + window.innerWidth) );
-        hideButtons();
+        $ul.css('right', (parseInt($ul.css('right')) + parseInt($active.css('width')) ) );
+ 
         
         $( event.data.element.find('#prev')).fadeIn();
         
@@ -311,13 +308,14 @@
           $( event.data.element.find('#next')).fadeOut();
         }
       }
+
       function prevKid(event) {
         var $ul = $(event.data.element.find('ul'));
         var $active = $($ul.find('.activeTeam'));
 
         $active.prev().addClass('activeTeam');
         $active.removeClass('activeTeam');
-        $ul.css('right', (parseInt($ul.css('right')) - window.innerWidth) );
+        $ul.css('right', (parseInt($ul.css('right')) - parseInt($active.css('width')) ) );
 
         $( event.data.element.find('#next')).fadeIn();
         
@@ -328,15 +326,12 @@
 
       }
 
-      function hideButtons() {
-
-      }
+   
 
       function link(scope, element) {
         var $elem = $(element);
         $( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
         $( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
-        $(window).on('resize', {element: $elem }, ressize);
 
         $($elem.find('#next')).on('click', {element: $elem}, nextKid);
         $($elem.find('#prev')).on('click', {element: $elem}, prevKid);

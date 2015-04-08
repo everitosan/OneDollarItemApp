@@ -1,8 +1,11 @@
 <div>
 	<%= image_tag "{{but}}", :class => "lightboxbutton" %>
-	
-	<ng-transclude class="containerLight" >	
-	</ng-transclude>
+	<div class="containerLightBox">
+		<div class="lightbox" >
+			<ng-transclude>	
+			</ng-transclude>
+		</div>
+	</div>	
 
 	<%= image_tag "lightBoxClose.png", :class => "hidden closelightbox" %>
 

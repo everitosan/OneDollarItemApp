@@ -1,28 +1,72 @@
-.lightbox {
-	display: none;
+.containerLightBox {
+	background: rgba(0,0,0,.6);
+	background-repeat: no-repeat;
+	background-position: center;
 	position: fixed;
  	z-index: 100;
  	top: 0;
  	left: 0;
+ 	display: none;
+ 	overflow-y: scroll;
+ 	overflow-x: hidden;
  	height: 100%;
 	width: 100%;
+}
+
+.lightbox {
+	background: image-url("lightBoxCorner1.png"),
+				image-url("lightBoxCorner2.png"),
+				image-url("lightBoxCorner3.png"),
+				image-url("lightBoxCorner4.png"),
+		 		image-url("lightBoxBorderRight.png"),
+		 		image-url("lightBoxBorderBottom.png"),
+		 		image-url("lightBoxBorderLeft.png"),
+		 		image-url("lightBoxBorderTop.png"),
+		 		image-url("lightBoxBackground.jpg");
+	background-position: right top,
+						right bottom,
+						left bottom,
+						left top,
+						right,
+						bottom,
+						left,
+						top,
+						center;
+	background-repeat: 	no-repeat,
+						no-repeat,
+						no-repeat,
+						no-repeat,
+						repeat-y,
+						repeat-x,
+						repeat-y,
+						repeat-x,
+						repeat;
+
+	background-size: 	auto, 
+						auto,
+						auto,
+						auto,
+						auto,
+						auto,
+						auto,
+						auto,
+						220px;
+	position: relative;
+  	top: 5em;
+  	width: 80%;
+ 	margin: 0 auto;
+	max-width: 700px;
 	.content {
-		position: relative;
 		margin: 0 auto;
+		position: relative;
+		padding: 4em 2.5em;
+
 	}
 }
 
 #howit {
-	background: image-url("how-it-worksbg.png"),
-				rgba(0,0,0,.6);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 80% 80%,auto;
+	  padding: 0 2.7em;
 	.content {
-		overflow-y: scroll;
-		height: 70%;
-		top: 16%;
-		width: 66%;
 		h2 {
 			font-family: 'klavika_bdbold_italic';
 			text-align: center;
@@ -36,17 +80,15 @@
 			 margin-top: 0;
 		}
 		img {
-			width: 100%;
+			  display: block;
+			  margin: 0 auto;
+			  max-width: 570px;
+			  width: 100%;
 		}
 	}
 }
 
 #meetthe {
-	background: image-url("meetthe.png"),
-				rgba(0,0,0,.6);
-	background-repeat: no-repeat;
-	background-position: center 30%;
- 	background-size: 70%;
 	ul {
 		margin: 0 auto;
 	  	display: flex;
@@ -72,12 +114,12 @@
   		}
 	  	.face {
 	  		vertical-align: middle;
-	  		width: 25%;
+	  		width: 35%;
 	  	}
-	  	.content {
-	  		width: 30%;
+	  	.contentTeam {
 	  		display: inline-block;
 	  		vertical-align: middle;
+	  		width: 63%;
 	  		.des {
 	  			font-family: "klavika_bdbold_italic";
 	  			color: white;
@@ -132,12 +174,7 @@
   	z-index: 1001;
 }
 
-@media screen and (orientation: portrait) and (min-width: 815px)  {
-	#meetthe {
-		ul {
-		}
-	}
-}
+
 
 @media screen and (orientation: landscape) {
 	#meetthe {
@@ -181,6 +218,12 @@
 
 //  ***********
 @media screen and (max-width: 376px) and (orientation: portrait) {
+	.lightbox {
+		  top: 1em;
+		  .content {
+		  	  padding: 2.5em 0.5em;
+		  }
+	}
 	#meetthe {
 		ul{
 			top: 24%;
