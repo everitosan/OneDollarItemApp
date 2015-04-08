@@ -81,7 +81,8 @@
     }])
     .controller('shareMenuCtrl',['$scope','$window', 'Facebook' , function($scope, $window, Facebook){
       
-
+      var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
+                      'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.'];
 
       $scope.lang = function(lan) {
           if(lan === 'es')
@@ -93,13 +94,14 @@
             }
       };
 
-      $scope.shareFacebook =function() {
+      $scope.shareFacebook =function(messageNumber) {
+
         Facebook.ui({
           method: 'feed',
           picture: 'http://www.onedollaritem.org/images/200.png',
           link: 'http://onedollaritem.org',
-          caption: 'Wheels for 1 Dollar',
-          description: 'awseomw new feature'
+          caption: 'A non-profit initiative powered by Patrick Switzer.',
+          description: message[messageNumber]
         }, function(response){});
       };
       
