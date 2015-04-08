@@ -114,12 +114,14 @@
   		}
 	  	.face {
 	  		vertical-align: middle;
+	  		position: relative;
+			right: 1.5em;
 	  		width: 35%;
 	  	}
 	  	.contentTeam {
 	  		display: inline-block;
 	  		vertical-align: middle;
-	  		width: 63%;
+	  		width: 52%;
 	  		.des {
 	  			font-family: "klavika_bdbold_italic";
 	  			color: white;
@@ -136,19 +138,20 @@
 		cursor: pointer;
 		display: none;
 		transform: rotate(-90deg);
-		position: fixed;
-		left: 1%;
+		position: absolute;
+		left: -7%;
 		height: 60px;
 		width: 60px;
 		top: 40%;
+  		float: right;
 	}
 	#next {
 		cursor: pointer;
-		right: 1%;
+		right: -7%;
 		height: 60px;
 		width: 60px;
 		transform: rotate(90deg);
-		position: fixed;
+		position: absolute;		
 		top: 40%;
 	}
 	.diamantes {
@@ -168,8 +171,8 @@
 .closelightbox {
 	cursor: pointer;
 	position: fixed;
-  	right: 9%;
-  	top: 90px;
+  	right: 20%;
+ 	top: 60px;
   	width: 60px;
   	z-index: 1001;
 }
@@ -189,12 +192,10 @@
 	}
 	#meetthe {
 		ul {	
-			.content {
-				width: 40%;
-				img {
-					width: 70%;
-				}
+			.contentTeam {
+					width: 70%;	
 			}
+			
 		}
 	}
 	.face {
@@ -209,9 +210,10 @@
 		  top: 40px;
 	}
 	#meetthe {
-		ul li {
-			overflow-y: scroll;
-  			height: 65%;
+		ul {
+			.contentTeam {
+					width: 90%;	
+			}
 		}
 	}
 }
