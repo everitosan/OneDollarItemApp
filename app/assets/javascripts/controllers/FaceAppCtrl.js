@@ -96,7 +96,7 @@
       $scope.shareFacebook =function() {
         Facebook.ui({
           method: 'feed',
-          picture: 'http://localhost:3000/assets/images/200.png',
+          picture: 'http://www.onedollaritem.org/images/200.png',
           link: 'http://onedollaritem.org',
           caption: 'Wheels for 1 Dollar',
           description: 'awseomw new feature'
