@@ -9,7 +9,7 @@
 
 @mixin animateElementBg($url) {
 	@include back($url);
-	transition: all linear 1.5s;
+	transition: all ease-out .2s;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -17,14 +17,7 @@
 	width: 100%;
 }
 
-@keyframes rollandroll {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
+
 
 #counter {
 	@include back("counterbgOff.png");
@@ -40,9 +33,6 @@
 	}
 	.whiteroll {
 		@include animateElementBg("counterbgOff3.png");
-		background-position: center, center;
-		animation: rollandroll 1.5s infinite;
-		height: 67%;
 	}
 }
 

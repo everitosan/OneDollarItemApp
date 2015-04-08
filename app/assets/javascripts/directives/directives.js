@@ -124,9 +124,38 @@
         porcentajeEscala('#counter', 1);
       }
 
-      function link () {
+       function MyScroll(event) {
+
+        
+        var Scroll = (-1) * ($('#deck').position().top) ;
+        var $ornamental = $(event.data.element.find('.ornamental') );
+
+        var inicioAnimacion = 100;
+        var ancho_final = 1;
+        var rango_animacion = 20;
+        var ancho;
+
+
+        if (Scroll <= inicioAnimacion) {
+          ancho = 0;
+        }
+        else if(Scroll >= inicioAnimacion && Scroll <= (inicioAnimacion + rango_animacion) ) {
+          ancho = (Scroll - inicioAnimacion) / rango_animacion * ancho_final ;
+        }
+        else if ( Scroll > (inicioAnimacion + rango_animacion) ) {
+          ancho = ancho_final;
+        }
+
+        $ornamental.css('opacity', ancho);
+
+
+      }  
+      function link (scope, element) {
+        var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
+        $('#app').on('scroll', {element: $elem}, MyScroll);
+
       }
 
       var definitionObject = {
