@@ -9,11 +9,19 @@
 		background-size: 100%;
 		background-position: top;
 		position: absolute;
-		top: 3em;
+		transition: all ease-out 1.5s;
 		z-index: 0;
 		left: 0;
 		width: 100%;
 		max-width: 1200px;
+	}
+	div.unloaded {
+		top: 100%;
+		opacity: 0;
+	}
+	div.loaded {
+		opacity: 1;
+		top: 3em;
 	}
 
 	section {

@@ -14,6 +14,11 @@
     $(elem).css(attr||'height', factor);
   }
 
+  $(window).load(function() {
+           $('#deck').removeClass('unloaded').addClass('loaded');
+           $('#menu').removeClass('unloaded').addClass('loaded');
+          });
+
   angular
     .module('odiApp.directives',['templates'])
     .directive('apMenuDirective', function MenuDirective (){
@@ -101,7 +106,7 @@
         var $logo = $(elem).find('#logo');
         $('#app').on('scroll', {logo: $logo}, MyScroll);
         $('#menumobile').on('click', showMobileMenu);
-        $('#menu-links a').on('click', animateScroll);
+        $('#menu-links a').not('.contact').on('click', animateScroll);
       }
 
       var definitionObject = {

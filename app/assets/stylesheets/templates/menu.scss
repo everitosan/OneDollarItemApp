@@ -1,7 +1,6 @@
 #menu {
 		text-align: center;
 		position: fixed;
-		top:0;
 		left: 0;
 		width: 100%;
 		transition: ease-in all .5s;
@@ -38,6 +37,13 @@
 
 		}
 	}
+}
+
+nav.unloaded {
+	top: -100%;
+}
+nav.loaded {
+	top:0;
 }
 
 .deactive {

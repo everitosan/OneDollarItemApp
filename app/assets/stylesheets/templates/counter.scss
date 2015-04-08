@@ -1,11 +1,49 @@
+@mixin back($url) {
+	background: {
+		image: image-url($url);
+		position: center top;
+		size: 100%;
+		repeat: no-repeat;
+	}
+}
+
+@mixin animateElementBg($url) {
+	@include back($url);
+	transition: all linear 1.5s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+@keyframes rollandroll {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 #counter {
-	background: image-url("counterbg.png");
-	background-position: center top;
-	background-size: 100%;
-	background-repeat:no-repeat;
+	@include back("counterbgOff.png");
 	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
+	.itemsGreen {
+		@include animateElementBg("counterbgOff1.png");
+	}
+	.ornamental {
+		@include animateElementBg("counterbgOff2.png");
+		opacity: .3;
+	}
+	.whiteroll {
+		@include animateElementBg("counterbgOff3.png");
+		background-position: center, center;
+		animation: rollandroll 1.5s infinite;
+		height: 67%;
+	}
 }
 
 #initshare {
@@ -40,3 +78,4 @@
 		  top: 1em;
 	}
 }
+

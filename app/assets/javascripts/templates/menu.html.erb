@@ -1,4 +1,4 @@
-<nav id="menu" class="deactive" >
+<nav id="menu" class="deactive unloaded" >
 	<%= image_tag 'menumobile.png', :id => "menumobile" %>
 	<ul id="logo">
 		<a id="logomini"  href=""> 
@@ -18,14 +18,14 @@
 		<li class="link">
 			<a href="#team"> TEAM VENADOS</a>
 		</li>
-		
-		<li class="link">
-			<a href="#share"> SHARE</a>
-		</li>
-		
 		<li class="link"> 
 			<a href="#sponsors">  SPONSORS </a>
 		</li>
+		
+		<li class="link">
+			<a href="#" class="contact"> CONTACT</a>
+		</li>
+		
 	</ul>
 	<ul id="share-menu" ng-controller="shareMenuCtrl">
 		<li ng-click="shareFacebook(0)">
