@@ -146,6 +146,8 @@
         
         //#FIX mover al controlador
         $('#app').css('height', window.innerHeight ); 
+
+        $('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
         
         if(window.innerWidth <= minMobile && window.innerWidth >= minMinMobile ) {
           porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
