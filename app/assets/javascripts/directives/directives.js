@@ -22,7 +22,7 @@
 
           
 
-          scrollInt = $(toHref).position().top;
+          scrollInt = $(toHref).offset().top;
          
           $('body, html').animate({
             scrollTop: scrollInt
@@ -38,7 +38,7 @@
 
       function link (scope, element) {
         var $elem = $(element);
-        $(window).on('scroll', {element: $elem, EA:'#logo', top:200}, MyScrollAnimate);
+        $animatedElements.push({element: $elem, EA:'#logo', top:200});
         $('#menumobile').on('click', showMobileMenu);
         $('#menu-links a').not('.contact').on('click', animateScroll);
       }
@@ -62,11 +62,10 @@
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        $(window).on('scroll', {element: $elem, EA:'#counter', top:-200}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'.ornamental', top:-100}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'.whiteroll', top:-50}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'.itemsGreen', top:-50}, MyScrollAnimate);
-
+        $animatedElements.push({element: $elem, EA:'#counter', top:0});
+        $animatedElements.push({element: $elem, EA:'#counter .ornamental', top:150});
+        $animatedElements.push({element: $elem, EA:'#counter .whiteroll', top:200});
+        $animatedElements.push({element: $elem, EA:'#counter .itemsGreen', top:250});
       }
 
       var definitionObject = {
@@ -128,11 +127,12 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem=element;
-        $(window).on('scroll', {element: $elem, EA:'#about', top:500}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#about .eye', top:600}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#about .kid', top:700}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#about .title', top:850}, MyScrollAnimate);
 
+        $animatedElements.push({element: $elem, EA:'#about', top:500});
+        $animatedElements.push({element: $elem, EA:'#about .eye', top:600});
+        $animatedElements.push({element: $elem, EA:'#about .kid', top:700});
+        $animatedElements.push({element: $elem, EA:'#about .title', top:850});
+        $animatedElements.push({element: $elem, EA:'#about .text', top:950});
       }
 
       var definitionObject = {
@@ -186,10 +186,12 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem =  $(element);
-        $(window).on('scroll', {element: $elem, EA:'#team', top: 1200}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#team .ornamental', top: 1500}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#team .title', top: 1700}, MyScrollAnimate);
-        $(window).on('scroll', {element: $elem, EA:'#team .kid', top: 1750}, MyScrollAnimate);
+        $animatedElements.push({element: $elem, EA:'#team', top: 1200});
+        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1500});
+        $animatedElements.push({element: $elem, EA:'#team .title', top: 1700});
+        $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1720});
+        $animatedElements.push({element: $elem, EA:'#team .kid', top: 1750});
+        $animatedElements.push({element: $elem, EA:'#team .text', top:1850});
 
       }
 
@@ -223,9 +225,13 @@
         $('#share').css('height', factor);
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem = $(element);
+        $animatedElements.push({element: $elem, EA:'#share', top: 1800});
+        $animatedElements.push({element: $elem, EA:'#share .ornamental', top: 2000});
+        $animatedElements.push({element: $elem, EA:'#share .support', top: 2100});
       }
 
       var definitionObject = {
@@ -322,6 +328,9 @@
           });
 //***// Loader
 
+  $(window).on('scroll', MyScrollAnimate);
+  var $animatedElements = [];
+
   function porcentajeEscala (elem, porcentual, attr) {
     var anchoElemento = parseInt( $(elem).css('width') );
     var factor =  anchoElemento * porcentual;
@@ -330,26 +339,25 @@
   }
 
   function animate(flag, elem) {
-    if (flag === 1 ) {
-      $( elem ).css('opacity', 1);
-    }
-    else { 
-      $( elem ).css('opacity', 0);
-    }
+
+      elem.css('opacity', flag);
+ 
   }
 
   function MyScrollAnimate(event) {
-   // scrollUp()
-    
     var Scroll = $(document).scrollTop();
-    var $ornamental = $(event.data.element.find(event.data.EA) );
+    angular.forEach($animatedElements, function(value){
 
-    if (Scroll >= event.data.top) {
-      animate(1, event.data.EA);
-      }
-    else {
-      animate(0, event.data.EA);
-    }  
+      var $domElement = $(value.EA);
+
+      if (this >= value.top && $domElement.css('opacity') === "0") {
+        animate(1, $domElement);
+        }
+      else if (this < value.top && $domElement.css('opacity') === "1"){
+        animate(0, $domElement);
+      }  
+      
+    }, Scroll);
   }
 
   function scrollUp() {

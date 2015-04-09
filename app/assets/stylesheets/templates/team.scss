@@ -50,6 +50,12 @@
     .kid {
       @include animateElementBg("venadosbgOff3.png");
     }
+  	.text{
+      @include animateElement;
+    }
+    #gallerybutton {
+      @include animateElement;
+    }
   }
 }
 

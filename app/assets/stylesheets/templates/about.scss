@@ -48,6 +48,9 @@
     .kid {
       @include animateElementBg("aboutbgOff3.png");
     }
+    .text{
+      @include animateElement;
+    }
   }
 }
 

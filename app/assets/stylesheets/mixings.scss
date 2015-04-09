@@ -7,19 +7,29 @@
 	}
 }
 
-@mixin animateElementBg($url) {
-	@include back($url);
+@mixin transitions {
 	transition: {
 		delay: 0;
-		duration: .5s;
+		duration: .2s;
 		property: opacity;
-		timing-function: cubic-bezier(.05,.48,.94,.48);
+		//timing-function: cubic-bezier(.05,.48,.94,.48);
+		timing-function: ease-out;
 	}
+}
+
+@mixin animateElementBg($url) {
+	@include back($url);
+	@include transitions;
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
+	opacity: 0;
+}
+
+@mixin animateElement{
+	@include transitions;
 	opacity: 0;
 }
 
