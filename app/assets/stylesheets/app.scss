@@ -1,6 +1,6 @@
 #app {
-	overflow-x: hidden;
-	overflow-y: scroll;
+	//overflow-x: hidden;
+	//overflow-y: scroll;
 	padding-top: 3em;
 	position: relative;
 	width: 100%;
@@ -8,8 +8,9 @@
 		background: image-url("deckClean.png");
 		background-size: 100%;
 		background-position: top;
-		position: absolute;
+		//position: absolute;
 		z-index: 0;
+		margin: 0 auto;
 		left: 0;
 		width: 100%;
 		max-width: 1200px;

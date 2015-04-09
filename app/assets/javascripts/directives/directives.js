@@ -15,35 +15,20 @@
         }
 
         function animateScroll(event) {
-          
           event.preventDefault();
           scrollTap = true;
           var toHref = $(this).attr('href');
           var scrollInt; 
 
-          if (toHref === '#sponsors') {
-            scrollInt = parseInt($('#deck').css('height'));
-            $('#app').animate({
-              scrollTop: scrollInt
-            }, 500, function(){
-              scrollInt = $(toHref).position().top ;
-              $('body').scrollTop(scrollInt);
-            });
+          
 
+          scrollInt = $(toHref).position().top;
+         
+          $('body, html').animate({
+            scrollTop: scrollInt
+          }, 1500, function() {scrollTap = false;});
             
-          }
-          else{
-
-            scrollInt = $(toHref).position().top + parseInt( $('.relativeContent').css('top') );
-            $('body, html').animate({
-              scrollTop: 0
-            }, 1500);
-
-            $('#app').animate({
-              scrollTop: scrollInt
-            }, 1500, function() {scrollTap = false;});
-            
-          }
+          
 
           toggleActive(this);
           $('#menu').toggleClass('menuactive');
@@ -53,7 +38,7 @@
 
       function link (scope, element) {
         var $elem = $(element);
-        $('#app').on('scroll', {element: $elem, EA:'#logo', top:200}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#logo', top:200}, MyScrollAnimate);
         $('#menumobile').on('click', showMobileMenu);
         $('#menu-links a').not('.contact').on('click', animateScroll);
       }
@@ -77,10 +62,10 @@
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        $('#app').on('scroll', {element: $elem, EA:'#counter', top:-200}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'.ornamental', top:-100}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'.whiteroll', top:-50}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'.itemsGreen', top:-50}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#counter', top:-200}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'.ornamental', top:-100}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'.whiteroll', top:-50}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'.itemsGreen', top:-50}, MyScrollAnimate);
 
       }
 
@@ -105,9 +90,9 @@
       function ressize() {
         
         //#FIX mover al controlador
-        $('#app').css('height', window.innerHeight ); 
+        //$('#app').css('height', window.innerHeight ); 
 
-        $('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
+        //$('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
         
         if(window.innerWidth <= minMobile && window.innerWidth >= minMinMobile ) {
           porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
@@ -143,10 +128,10 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem=element;
-        $('#app').on('scroll', {element: $elem, EA:'#about', top:500}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#about .eye', top:600}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#about .kid', top:700}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#about .title', top:850}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#about', top:500}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#about .eye', top:600}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#about .kid', top:700}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#about .title', top:850}, MyScrollAnimate);
 
       }
 
@@ -201,10 +186,10 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem =  $(element);
-        $('#app').on('scroll', {element: $elem, EA:'#team', top: 1200}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#team .ornamental', top: 1500}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#team .title', top: 1700}, MyScrollAnimate);
-        $('#app').on('scroll', {element: $elem, EA:'#team .kid', top: 1750}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#team', top: 1200}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#team .ornamental', top: 1500}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#team .title', top: 1700}, MyScrollAnimate);
+        $(window).on('scroll', {element: $elem, EA:'#team .kid', top: 1750}, MyScrollAnimate);
 
       }
 
@@ -354,10 +339,9 @@
   }
 
   function MyScrollAnimate(event) {
-
-    scrollUp()
+   // scrollUp()
     
-    var Scroll = (-1) * ($('#deck').position().top);
+    var Scroll = $(document).scrollTop();
     var $ornamental = $(event.data.element.find(event.data.EA) );
 
     if (Scroll >= event.data.top) {
