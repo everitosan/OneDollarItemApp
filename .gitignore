@@ -13,3 +13,6 @@
 /tmp
 node_modules
 bower_components
+
+# Ignore application configuration
+/config/application.yml
