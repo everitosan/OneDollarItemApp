@@ -4,7 +4,7 @@ class ContactEmail < ApplicationMailer
     @userName = name
     @userEmail = email
     @userMessage = message
-    mail(to: ["everardo.ipn@gmail.com, rockfest_10@hotmail.com","calido_92@hotmail.com","josemarioborda@gmail.com","r_monjaraz@live.com"], subject: 'OneDollarItem')
+    mail(to: ["everardo.ipn@gmail.com, onedollaritem.project@gmail.com","calido_92@hotmail.com","josemarioborda@gmail.com","r_monjaraz@live.com"], subject: 'OneDollarItem')
   end
 
 end
