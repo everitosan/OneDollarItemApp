@@ -1,7 +1,10 @@
 class ContactEmail < ApplicationMailer
 
-  def menssage_email()
-    mail(to: "sadik.monjaraz@gmail.com", subject: 'No somos viagra')
+  def message_email(name, email, message)
+    @userName = name
+    @userEmail = email
+    @userMessage = message
+    mail(to: ["everardo.ipn@gmail.com, rockfest_10@hotmail.com","calido_92@hotmail.com","josemarioborda@gmail.com","r_monjaraz@live.com"], subject: 'OneDollarItem')
   end
 
 end

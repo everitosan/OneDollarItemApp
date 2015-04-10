@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'donator/all'
 
   post 'donator/prepost'
+  
+  post 'mailer/contact'
 
   mount RailsAdmin::Engine => '/same', as: 'rails_admin'
   root to: 'odi#time'
