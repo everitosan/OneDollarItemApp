@@ -1,0 +1,24 @@
+<div class="modal" ng-controller="emailCtrl">
+	<div ng-show="{{ !projectcontact.$valid }}" >Error</div>
+	<form id="formu" name="projectcontact" novalidate>
+		<div> 
+			<label for="name"> Name: </label>   <br>
+			<input required type="text" id="name" ng-model="user.name">
+		</div>  
+			
+		<div>
+			<label for="email"> Email: </label>  <br>
+			<input required type="email" id="email" ng-model="user.email">
+		</div>
+
+		<div>
+			<label for="comment">Comment: </label>  <br>
+			<textarea required name="comment" idcomment cols="30" rows="5" ng-model="user.message"></textarea>
+		</div>
+		<div ng-click="send(projectcontact.$valid)"> 
+			<%= image_tag "formularioSend.png" %>  
+		</div>
+	</form>
+
+
+</div>

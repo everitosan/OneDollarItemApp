@@ -5,36 +5,36 @@
     .directive('apMenuDirective', function MenuDirective (){
       
 
-        function showMobileMenu() {
-          $('#menu').toggleClass('menuactive');
-        }
+      function showMobileMenu() {
+        $('#menu').toggleClass('menuactive');
+      }
 
-        function toggleActive(anchor) {
-          $('#menu-links a').removeClass('active');
-          $(anchor).addClass('active');
-        }
+      function toggleActive(anchor) {
+        $('#menu-links a').removeClass('active');
+        $(anchor).addClass('active');
+      }
 
-        function animateScroll(event) {
-          event.preventDefault();
-          scrollTap = true;
-          var toHref = $(this).attr('href');
-          var scrollInt; 
+      function animateScroll(event) {
+        event.preventDefault();
+        scrollTap = true;
+        var toHref = $(this).attr('href');
+        var scrollInt; 
 
+        
+
+        scrollInt = $(toHref).offset().top;
+       
+        $('body, html').animate({
+          scrollTop: scrollInt
+        }, 1500, function() {scrollTap = false;});
           
+        
 
-          scrollInt = $(toHref).offset().top;
-         
-          $('body, html').animate({
-            scrollTop: scrollInt
-          }, 1500, function() {scrollTap = false;});
-            
-          
+        toggleActive(this);
+        $('#menu').toggleClass('menuactive');
 
-          toggleActive(this);
-          $('#menu').toggleClass('menuactive');
-
-         
-        } 
+       
+      } 
 
       function link (scope, element) {
         var $elem = $(element);
@@ -62,10 +62,10 @@
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        $animatedElements.push({element: $elem, EA:'#counter', top:0});
-        $animatedElements.push({element: $elem, EA:'#counter .ornamental', top:150});
-        $animatedElements.push({element: $elem, EA:'#counter .whiteroll', top:200});
-        $animatedElements.push({element: $elem, EA:'#counter .itemsGreen', top:250});
+        //$animatedElements.push({element: $elem, EA:'#counter', top:0});
+        //$animatedElements.push({element: $elem, EA:'#counter .ornamental', top:150});
+        //$animatedElements.push({element: $elem, EA:'#counter .whiteroll', top:200});
+        //$animatedElements.push({element: $elem, EA:'#counter .itemsGreen', top:250});
       }
 
       var definitionObject = {
@@ -115,7 +115,7 @@
         }
 
         if (parseInt($('#about').css('width') ) >= 633){
-          porcentajeEscala('#about .text', 1, 'padding-top');
+          porcentajeEscala('#about .text', 1.045, 'padding-top');
         }
         else {
           porcentajeEscala('#about .text', porcentualPaddingText, 'padding-top');
@@ -138,7 +138,6 @@
       var definitionObject = {
         restrict: 'E',
         scope: { title: '@',
-             title2: '@',
              par1: '@',
              par2: '@',
              howq1: '@',
@@ -197,7 +196,8 @@
 
       var definitionObject = {
         restrict: 'E',
-        scope: { par1:'@',
+        scope: {
+             par1:'@',
              par2:'@',
              par3:'@', 
              irvingdes:'@', 
@@ -239,6 +239,19 @@
         replace:true,
         templateUrl:'share.html',
         link: link
+      };
+
+      return definitionObject;
+    })
+    .directive('apContactDirective', function ContactDirective() {
+    
+
+      
+
+      var definitionObject = {
+        restrict: 'E',
+        replace:true,
+        templateUrl:'contact.html'
       };
 
       return definitionObject;
