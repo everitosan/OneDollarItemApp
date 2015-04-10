@@ -105,5 +105,26 @@
         }, function(response){});
       };
       
+    }])
+    .controller('emailCtrl',['$scope','emailSrv','$cookies', function($scope, emailSrv, $cookies) {
+      $scope.user = {};
+
+      $scope.showModal = function(type){
+        $('.modal').show();
+      }
+      $scope.send = function(flag) {
+        if (flag){
+         $scope.user.authenticity_token = $cookies['XSRF-TOKEN'];
+
+         emailSrv.post($scope.user).then(function(data) {
+          $scope.user = {};
+          $('.modal').fadeOut();
+         }, 
+          function(data){
+            console.log('NotCool');
+          });
+        }
+
+      };
     }]);
 })();
