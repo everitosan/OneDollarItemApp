@@ -4,10 +4,10 @@
 
 body {
 	background: image-url("http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_8.gif"),
-				image-url("Backgroundgray.jpg");
-	background-size: auto,  auto 100%;
-	background-position:center,  center 0px;
-	background-repeat: no-repeat;
+				image-url("patternBg.jpg");
+	background-size: auto, 100%;
+	background-position:center top,  center 0px;
+	background-repeat: no-repeat, repeat;
 	color:white;
 	width: 100%;
 }

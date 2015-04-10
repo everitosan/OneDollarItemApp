@@ -6,17 +6,29 @@
 	#gallerybutton {
 		position: absolute;
 		bottom: 30%;
+		height: 130px;
 		width: 40%;
 		font-size: 0;
-		z-index: 2;
-		div {
+		& > div {
 			display: inline-block;
 			vertical-align: top;
 			width: 40%;
+			height: 100%;
 			margin: 4%;
 		}
-		img {
+		.lightbox {
+			max-width: none;
+		}
+		
+		.lightboxbutton {
+ 			position: relative;
+			cursor: pointer;
 			width: 100%;
+			z-index: 3;
+			height: 100%;
+		}
+		.containerLightBox {
+			font-size: 16px;
 		}
 	}
 	.text {
@@ -81,10 +93,13 @@
 		position: absolute;
 		bottom: 32%;
 		width: 100%;
-		img {
+		.lightboxbutton {
 			width: 40%;
 		}
-		div {
+		#photo{
+			float: right;
+		}
+		& > div {
 			width: 50%;
 			margin: 0;
 			&:last-child {

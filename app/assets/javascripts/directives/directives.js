@@ -245,15 +245,19 @@
     })
     .directive('apLightboxDirective', function LightboxDirective() {
       function hidelight(event) {
+        $('.lightboxbutton').css('z-index', 6);
         $('#menu').css('z-index','100');
         $( event.data.element.find('.containerLightBox') ).fadeOut();
         $( event.data.element.find('.closelightbox') ).fadeOut();
+        lightBoxActive = false;
       }
 
       function showlight(event) {
+        $('.lightboxbutton').css('z-index', 0);
         $('#menu').css('z-index','0');
         $( event.data.element.find('.containerLightBox') ).fadeIn();
         $( event.data.element.find('.closelightbox') ).fadeIn();
+        lightBoxActive = true;
       }
 
 
@@ -266,27 +270,28 @@
         $ul.css('right', (parseInt($ul.css('right')) + parseInt($active.css('width')) ) );
  
         
-        $( event.data.element.find('#prev')).fadeIn();
+        $( event.data.element.find('.prev')).fadeIn();
         
         if($active.next().next().length===0)
         {
-          $( event.data.element.find('#next')).fadeOut();
+          $( event.data.element.find('.next')).fadeOut();
         }
       }
 
       function prevKid(event) {
         var $ul = $(event.data.element.find('ul'));
         var $active = $($ul.find('.activeTeam'));
+         console.log($active);
 
         $active.prev().addClass('activeTeam');
         $active.removeClass('activeTeam');
         $ul.css('right', (parseInt($ul.css('right')) - parseInt($active.css('width')) ) );
 
-        $( event.data.element.find('#next')).fadeIn();
+        $( event.data.element.find('.next')).fadeIn();
         
         if($active.prev().prev().length === 0)
         {
-          $( event.data.element.find('#prev')).fadeOut();
+          $( event.data.element.find('.prev')).fadeOut();
         }
 
       }
@@ -295,8 +300,8 @@
         $( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
         $( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
 
-        $($elem.find('#next')).on('click', {element: $elem}, nextKid);
-        $($elem.find('#prev')).on('click', {element: $elem}, prevKid);
+        $($elem.find('.next')).on('click', {element: $elem}, nextKid);
+        $($elem.find('.prev')).on('click', {element: $elem}, prevKid);
 
 
       }     
@@ -313,13 +318,13 @@
 
       return definitionObject;
     });
-      var Mytop = 0;
+
+  var Mytop = 0;
+  var scrollTap = false;
+  var lightBoxActive = false;
 
   var minMobile = 815;
   var minMinMobile = 374;
-
-  var scrollTap = false;
-
 
  //***// Loader
   $(window).load(function() {
@@ -345,19 +350,21 @@
   }
 
   function MyScrollAnimate(event) {
-    var Scroll = $(document).scrollTop();
-    angular.forEach($animatedElements, function(value){
+    if (!lightBoxActive && window.innerWidth > 1150) {
+      var Scroll = $(document).scrollTop();
+      angular.forEach($animatedElements, function(value){
 
-      var $domElement = $(value.EA);
+        var $domElement = $(value.EA);
 
-      if (this >= value.top && $domElement.css('opacity') === "0") {
-        animate(1, $domElement);
-        }
-      else if (this < value.top && $domElement.css('opacity') === "1"){
-        animate(0, $domElement);
-      }  
-      
-    }, Scroll);
+        if (this >= value.top && $domElement.css('opacity') === "0") {
+          animate(1, $domElement);
+          }
+        else if (this < value.top && $domElement.css('opacity') === "1"){
+          animate(0, $domElement);
+        }  
+        
+      }, Scroll);
+    }
   }
 
   function scrollUp() {

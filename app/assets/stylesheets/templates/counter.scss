@@ -1,16 +1,11 @@
 @import 'mixings';
 
 #counter {
-	@include animateElementBg("counterbgOff.png");
+	@include back("counterbg.png");
 	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
-	.itemsGreen {
-		@include animateElementBg("counterbgOff1.png");
-	}
-	.ornamental {
-		@include animateElementBg("counterbgOff2.png");
-	}
+	
 	.whiteroll {
 		width: 100%;
 		height: 100%;
@@ -76,6 +71,19 @@
 	@include back("1.png");
 	background-position: center -35px;
 }
+
+@media screen and (min-width: 1151px) and (orientation: landscape) {
+	#counter {
+		@include animateElementBg("counterbgOff.png");
+		.itemsGreen {
+			@include animateElementBg("counterbgOff1.png");
+		}
+		.ornamental {
+			@include animateElementBg("counterbgOff2.png");
+		}
+	}
+}
+
 @media screen and (max-width: 480px) {
 	#countdown {
 		  top: 1em;

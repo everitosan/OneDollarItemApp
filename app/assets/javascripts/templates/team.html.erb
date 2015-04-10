@@ -5,12 +5,35 @@
 	<div class="kid"></div>
 
 	<div id="gallerybutton">
-		<div>
-			<%= image_tag 'videoButton.png' %>
-		</div>
-		<div>
-			<%= image_tag 'photoButton.png' %>
-		</div>
+		
+			<ap-lightbox-directive but="video">
+				<div id ="videoLightBox" class="content">	
+					<iframe src="https://player.vimeo.com/video/124045121" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</ap-lightbox-directive>
+	
+			<ap-lightbox-directive but="photo">
+				<div id ="photoLightBox" class="content">			
+					<ul>
+						<li class="activeTeam">  
+							<%= image_tag 'irvingFace.png' %>
+						</li>
+						<li>
+							<%= image_tag 'irvingFace.png' %>
+						</li>
+						<li>
+							<%= image_tag 'irvingFace.png' %>
+						</li>
+						<li>
+							<%= image_tag 'irvingFace.png' %>
+						</li>
+					</ul>
+
+					<%= image_tag 'botonregresar.png', :class => 'prev' %>
+					<%= image_tag 'botonregresar.png', :class => 'next' %>
+				</div>
+			</ap-lightbox-directive>
+		
 	</div>
 	
 	<div class="text">
@@ -88,8 +111,8 @@
 
 				<%= image_tag 'diamantes.png', :class => 'diamantes' %>
 
-				<%= image_tag 'botonregresar.png', :id => 'prev' %>
-				<%= image_tag 'botonregresar.png', :id => 'next' %>
+				<%= image_tag 'botonregresar.png', :class => 'prev' %>
+				<%= image_tag 'botonregresar.png', :class => 'next' %>
 
 			</div>
 		</ap-lightbox-directive>

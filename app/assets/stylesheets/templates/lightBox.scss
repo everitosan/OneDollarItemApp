@@ -1,7 +1,7 @@
 @import 'mixings';
 
 .containerLightBox {
-	background: rgba(0,0,0,.6);
+	background: rgba(0,0,0,.8);
 	background-repeat: no-repeat;
 	background-position: center;
 	position: fixed;
@@ -91,20 +91,29 @@
 }
 
 .lightboxbutton {
-	height: 71px;
-	width: 100%;
 	transition: all .5s ease-out;
 }
 
 #howitworks {
 	@include buttonLightBox("how-it-works.png","how-it-works-over.png");
+	  height: 71px;
+	  width: 100%;
 }
 
 #metthekids {
 	@include buttonLightBox("met-the-kids.png","met-the-kids-over.png");
+	  height: 71px;
+	  width: 100%;
 }
 
-#meetthe {
+#video {
+	@include buttonLightBox("videoButton.png","videoButton.png");
+}
+#photo {
+	@include buttonLightBox("photoButton.png","photoButton.png");
+}
+
+#meetthe, #videoLightBox, #photoLightBox{
 	ul {
 		margin: 0 auto;
 	  	display: flex;
@@ -150,7 +159,7 @@
 	  		}
 	  	}
 	}
-	#prev {
+	.prev {
 		cursor: pointer;
 		display: none;
 		transform: rotate(-90deg);
@@ -161,7 +170,7 @@
 		top: 40%;
   		float: right;
 	}
-	#next {
+	.next {
 		cursor: pointer;
 		right: -7%;
 		height: 60px;
@@ -176,6 +185,9 @@
 		top:5%;
 		display: none;
 
+	}
+	.lightboxbutton {
+		height: 71px;
 	}
 }
 
@@ -193,6 +205,15 @@
   	z-index: 1001;
 }
 
+
+#videoLightBox {
+	iframe {
+		margin: 0 auto;
+		display: block;
+		width: 800px;
+		height: 450px;
+	}
+}
 
 
 @media screen and (orientation: landscape) {
@@ -249,7 +270,26 @@
 				width: 25%;
   				height: 35%;
 			}
+			.contentTeam {
+					width: 70%;	
+			}
 		} 
+	}
+	#gallerybutton {
+		.content {
+			padding: 5.5em 0;
+		}
+		.lightbox {
+			top: 6em;
+		}
+	}
+	#videoLightBox {
+		iframe {
+			margin: 0 auto;
+			display: block;
+			width: 200px;
+			height: 112px;
+		}
 	}
 }
 
@@ -264,11 +304,3 @@
 	}
 }
 
-@media screen and (min-width: 1025px) and (orientation: landscape) {
-	#meetthe {
-		background-size: 63%;
-		ul {
-			top: 10%;
-		}
-	}
-}
