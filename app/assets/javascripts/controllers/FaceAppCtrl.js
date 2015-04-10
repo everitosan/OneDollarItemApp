@@ -94,9 +94,10 @@
             }
       };
 
-      var $pic = $('.numberdays').attr('data-day');
 
       $scope.shareFacebook =function(messageNumber) {
+
+      var $pic = $('.numberdays').attr('data-day');
 
         Facebook.ui({
           method: 'feed',
