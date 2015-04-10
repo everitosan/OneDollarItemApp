@@ -94,7 +94,7 @@
             }
       };
 
-      $pic = $('.numberdays').attr('data-day');
+      var $pic = $('.numberdays').attr('data-day');
 
       $scope.shareFacebook =function(messageNumber) {
 
