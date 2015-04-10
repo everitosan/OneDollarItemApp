@@ -4,6 +4,11 @@
 	padding-top: 3em;
 	position: relative;
 	width: 100%;
+
+	img.center{
+		width: 26%;
+	}
+
 	#deck {
 		background: image-url("deckClean.png");
 		background-size: 100%;

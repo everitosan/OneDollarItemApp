@@ -1,4 +1,9 @@
 <div class="modal" ng-controller="emailCtrl">
+	<span ng-click="hideModal()">
+		<%= image_tag "lightBoxClose.png", :class => "closelightbox"%>
+	</span>	
+	
+
 	<form id="formu" name="projectcontact" novalidate>
 		<div> 
 			<label for="name"> Name: </label>   <br>
@@ -15,7 +20,7 @@
 			<textarea required name="comment" idcomment cols="30" rows="5" ng-model="user.message"></textarea>
 		</div>
 		<div ng-click="send(projectcontact.$valid)"> 
-			<%= image_tag "formularioSend.png" %>  
+			<%= image_tag "formularioSend.png", :id=>"send" %>  
 		</div>
 	</form>
 

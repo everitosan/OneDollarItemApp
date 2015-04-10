@@ -8,25 +8,26 @@
 
 #formu {
 	background: image-url("formulario.png");
-	background-repeat: no-repeat;
 	background-position: center top;
-	margin: 0 auto;
+	background-repeat: no-repeat;
 	background-size: 100%;
-	width: 80%;
-	padding: 24em 0;
-	text-align: center;
-	margin-top: 3em;
-	height: 100%;
 	font-family: "klavika_bdbold_italic";
+	height: 100%;
+	margin-top: 3em;
+	margin: 0 auto;
+	max-width: 1000px;
+	padding: 18em 0;
+	text-align: center;
+	width: 80%;
 	
 	& div {
 		background: image-url("barra_verde.png");
+		background-position: right 10px;
 		background-repeat: no-repeat;
 		background-size: 80% 5px;
-		background-position: right 10px;
 		margin: 0.8em auto;
-		width: 45%;
 		text-align: left;
+		width: 45%;
 		
 		&:last-child {
 			text-align: center;
@@ -48,5 +49,41 @@
 	}
 	input {
 		height: 27px;
+	}
+
+	#send {
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	#formu {
+		  padding: 15em 0;
+		  width: 90%;
+	}
+}
+
+@media screen and (max-width: 820px) {
+	#formu {
+		background-size: 160%;
+		padding: 22em 0;
+		width: 100%;
+		#send {
+			width: 40%;
+		}
+	}
+}
+@media screen and (max-width: 550px) {
+	#formu {
+		padding: 10em 0;
+		label{
+			font-size: 1em;
+		} 
+		input, textarea {
+			height: 17px;
+		}
+		#send {
+			width: 50%;
+		}
 	}
 }

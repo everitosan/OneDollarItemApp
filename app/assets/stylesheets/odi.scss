@@ -14,9 +14,17 @@ body {
 h1 {
 	margin: 0;
 }
+a, a:visited, a:active {
+	border:none;
+	color: inherit;
+}
 .relativeContent {
 	position: relative;
-	top: 19.5em;
+	top: 5em;
+}
+.center{
+	margin: 0 auto;
+	display: block;
 }
 
 .hidden {

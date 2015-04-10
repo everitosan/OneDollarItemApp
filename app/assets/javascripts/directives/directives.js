@@ -94,15 +94,15 @@
         //$('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
         
         if(window.innerWidth <= minMobile && window.innerWidth >= minMinMobile ) {
-          porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
           porcentajeEscala('#deck', 4.421);
         }
         else if(window.innerWidth <= minMinMobile) {
-          porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
           porcentajeEscala('#deck', 4.890);
         }
         else {
-          porcentajeEscala('.relativeContent', porcentualrelative, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelative, 'top');
           porcentajeEscala('#deck', 3.06);
         }
         //#FIX mover al controlador
@@ -245,13 +245,26 @@
     })
     .directive('apContactDirective', function ContactDirective() {
     
+      function ressize() {
+        if(window.innerWidth<820) {
+          porcentajeEscala("#formu",0.45,'padding-top');
+        }
+        else
+        {
+          porcentajeEscala("#formu",0.29,'padding-top');
+        }
+      }
 
+      function link(scope, element) {
+      $(window).on('resize', ressize);
       
+      }
 
       var definitionObject = {
         restrict: 'E',
         replace:true,
-        templateUrl:'contact.html'
+        templateUrl:'contact.html',
+        link: link
       };
 
       return definitionObject;

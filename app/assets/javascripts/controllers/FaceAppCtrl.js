@@ -112,13 +112,18 @@
       $scope.showModal = function(type){
         $('.modal').show();
       }
+
+      $scope.hideModal = function (){
+         $('.modal').fadeOut();
+      };
+
       $scope.send = function(flag) {
         if (flag){
          $scope.user.authenticity_token = $cookies['XSRF-TOKEN'];
 
          emailSrv.post($scope.user).then(function(data) {
           $scope.user = {};
-          $('.modal').fadeOut();
+           $scope.hideModal();
          }, 
           function(data){
             console.log('NotCool');

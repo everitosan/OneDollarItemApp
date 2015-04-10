@@ -15,7 +15,13 @@
 	<div id="app" >
 		<div id="deck" class="unloaded" >
 			<div class="relativeContent">
+			
+			<%= image_tag 'logo.png', :class => "center" %>
 
+			<a target="_blank"  href="https://www.facebook.com/pages/Patrick-Switzer/112740925432954?fref=ts">
+				<%= image_tag 'button-patrick.png', :class => "center" %>
+			</a>
+			
 				<%= yield %>
 				
 				<ap-about-directive 
