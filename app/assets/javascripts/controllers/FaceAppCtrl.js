@@ -94,11 +94,13 @@
             }
       };
 
+      $pic = $('.numberdays').attr('data-day');
+
       $scope.shareFacebook =function(messageNumber) {
 
         Facebook.ui({
           method: 'feed',
-          picture: 'http://www.onedollaritem.org/images/200.png',
+          picture: 'http://www.onedollaritem.org/images/'+$pic+'.png',
           link: 'http://onedollaritem.org',
           caption: 'A non-profit initiative powered by Patrick Switzer.',
           description: message[messageNumber]
