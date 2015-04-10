@@ -343,6 +343,11 @@
   $(window).load(function() {
            $('#deck').removeClass('unloaded').addClass('loaded');
            $('#menu').removeClass('unloaded').addClass('loaded');
+
+           setTimeout(function(){$('#counter').css('opacity', 1);}, 3000);
+           setTimeout(function(){$('#counter .ornamental').css('opacity', 1);}, 3300);
+           setTimeout(function(){$('#counter .whiteroll').css('opacity', 1);}, 3450);
+           setTimeout(function(){$('#counter .itemsGreen').css('opacity', 1);}, 3800);
           });
 //***// Loader
 
