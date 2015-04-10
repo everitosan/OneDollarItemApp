@@ -4,6 +4,7 @@
 		left: 0;
 		width: 100%;
 		z-index:100;
+		transition: ease-out 5s opacity, ease-in 3s top;
 	ul {
 		display: inline-block;
 		vertical-align: top;

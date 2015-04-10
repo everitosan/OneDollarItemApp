@@ -10,7 +10,7 @@
 @mixin transitions {
 	transition: {
 		delay: 0;
-		duration: .2s;
+		duration: .25s;
 		property: opacity;
 		//timing-function: cubic-bezier(.05,.48,.94,.48);
 		timing-function: ease-out;

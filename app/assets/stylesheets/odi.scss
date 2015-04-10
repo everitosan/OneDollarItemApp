@@ -3,11 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	background: image-url("http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_8.gif"),
-				image-url("patternBg.jpg");
-	background-size: auto, 100%;
-	background-position:center top,  center 0px;
-	background-repeat: no-repeat, repeat;
+	background: image-url("patternBg.jpg");
+	background-size:  100%;
+	background-position:  center 0px;
+	background-repeat:  repeat;
 	color:white;
 	width: 100%;
 }

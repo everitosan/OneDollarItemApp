@@ -75,11 +75,14 @@
 @media screen and (min-width: 1151px) and (orientation: landscape) {
 	#counter {
 		@include animateElementBg("counterbgOff.png");
+		transition: opacity 5s ease-out;
 		.itemsGreen {
 			@include animateElementBg("counterbgOff1.png");
+			transition: opacity 5s ease-out;
 		}
 		.ornamental {
 			@include animateElementBg("counterbgOff2.png");
+			transition: opacity 5s ease-out;
 		}
 	}
 }
