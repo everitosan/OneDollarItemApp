@@ -35,6 +35,8 @@ gem "autoprefixer-rails"
 gem "figaro"
 ## cache page gem
 gem 'actionpack-page_caching'
+## gzip enable for heroku
+gem 'rack-zippy'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -38,6 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  ##configuration for mailing
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
@@ -47,6 +48,9 @@ Rails.application.configure do
     password:             ENV['GMAIL_PASSWORD_DEV'],
     authentication:       'plain',
     enable_starttls_auto: true  }
-
+  ##Rails cache 
   config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
+
+  ##gzip enable 
+  config.serve_static_assets = true
 end
