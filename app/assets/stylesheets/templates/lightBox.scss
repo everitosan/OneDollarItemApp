@@ -1,10 +1,13 @@
-<<<<<<< HEAD
 @import 'mixings';
 
 .containerLightBox {
 	background: rgba(0,0,0,.8);
 	background-repeat: no-repeat;
 	background-position: center;
+	position: fixed;
+ 	z-index: 100;
+ 	top: 0;
+ 	left: 0;
  	display: none;
  	overflow-y: scroll;
  	overflow-x: hidden;
@@ -59,8 +62,6 @@
 		margin: 0 auto;
 		position: relative;
 		padding: 4em 2.5em;
-<<<<<<< HEAD
-=======
 		.prev {
 			cursor: pointer;
 			display: none;
@@ -81,39 +82,12 @@
 			position: absolute;		
 			top: 40%;
 		}
->>>>>>> Backend
-=======
-.lightbox {
-	display: none;
-	position: fixed;
- 	z-index: 100;
- 	top: 0;
- 	left: 0;
- 	height: 100%;
-	width: 100%;
-	.content {
-		position: relative;
-		margin: 0 auto;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	}
 }
 
 #howit {
-<<<<<<< HEAD
 	  padding: 0 2.7em;
 	.content {
-=======
-	background: image-url("how-it-worksbg.png"),
-				rgba(0,0,0,.6);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 80% 80%,auto;
-	.content {
-		overflow-y: scroll;
-		height: 70%;
-		top: 16%;
-		width: 66%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 		h2 {
 			font-family: 'klavika_bdbold_italic';
 			text-align: center;
@@ -127,19 +101,14 @@
 			 margin-top: 0;
 		}
 		img {
-<<<<<<< HEAD
 			  display: block;
 			  margin: 0 auto;
 			  max-width: 570px;
 			  width: 100%;
-=======
-			width: 100%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 		}
 	}
 }
 
-<<<<<<< HEAD
 .lightboxbutton {
 	transition: background-size .5s ease-out;
 }
@@ -164,14 +133,6 @@
 }
 
 #meetthe{
-=======
-#meetthe {
-	background: image-url("meetthe.png"),
-				rgba(0,0,0,.6);
-	background-repeat: no-repeat;
-	background-position: center 30%;
- 	background-size: 70%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	ul {
 		margin: 0 auto;
 	  	display: flex;
@@ -197,7 +158,6 @@
   		}
 	  	.face {
 	  		vertical-align: middle;
-<<<<<<< HEAD
 	  		position: relative;
 			right: 1.5em;
 	  		width: 35%;
@@ -206,14 +166,6 @@
 	  		display: inline-block;
 	  		vertical-align: middle;
 	  		width: 52%;
-=======
-	  		width: 25%;
-	  	}
-	  	.content {
-	  		width: 30%;
-	  		display: inline-block;
-	  		vertical-align: middle;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	  		.des {
 	  			font-family: "klavika_bdbold_italic";
 	  			color: white;
@@ -226,29 +178,7 @@
 	  		}
 	  	}
 	}
-<<<<<<< HEAD
 	
-=======
-	#prev {
-		cursor: pointer;
-		display: none;
-		transform: rotate(-90deg);
-		position: fixed;
-		left: 1%;
-		height: 60px;
-		width: 60px;
-		top: 40%;
-	}
-	#next {
-		cursor: pointer;
-		right: 1%;
-		height: 60px;
-		width: 60px;
-		transform: rotate(90deg);
-		position: fixed;
-		top: 40%;
-	}
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	.diamantes {
 		margin: 0 auto;
 		position: relative;
@@ -256,12 +186,9 @@
 		display: none;
 
 	}
-<<<<<<< HEAD
 	.lightboxbutton {
 		height: 71px;
 	}
-=======
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 }
 
 .containerLight {
@@ -272,21 +199,13 @@
 .closelightbox {
 	cursor: pointer;
 	position: fixed;
-<<<<<<< HEAD
   	right: 20%;
  	top: 60px;
-=======
-  	right: 9%;
-  	top: 90px;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
   	width: 60px;
   	z-index: 1001;
 }
 
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
 #videoLightBox {
 	iframe {
 		margin: 0 auto;
@@ -317,16 +236,6 @@
 }
 
 
->>>>>>> Backend
-=======
-@media screen and (orientation: portrait) and (min-width: 815px)  {
-	#meetthe {
-		ul {
-		}
-	}
-}
-
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 @media screen and (orientation: landscape) {
 	#meetthe {
 		.diamantes {
@@ -340,19 +249,10 @@
 	}
 	#meetthe {
 		ul {	
-<<<<<<< HEAD
 			.contentTeam {
 					width: 70%;	
 			}
 			
-=======
-			.content {
-				width: 40%;
-				img {
-					width: 70%;
-				}
-			}
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 		}
 	}
 	.face {
@@ -367,22 +267,15 @@
 		  top: 40px;
 	}
 	#meetthe {
-<<<<<<< HEAD
 		ul {
 			.contentTeam {
 					width: 90%;	
 			}
-=======
-		ul li {
-			overflow-y: scroll;
-  			height: 65%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 		}
 	}
 }
 
 //  ***********
-<<<<<<< HEAD
 @media screen and (max-width: 415px) and (orientation: portrait) {
 	.lightbox {
 		  top: 1em;
@@ -390,9 +283,6 @@
 		  	  padding: 2.5em 0.5em;
 		  }
 	}
-=======
-@media screen and (max-width: 376px) and (orientation: portrait) {
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	#meetthe {
 		ul{
 			top: 24%;
@@ -400,7 +290,6 @@
 				width: 25%;
   				height: 35%;
 			}
-<<<<<<< HEAD
 			.contentTeam {
 					width: 70%;	
 			}
@@ -439,12 +328,6 @@
 		}
 
 }
-=======
-		} 
-	}
-}
-
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 @media screen and (max-width: 637px) and (orientation: landscape) {
 	#meetthe {
 		.diamantes {
@@ -456,14 +339,3 @@
 	}
 }
 
-<<<<<<< HEAD
-=======
-@media screen and (min-width: 1025px) and (orientation: landscape) {
-	#meetthe {
-		background-size: 63%;
-		ul {
-			top: 10%;
-		}
-	}
-}
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304

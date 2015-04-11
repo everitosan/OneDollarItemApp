@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import 'mixings';
 
 #about {
@@ -57,41 +56,6 @@
       @include animateElement;
     }
   }
-=======
-#about {
-	background: image-url("aboutbg.png");
-	background-position: center top;
-	background-size: 100%;
-	background-repeat:no-repeat;
-
-	overflow: hidden;
-	margin: 0 auto;
-	position: relative;
-	.text {
-  		padding-left: 31%;
-  		width: 65%;
-  		h2 {
-  			font-family: "geared_slabextrabold";
-  			font-weight: 100;
-  			font-style: italic;
-  			margin-bottom: 0;
-  		}
-  		h3 {
-  			font-family: "klavika_bdbold_italic";
-  			font-weight: 100;
-  			margin: 0;
-  			text-align: right;
-  		}
-  		p {
-  			font-family: "klavika_regularregular";
-        color : #969e9c;
-  		}
-      .lightboxbutton {
-        cursor: pointer;
-        width: 100%;
-      }
-	}
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 }
 
 @media screen and (max-width: 1150px) {
@@ -115,11 +79,6 @@
     .text {
       .lightboxbutton {
         display: block;
-<<<<<<< HEAD
-=======
-        width: 80%;
-        margin: 0 auto;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
       }
     }
   }

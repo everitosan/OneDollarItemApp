@@ -1,5 +1,4 @@
 #app {
-<<<<<<< HEAD
 	//overflow-x: hidden;
 	//overflow-y: scroll;
 	padding-top: 3em;
@@ -13,18 +12,10 @@
 		width:18%;
 	} 
 
-=======
-	overflow-x: hidden;
-	overflow-y: scroll;
-	padding-top: 3em;
-	position: relative;
-	width: 100%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	#deck {
 		background: image-url("deckClean.png");
 		background-size: 100%;
 		background-position: top;
-<<<<<<< HEAD
 		position: relative;
 		z-index: 0;
 		margin: 0 auto;
@@ -40,13 +31,6 @@
 	div.loaded {
 		opacity: 1;
 		top: 3em;
-=======
-		position: absolute;
-		top: 3em;
-		z-index: 0;
-		left: 0;
-		width: 100%;
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	}
 
 	section {
@@ -57,12 +41,9 @@
 	}
 }
 
-<<<<<<< HEAD
 .click {
 	cursor: pointer;
 }
-=======
->>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 
 @media screen and (max-width:815px)
 {
