@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'mixings';
 
 #counter {
@@ -12,6 +13,16 @@
 		position: absolute; 
 		top:0;
 	}
+=======
+#counter {
+	background: image-url("counterbg.png");
+	background-position: center top;
+	background-size: 100%;
+	background-repeat:no-repeat;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 }
 
 #initshare {
@@ -29,20 +40,31 @@
 	top: 2.5em;
 	text-align: center;
 	width: 100%;
+<<<<<<< HEAD
 	height: 38%;
 
 	.numberdays {
 		height: 100%;
 		width: 100%;
+=======
+
+	#numberdays {
+		width: 25%;
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 	}
 
 	#daysLeft {
 		position: relative;
+<<<<<<< HEAD
 		bottom: 4em;
+=======
+		bottom: 1em;
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 		width: 30%;
 	}
 }
 
+<<<<<<< HEAD
 #day9{
 	@include back("9.png");
 	background-position: center -35px;
@@ -87,9 +109,15 @@
 	}
 }
 
+=======
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 @media screen and (max-width: 480px) {
 	#countdown {
 		  top: 1em;
 	}
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304

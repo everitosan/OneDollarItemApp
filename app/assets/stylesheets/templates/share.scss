@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'mixings';
 
 #share {
@@ -8,12 +9,19 @@
 		width: 100%;
 		height: 100%;
 	}
+=======
+#share {
+	background: image-url("sharebg.png");
+	background-position: center top;
+	background-size: 100%;
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 }
 
 @media screen and (max-width: 550px) {
 	#share {
 		display: none;
 	}
+<<<<<<< HEAD
 }
 
 @media screen and (min-width: 1151px) and (orientation: landscape) {
@@ -28,4 +36,6 @@
     		@include animateElementBg("sharebgOff2.png");
     	}
 	}
+=======
+>>>>>>> a66b6dab75ebaccd61f47203d95647540a9d4304
 }
