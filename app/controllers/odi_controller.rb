@@ -3,6 +3,8 @@ class OdiController < ApplicationController
   #before_action :time
 	before_action :languageConf
 
+  caches_page :preview, :results
+
   def preview
     date = Time.new
     @daysLeft = 16 - date.day

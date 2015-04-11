@@ -33,6 +33,8 @@ gem 'angular-rails-templates'
 gem "autoprefixer-rails"
 ##Figaro for env variables
 gem "figaro"
+## cache page gem
+gem 'actionpack-page_caching'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
