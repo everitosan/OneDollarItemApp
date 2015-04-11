@@ -1,9 +1,11 @@
 @import 'mixings';
 
 #share {
-	background: image-url("sharebg.png");
-	background-position: center top;
-	background-size: 100%;
+	.fondo {
+		background: image-url("sharebg.png");
+		background-position: center top;
+		background-size: 100%;
+	}
 }
 
 @media screen and (max-width: 550px) {
@@ -14,7 +16,9 @@
 
 @media screen and (min-width: 1151px) and (orientation: landscape) {
 	#share {
-    	@include animateElementBg("sharebgOff.png");
+		.fondo {
+    		@include animateElementBg("sharebgOff.png");	
+		}
     	.ornamental {
     		@include animateElementBg("sharebgOff1.png");
     	}

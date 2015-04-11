@@ -1,8 +1,10 @@
 @import 'mixings';
 
 #team {
-  @include back("venadosbg.png");
   transition: all linear 1s;
+	.fondo {
+		@include back("venadosbg.png");
+		}
 	#gallerybutton {
 		position: absolute;
 		bottom: 30%;
@@ -72,7 +74,9 @@
 }
 @media screen and (min-width: 1151px) and (orientation: landscape) {
  #team {
-    @include animateElementBg("venadosbgOff.png");
+ 	.fondo {
+    	@include animateElementBg("venadosbgOff.png");
+ 	}
     .ornamental {
       @include animateElementBg("venadosbgOff1.png");
     }

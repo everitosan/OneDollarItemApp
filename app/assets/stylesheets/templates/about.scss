@@ -1,11 +1,13 @@
 @import 'mixings';
 
 #about {
-  @include back("aboutbg.png");
   transition: all linear 1s;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  .fondo {
+    @include back("aboutbg.png");
+  }
   .text {
       position: relative;
       z-index: 2;
@@ -38,7 +40,9 @@
 
 @media screen and (min-width: 1151px) and (orientation: landscape) {
   #about {
-    @include animateElementBg("aboutbgOff.png");
+    .fondo {
+      @include animateElementBg("aboutbgOff.png");
+    }
     .title {
       @include animateElementBg("aboutbgOff1.png");
     }

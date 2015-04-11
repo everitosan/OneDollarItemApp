@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('odiApp.directives',['templates'])
-    .directive('apMenuDirective', function MenuDirective (){
+    .directive('apMenuDirective', [function MenuDirective (){
       
 
       function showMobileMenu() {
@@ -52,8 +52,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apCounterDirective', function counterDirective (){
+    }])
+    .directive('apCounterDirective', [function counterDirective (){
       function ressize() {
         porcentajeEscala('#counter', 1);
       }
@@ -73,8 +73,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apAboutDirective', function AboutDirective() {
+    }])
+    .directive('apAboutDirective', [function AboutDirective() {
       var porcentual = 1.235;
       var porcentualPaddingText = 0.658;
 
@@ -124,10 +124,10 @@
         ressize();
         var $elem=element;
 
-        $animatedElements.push({element: $elem, EA:'#about', top:500});
+        $animatedElements.push({element: $elem, EA:'#about .title', top:500});
         $animatedElements.push({element: $elem, EA:'#about .eye', top:600});
-        $animatedElements.push({element: $elem, EA:'#about .kid', top:700});
-        $animatedElements.push({element: $elem, EA:'#about .title', top:850});
+        $animatedElements.push({element: $elem, EA:'#about .fondo', top:700});
+        $animatedElements.push({element: $elem, EA:'#about .kid', top:800});
         $animatedElements.push({element: $elem, EA:'#about .text', top:950});
       }
 
@@ -154,8 +154,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apTeamDirective', function TeamDirective() {
+    }])
+    .directive('apTeamDirective', [function TeamDirective() {
       var porcentual = 1.268;
       var porcentualPaddingText = 0.839;
       function ressize() {
@@ -181,9 +181,9 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem =  $(element);
-        $animatedElements.push({element: $elem, EA:'#team', top: 1200});
-        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1500});
-        $animatedElements.push({element: $elem, EA:'#team .title', top: 1700});
+        $animatedElements.push({element: $elem, EA:'#team .title', top: 1400});
+        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 1500});
+        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1700});
         $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1720});
         $animatedElements.push({element: $elem, EA:'#team .kid', top: 1750});
         $animatedElements.push({element: $elem, EA:'#team .text', top:1850});
@@ -212,8 +212,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apShareDirective', function ShareDirective() {
+    }])
+    .directive('apShareDirective', [function ShareDirective() {
       var porcentual = 0.8748;
 
       function ressize() {
@@ -225,9 +225,9 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem = $(element);
-        $animatedElements.push({element: $elem, EA:'#share', top: 1800});
-        $animatedElements.push({element: $elem, EA:'#share .ornamental', top: 2000});
-        $animatedElements.push({element: $elem, EA:'#share .support', top: 2100});
+        $animatedElements.push({element: $elem, EA:'#share .support', top: 2300});
+        $animatedElements.push({element: $elem, EA:'#share .ornamental', top: 2400});
+        $animatedElements.push({element: $elem, EA:'#share .fondo', top: 2500});
       }
 
       var definitionObject = {
@@ -238,8 +238,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apContactDirective', function ContactDirective() {
+    }])
+    .directive('apContactDirective', [function ContactDirective() {
     
       function ressize() {
         if(window.innerWidth<820) {
@@ -264,8 +264,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apLoaderDirective', function LoaderDirective() {
+    }])
+    .directive('apLoaderDirective', [function LoaderDirective() {
 
       var definitionObject = {
         restrict: 'E',
@@ -274,8 +274,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apLightboxDirective', function LightboxDirective() {
+    }])
+    .directive('apLightboxDirective', [function LightboxDirective() {
       function hidelight(event) {
         $('.lightboxbutton').css('z-index', 6);
         $('#menu').css('z-index','100');
@@ -360,7 +360,7 @@
       };
 
       return definitionObject;
-    });
+    }]);
 
   var Mytop = 0;
   var scrollTap = false;
