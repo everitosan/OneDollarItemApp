@@ -1,19 +1,36 @@
 #app {
-	overflow-x: hidden;
-	overflow-y: scroll;
+	//overflow-x: hidden;
+	//overflow-y: scroll;
 	padding-top: 3em;
 	position: relative;
 	width: 100%;
+
+	img.center{
+		width: 30%;
+	}
+	#logoonedollar {
+		width:18%;
+	} 
+
 	#deck {
 		background: image-url("deckClean.png");
 		background-size: 100%;
 		background-position: top;
-		position: absolute;
-		top: 3em;
+		position: relative;
 		z-index: 0;
+		margin: 0 auto;
 		left: 0;
 		width: 100%;
 		max-width: 1200px;
+		transition: ease-out 5s opacity, ease-in 3s top;
+	}
+	div.unloaded {
+		top: 1500px;
+		opacity: 0;
+	}
+	div.loaded {
+		opacity: 1;
+		top: 3em;
 	}
 
 	section {

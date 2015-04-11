@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	background: image-url("Backgroundgray.jpg");
-	background-size: 100%;
-	background-position: center 0px;
-	background-repeat: no-repeat;
+	background: image-url("patternBg.jpg");
+	background-size:  100%;
+	background-position:  center 0px;
+	background-repeat:  repeat;
 	color:white;
 	width: 100%;
 }
@@ -14,9 +14,18 @@ body {
 h1 {
 	margin: 0;
 }
+a, a:visited, a:active {
+	border:none;
+	color: inherit;
+}
 .relativeContent {
 	position: relative;
-	top: 19.5em;
+	top: 100px;
+}
+
+.center{
+	margin: 0 auto;
+	display: block;
 }
 
 .hidden {

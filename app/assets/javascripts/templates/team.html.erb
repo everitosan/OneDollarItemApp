@@ -1,14 +1,66 @@
 <section id="team">
+	
+	<div class="fondo"></div>
+	<div class="ornamental"></div>
+	<div class="title"></div>
+	<div class="kid"></div>
+
 	<div id="gallerybutton">
-		<div>
-			<%= image_tag 'videoButton.png' %>
-		</div>
-		<div>
-			<%= image_tag 'photoButton.png' %>
-		</div>
+		
+			<ap-lightbox-directive but="video">
+				<div id ="videoLightBox" class="content">	
+					<iframe src="https://player.vimeo.com/video/124045121" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</ap-lightbox-directive>
+	
+			<ap-lightbox-directive but="photo">
+				<div id ="photoLightBox" class="content">			
+					<ul>
+						<li class="activeTeam"> <%= image_tag 'photos/_DSC1912.jpg' %></li>
+						<!--
+						<li> <%= image_tag "photos/_DSC1915.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0189.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0226.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0339.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0362.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0389.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0393.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0493.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0497.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0520.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0548.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0558.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0563.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0567.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0584.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0614.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0622.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0635.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0644.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0657.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_0662.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_1915.jpg" %> </li>
+						<li> <%= image_tag "photos/_MG_1926.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_0901.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4036.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4115.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4127.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4150.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4174.jpg" %> </li>
+						<li> <%= image_tag "photos/IMG_4196.jpg" %> </li>
+						<li> <%= image_tag "photos/P1050379.jpg" %> </li>
+						-->
+					</ul>
+
+					<%= image_tag 'botonregresar.png', :class => 'prev' %>
+					<%= image_tag 'botonregresar.png', :class => 'next' %>
+				</div>
+			</ap-lightbox-directive>
+		
 	</div>
 	
 	<div class="text">
+		
 		<p>
 			<span>
 				{{par1}}
@@ -19,7 +71,7 @@
 			{{par3}}
 		</p>
 
-		<ap-lightbox-directive but="met-the-kids.png">
+		<ap-lightbox-directive but="metthekids">
 			<div  id="meetthe" class="content">
 				<ul>
 					<li id="irving" class="activeTeam">
@@ -83,8 +135,8 @@
 
 				<%= image_tag 'diamantes.png', :class => 'diamantes' %>
 
-				<%= image_tag 'botonregresar.png', :id => 'prev' %>
-				<%= image_tag 'botonregresar.png', :id => 'next' %>
+				<%= image_tag 'botonregresar.png', :class => 'prev' %>
+				<%= image_tag 'botonregresar.png', :class => 'next' %>
 
 			</div>
 		</ap-lightbox-directive>

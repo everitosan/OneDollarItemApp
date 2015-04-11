@@ -1,24 +1,41 @@
+@import 'mixings';
+
 #team {
-	background: image-url("venadosbg.png");
-	background-position: center top;
-	background-size: 100%;
-	background-repeat:no-repeat;
+  transition: all linear 1s;
+	.fondo {
+		@include back("venadosbg.png");
+		}
 	#gallerybutton {
 		position: absolute;
 		bottom: 30%;
+		height: 130px;
 		width: 40%;
 		font-size: 0;
-		div {
+		& > div {
 			display: inline-block;
 			vertical-align: top;
 			width: 40%;
+			height: 100%;
 			margin: 4%;
 		}
-		img {
+		.lightbox {
+			max-width: none;
+		}
+		
+		.lightboxbutton {
+ 			position: relative;
+			cursor: pointer;
 			width: 100%;
+			z-index: 3;
+			height: 100%;
+		}
+		.containerLightBox {
+			font-size: 16px;
 		}
 	}
 	.text {
+		position: relative;
+		z-index: 2;
 		width: 60%;
 		p{
 			font-family: "klavika_regularregular";
@@ -29,24 +46,55 @@
   				font-weight: 100;
 			}
 		}
+		h2{
+				font-family: "geared_slabextrabold";
+				font-weight: 100;
+				font-style: italic;
+				margin-bottom: 0;
+			}
+		.author {
+			font-family: "klavika_bdbold_italic";
+	        float: right;
+	        font-weight: 100;
+	        margin: 0;
+		}
+		.adorno {
+			width: 100%;
+			}
 		.lightboxbutton {
 			cursor: pointer;
+			margin: 0 auto;
+		}
+	}
+	#photoLightBox {
+		ul li img {
 			width: 100%;
 		}
 	}
 }
-
-@media screen and  (min-width: 1151px) and (max-width: 1260px) {
-	#team{
-		.text{
-			.lightboxbutton {
-				width: 80%;
-				display: block;
-				margin: 0 auto;
-			}
-		}
-	}
+@media screen and (min-width: 1151px) and (orientation: landscape) {
+ #team {
+ 	.fondo {
+    	@include animateElementBg("venadosbgOff.png");
+ 	}
+    .ornamental {
+      @include animateElementBg("venadosbgOff1.png");
+    }
+    .title {
+      @include animateElementBg("venadosbgOff2.png");
+    }
+    .kid {
+      @include animateElementBg("venadosbgOff3.png");
+    }
+  	.text{
+      @include animateElement;
+    }
+    #gallerybutton {
+      @include animateElement;
+    }
+  }
 }
+
 @media screen and (max-width: 1150px) {
 
   #team {
@@ -58,10 +106,13 @@
 		position: absolute;
 		bottom: 32%;
 		width: 100%;
-		img {
+		.lightboxbutton {
 			width: 40%;
 		}
-		div {
+		#photo{
+			float: right;
+		}
+		& > div {
 			width: 50%;
 			margin: 0;
 			&:last-child {

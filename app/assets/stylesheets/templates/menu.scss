@@ -1,11 +1,10 @@
 #menu {
 		text-align: center;
 		position: fixed;
-		top:0;
 		left: 0;
 		width: 100%;
-		transition: ease-in all .5s;
 		z-index:100;
+		transition: ease-out 5s opacity, ease-in 3s top;
 	ul {
 		display: inline-block;
 		vertical-align: top;
@@ -31,6 +30,7 @@
 			}
 		}
 		.link {
+			cursor: pointer;
 			margin-top: 1em;
 			padding: .1em .3em 0 .3em;
 			transform: skewX(-10deg);
@@ -38,6 +38,13 @@
 
 		}
 	}
+}
+
+nav.unloaded {
+	top: -100%;
+}
+nav.loaded {
+	top:0;
 }
 
 .deactive {

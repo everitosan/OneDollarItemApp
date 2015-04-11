@@ -30,6 +30,8 @@ GEM
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    actionpack-page_caching (1.0.2)
+      actionpack (>= 4.0.0, < 5)
     actionview (4.2.0)
       activesupport (= 4.2.0)
       builder (~> 3.1)
@@ -77,6 +79,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.4.0)
+    figaro (1.1.0)
+      thor (~> 0.14)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.3)
@@ -116,6 +120,7 @@ GEM
       rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-zippy (2.0.2)
     rails (4.2.0)
       actionmailer (= 4.2.0)
       actionpack (= 4.2.0)
@@ -221,13 +226,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-page_caching
   angular-rails-templates
   autoprefixer-rails
   byebug
+  figaro
   half-pipe!
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  rack-zippy
   rails (= 4.2.0)
   rails_12factor
   rails_admin

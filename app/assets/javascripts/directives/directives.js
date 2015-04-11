@@ -1,95 +1,34 @@
 (function(){
   'use strict';
-  var Mytop = 0;
-
-  var minMobile = 815;
-  var minMinMobile = 374;
-
-  var scrollTap = false;
-
-  function porcentajeEscala (elem, porcentual, attr) {
-    var anchoElemento = parseInt( $(elem).css('width') );
-    var factor =  anchoElemento * porcentual;
-
-    $(elem).css(attr||'height', factor);
-  }
-
   angular
     .module('odiApp.directives',['templates'])
-    .directive('apMenuDirective', function MenuDirective (){
-      function scrollUp() {
+    .directive('apMenuDirective', [function MenuDirective (){
+      
 
-        if( $('#app').scrollTop() > Mytop && !scrollTap){
-          Mytop = $('#app').scrollTop();
-        }
-        else {
-          Mytop = 0;
-          $('body').scrollTop(Mytop);
-        }
+      function showMobileMenu() {
+        $('#menu').toggleClass('menuactive');
       }
 
-          function showMobileMenu() {
-            $('#menu').toggleClass('menuactive');
-          }
-
-      function MyScroll(event) {
-        var Scroll = (-1) * ($('#deck').position().top) ;
-
-        var inicioAnimacion = 200;
-        var ancho_final = 1;
-        var rango_animacion = 20;
-        var ancho;
-
-        if (Scroll <= inicioAnimacion) {
-          ancho = 0;
-        }
-        else if(Scroll >= inicioAnimacion && Scroll <= (inicioAnimacion + rango_animacion) ) {
-          ancho = (Scroll - inicioAnimacion) / rango_animacion * ancho_final ;
-        }
-        else if ( Scroll > (inicioAnimacion + rango_animacion) ) {
-          ancho = ancho_final;
-        }
-
-        event.data.logo.css('opacity', ancho);
-
-        scrollUp();
-      }   
-
-        function toggleActive(anchor) {
-          $('#menu-links a').removeClass('active');
-          $(anchor).addClass('active');
-        }
+      function toggleActive(anchor) {
+        $('#menu-links a').removeClass('active');
+        $(anchor).addClass('active');
+      }
 
       function animateScroll(event) {
-        
         event.preventDefault();
         scrollTap = true;
         var toHref = $(this).attr('href');
         var scrollInt; 
 
-        if (toHref === '#sponsors') {
-          scrollInt = parseInt($('#deck').css('height'));
-          $('#app').animate({
-            scrollTop: scrollInt
-          }, 500, function(){
-            scrollInt = $(toHref).position().top ;
-            $('body').scrollTop(scrollInt);
-          });
+        
 
+        scrollInt = $(toHref).offset().top;
+       
+        $('body, html').animate({
+          scrollTop: scrollInt
+        }, 1500, function() {scrollTap = false;});
           
-        }
-        else{
-
-          scrollInt = $(toHref).position().top + parseInt( $('.relativeContent').css('top') );
-          $('body, html').animate({
-            scrollTop: 0
-          }, 1500);
-
-          $('#app').animate({
-            scrollTop: scrollInt
-          }, 1500, function() {scrollTap = false;});
-          
-        }
+        
 
         toggleActive(this);
         $('#menu').toggleClass('menuactive');
@@ -97,11 +36,11 @@
        
       } 
 
-      function link (scope, elem) {
-        var $logo = $(elem).find('#logo');
-        $('#app').on('scroll', {logo: $logo}, MyScroll);
+      function link (scope, element) {
+        var $elem = $(element);
+        $animatedElements.push({element: $elem, EA:'#logo', top:200});
         $('#menumobile').on('click', showMobileMenu);
-        $('#menu-links a').on('click', animateScroll);
+        $('#menu-links a').not('.contact').on('click', animateScroll);
       }
 
       var definitionObject = {
@@ -113,13 +52,14 @@
       };
 
       return definitionObject;
-    })
-    .directive('apCounterDirective', function counterDirective (){
+    }])
+    .directive('apCounterDirective', [function counterDirective (){
       function ressize() {
         porcentajeEscala('#counter', 1);
       }
 
-      function link () {
+      function link (scope, element) {
+        var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
       }
@@ -133,8 +73,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apAboutDirective', function AboutDirective() {
+    }])
+    .directive('apAboutDirective', [function AboutDirective() {
       var porcentual = 1.235;
       var porcentualPaddingText = 0.658;
 
@@ -145,20 +85,20 @@
       function ressize() {
         
         //#FIX mover al controlador
-        $('#app').css('height', window.innerHeight ); 
+        //$('#app').css('height', window.innerHeight ); 
 
-        $('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
+        //$('#deck').css('left',  (window.innerWidth - parseInt($('#deck').css('width')) )/2 );
         
         if(window.innerWidth <= minMobile && window.innerWidth >= minMinMobile ) {
-          porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
           porcentajeEscala('#deck', 4.421);
         }
         else if(window.innerWidth <= minMinMobile) {
-          porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelativemobile, 'top');
           porcentajeEscala('#deck', 4.890);
         }
         else {
-          porcentajeEscala('.relativeContent', porcentualrelative, 'top');
+          //porcentajeEscala('.relativeContent', porcentualrelative, 'top');
           porcentajeEscala('#deck', 3.06);
         }
         //#FIX mover al controlador
@@ -171,7 +111,7 @@
         }
 
         if (parseInt($('#about').css('width') ) >= 633){
-          porcentajeEscala('#about .text', 1, 'padding-top');
+          porcentajeEscala('#about .text', 1.045, 'padding-top');
         }
         else {
           porcentajeEscala('#about .text', porcentualPaddingText, 'padding-top');
@@ -179,15 +119,21 @@
 
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem=element;
+
+        $animatedElements.push({element: $elem, EA:'#about .title', top:500});
+        $animatedElements.push({element: $elem, EA:'#about .eye', top:600});
+        $animatedElements.push({element: $elem, EA:'#about .fondo', top:700});
+        $animatedElements.push({element: $elem, EA:'#about .kid', top:800});
+        $animatedElements.push({element: $elem, EA:'#about .text', top:950});
       }
 
       var definitionObject = {
         restrict: 'E',
         scope: { title: '@',
-             title2: '@',
              par1: '@',
              par2: '@',
              howq1: '@',
@@ -208,8 +154,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apTeamDirective', function TeamDirective() {
+    }])
+    .directive('apTeamDirective', [function TeamDirective() {
       var porcentual = 1.268;
       var porcentualPaddingText = 0.839;
       function ressize() {
@@ -231,14 +177,23 @@
         } 
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem =  $(element);
+        $animatedElements.push({element: $elem, EA:'#team .title', top: 1400});
+        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 1500});
+        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1700});
+        $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1720});
+        $animatedElements.push({element: $elem, EA:'#team .kid', top: 1750});
+        $animatedElements.push({element: $elem, EA:'#team .text', top:1850});
+
       }
 
       var definitionObject = {
         restrict: 'E',
-        scope: { par1:'@',
+        scope: {
+             par1:'@',
              par2:'@',
              par3:'@', 
              irvingdes:'@', 
@@ -257,8 +212,8 @@
       };
 
       return definitionObject;
-    })
-    .directive('apShareDirective', function ShareDirective() {
+    }])
+    .directive('apShareDirective', [function ShareDirective() {
       var porcentual = 0.8748;
 
       function ressize() {
@@ -266,9 +221,13 @@
         $('#share').css('height', factor);
       }
 
-      function link () {
+      function link (scope, element) {
         $(window).on('resize', ressize);
         ressize();
+        var $elem = $(element);
+        $animatedElements.push({element: $elem, EA:'#share .support', top: 2300});
+        $animatedElements.push({element: $elem, EA:'#share .ornamental', top: 2400});
+        $animatedElements.push({element: $elem, EA:'#share .fondo', top: 2500});
       }
 
       var definitionObject = {
@@ -279,18 +238,68 @@
       };
 
       return definitionObject;
-    })
-    .directive('apLightboxDirective', function LightboxDirective() {
+    }])
+    .directive('apContactDirective', [function ContactDirective() {
+    
+      function ressize() {
+        if(window.innerWidth<820) {
+          porcentajeEscala("#formu",0.45,'padding-top');
+        }
+        else
+        {
+          porcentajeEscala("#formu",0.29,'padding-top');
+        }
+      }
+
+      function link(scope, element) {
+      $(window).on('resize', ressize);
+      
+      }
+
+      var definitionObject = {
+        restrict: 'E',
+        replace:true,
+        templateUrl:'contact.html',
+        link: link
+      };
+
+      return definitionObject;
+    }])
+    .directive('apLoaderDirective', [function LoaderDirective() {
+
+      var definitionObject = {
+        restrict: 'E',
+        replace:true,
+        templateUrl:'loader.html'
+      };
+
+      return definitionObject;
+    }])
+    .directive('apLightboxDirective', [function LightboxDirective() {
       function hidelight(event) {
+        $('.lightboxbutton').css('z-index', 6);
         $('#menu').css('z-index','100');
         $( event.data.element.find('.containerLightBox') ).fadeOut();
         $( event.data.element.find('.closelightbox') ).fadeOut();
+        lightBoxActive = false;
       }
 
       function showlight(event) {
+        var $padre = $( event.data.element.find('ul'));
+        var $hijos = $padre.children();
+
+        $('.lightboxbutton').css('z-index', 0);
         $('#menu').css('z-index','0');
         $( event.data.element.find('.containerLightBox') ).fadeIn();
         $( event.data.element.find('.closelightbox') ).fadeIn();
+
+        lightBoxActive = true;
+
+        console.log('padre width: '+parseInt($padre.css('width')) );
+        if($padre.css('width') < window.innerWidth) {
+          $hijos.css('width', $padre.css('width'));
+          $padre.css( 'width', parseInt($padre.css('width'))*$hijos.length);
+        }
       }
 
 
@@ -303,40 +312,39 @@
         $ul.css('right', (parseInt($ul.css('right')) + parseInt($active.css('width')) ) );
  
         
-        $( event.data.element.find('#prev')).fadeIn();
+        $( event.data.element.find('.prev')).fadeIn();
         
         if($active.next().next().length===0)
         {
-          $( event.data.element.find('#next')).fadeOut();
+          $( event.data.element.find('.next')).fadeOut();
         }
       }
 
       function prevKid(event) {
         var $ul = $(event.data.element.find('ul'));
         var $active = $($ul.find('.activeTeam'));
+         console.log($active);
 
         $active.prev().addClass('activeTeam');
         $active.removeClass('activeTeam');
         $ul.css('right', (parseInt($ul.css('right')) - parseInt($active.css('width')) ) );
 
-        $( event.data.element.find('#next')).fadeIn();
+        $( event.data.element.find('.next')).fadeIn();
         
         if($active.prev().prev().length === 0)
         {
-          $( event.data.element.find('#prev')).fadeOut();
+          $( event.data.element.find('.prev')).fadeOut();
         }
 
       }
-
-   
-
       function link(scope, element) {
         var $elem = $(element);
         $( $elem.find('.lightboxbutton')).on('click',{element: $elem }, showlight);
         $( $elem.find('.closelightbox')).on('click',{element: $elem }, hidelight);
 
-        $($elem.find('#next')).on('click', {element: $elem}, nextKid);
-        $($elem.find('#prev')).on('click', {element: $elem}, prevKid);
+        $($elem.find('.next')).on('click', {element: $elem}, nextKid);
+        $($elem.find('.prev')).on('click', {element: $elem}, prevKid);
+
 
 
       }     
@@ -352,6 +360,75 @@
       };
 
       return definitionObject;
-    })
-    ;
+    }]);
+
+  var Mytop = 0;
+  var scrollTap = false;
+  var lightBoxActive = false;
+
+  var minMobile = 815;
+  var minMinMobile = 374;
+
+ //***// Loader
+  $(window).load(function() {
+           
+           $('#deck').removeClass('unloaded').addClass('loaded');
+           $('#menu').removeClass('unloaded').addClass('loaded');
+
+          
+           setTimeout(function(){  $('#loader').fadeOut(); }, 2000);
+
+           setTimeout(function(){$('#counter').css('opacity', 1);}, 3000);
+           setTimeout(function(){$('#counter .ornamental').css('opacity', 1);}, 3300);
+           setTimeout(function(){$('#counter .whiteroll').css('opacity', 1);}, 3450);
+           setTimeout(function(){$('#counter .itemsGreen').css('opacity', 1);}, 3800);
+
+
+          });
+//***// Loader
+
+  $(window).on('scroll', MyScrollAnimate);
+  var $animatedElements = [];
+
+  function porcentajeEscala (elem, porcentual, attr) {
+    var anchoElemento = parseInt( $(elem).css('width') );
+    var factor =  anchoElemento * porcentual;
+
+    $(elem).css(attr||'height', factor);
+  }
+
+  function animate(flag, elem) {
+
+      elem.css('opacity', flag);
+ 
+  }
+
+  function MyScrollAnimate(event) {
+    if (!lightBoxActive && window.innerWidth > 1150) {
+      var Scroll = $(document).scrollTop();
+      angular.forEach($animatedElements, function(value){
+
+        var $domElement = $(value.EA);
+
+        if (this >= value.top && $domElement.css('opacity') === "0") {
+          animate(1, $domElement);
+          }
+        else if (this < value.top && $domElement.css('opacity') === "1"){
+          animate(0, $domElement);
+        }  
+        
+      }, Scroll);
+    }
+  }
+
+  function scrollUp() {
+
+        if( $('#app').scrollTop() > Mytop && !scrollTap){
+          Mytop = $('#app').scrollTop();
+        }
+        else {
+          Mytop = 0;
+          $('body').scrollTop(Mytop);
+        }
+      }
 })();

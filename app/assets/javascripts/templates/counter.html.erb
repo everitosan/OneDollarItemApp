@@ -1,7 +1,14 @@
 <section id="counter">
+
+	<div class="ornamental"></div>
 	
+	<%= image_tag 'circulo-conteo.gif', :class => 'whiteroll' %>
+
+	<div class="itemsGreen"></div>
+
 	<div id="countdown">
-		<%= image_tag '{{days}}.png', :id => 'numberdays' %>
+		<div id="day{{days}}" class="numberdays" data-day="{{days}}" ></div>
+		
 		<br>
 		<%= image_tag 'daysLeft.png', :id => 'daysLeft' %>
 	</div>

@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: db77m061rpa1n
-  username: 'enbwtjkeulbklv'
-  password: <%= ENV['GjO1gblVqFF0iI7dlT1c5BlLAm'] %>
+  database: ENV['POSTGRESQL_DATABASE']
+  username: ENV['POSTGRESQL_USER']
+  password: ENV['POSTGRESQL_PASSWORD']

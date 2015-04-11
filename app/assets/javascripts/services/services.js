@@ -28,5 +28,23 @@
         		postD: postD
         	}
 
-        }]);
+        }])
+        .factory('emailSrv',['$http', '$q', function emailSrv($http, $q) {
+            function post (dataPost){
+                var deferred = $q.defer();
+                $http.post('/mailer/contact', dataPost)
+                    .success(function (data){
+                        deferred.resolve(data);
+                    })
+                    .error(function(data) {
+                        deferred.reject(data);
+                    });
+
+                return deferred.promise;
+            }
+
+            return {
+                post: post
+            }
+        }] );
 })();

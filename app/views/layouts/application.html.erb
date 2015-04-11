@@ -12,15 +12,23 @@
 	<ap-menu-directive>
 	</ap-menu-directive>
 
-	<div id="app" >
-		<div id="deck" >
-			<div class="relativeContent">
+	<ap-loader-directive>
+	</ap-loader-directive>
 
+	<div id="app" >
+		<div id="deck" class="unloaded" >
+			<div class="relativeContent">
+			
+			<%= image_tag 'logo.png', :class => "center", :id => "logoonedollar" %>
+
+			<a target="_blank"  href="https://www.facebook.com/pages/Patrick-Switzer/112740925432954?fref=ts">
+				<%= image_tag 'button-patrick.png', :class => "center" %>
+			</a>
+			
 				<%= yield %>
 				
 				<ap-about-directive 
 					title = "<%= t ('about.title') %>" 
-					title2= "<%= t ('about.title2') %>" 
 					par1  = "<%= t ('about.p1') %>" 
 					par2  = "<%= t ('about.p2') %>"
 					howq1 = "<%= t ('howitworks.q1') %>"
@@ -81,6 +89,9 @@
 		<%= image_tag 'footerBar.png' %>
 
 	</footer>
+
+	<ap-contact-directive>
+	</ap-contact-directive>
 
   </body>
 </html>

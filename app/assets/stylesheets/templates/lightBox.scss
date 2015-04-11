@@ -1,5 +1,7 @@
+@import 'mixings';
+
 .containerLightBox {
-	background: rgba(0,0,0,.6);
+	background: rgba(0,0,0,.8);
 	background-repeat: no-repeat;
 	background-position: center;
  	display: none;
@@ -56,6 +58,29 @@
 		margin: 0 auto;
 		position: relative;
 		padding: 4em 2.5em;
+<<<<<<< HEAD
+=======
+		.prev {
+			cursor: pointer;
+			display: none;
+			transform: rotate(-90deg);
+			position: absolute;
+			left: -7%;
+			height: 60px;
+			width: 60px;
+			top: 40%;
+	  		float: right;
+		}
+		.next {
+			cursor: pointer;
+			right: -7%;
+			height: 60px;
+			width: 60px;
+			transform: rotate(90deg);
+			position: absolute;		
+			top: 40%;
+		}
+>>>>>>> Backend
 	}
 }
 
@@ -83,7 +108,30 @@
 	}
 }
 
-#meetthe {
+.lightboxbutton {
+	transition: background-size .5s ease-out;
+}
+
+#howitworks {
+	@include buttonLightBox("how-it-works-but.png");
+	  height: 71px;
+	  width: 429px;
+}
+
+#metthekids {
+	@include buttonLightBox("met-the-kids-but.png");
+	  height: 69px;
+	  width: 396px;
+}
+
+#video {
+	@include buttonLightBox("videoButton.png");
+}
+#photo {
+	@include buttonLightBox("photoButton.png");
+}
+
+#meetthe{
 	ul {
 		margin: 0 auto;
 	  	display: flex;
@@ -109,12 +157,14 @@
   		}
 	  	.face {
 	  		vertical-align: middle;
+	  		position: relative;
+			right: 1.5em;
 	  		width: 35%;
 	  	}
 	  	.contentTeam {
 	  		display: inline-block;
 	  		vertical-align: middle;
-	  		width: 63%;
+	  		width: 52%;
 	  		.des {
 	  			font-family: "klavika_bdbold_italic";
 	  			color: white;
@@ -127,31 +177,16 @@
 	  		}
 	  	}
 	}
-	#prev {
-		cursor: pointer;
-		display: none;
-		transform: rotate(-90deg);
-		position: fixed;
-		left: 1%;
-		height: 60px;
-		width: 60px;
-		top: 40%;
-	}
-	#next {
-		cursor: pointer;
-		right: 1%;
-		height: 60px;
-		width: 60px;
-		transform: rotate(90deg);
-		position: fixed;
-		top: 40%;
-	}
+	
 	.diamantes {
 		margin: 0 auto;
 		position: relative;
 		top:5%;
 		display: none;
 
+	}
+	.lightboxbutton {
+		height: 71px;
 	}
 }
 
@@ -163,13 +198,46 @@
 .closelightbox {
 	cursor: pointer;
 	position: fixed;
-  	right: 9%;
-  	top: 90px;
+  	right: 20%;
+ 	top: 60px;
   	width: 60px;
   	z-index: 1001;
 }
 
 
+<<<<<<< HEAD
+=======
+#videoLightBox {
+	iframe {
+		margin: 0 auto;
+		display: block;
+		width: 80%;
+		height: 450px;
+	}
+}
+#photoLightBox {
+	ul {
+		margin: 0;
+		display: flex;
+		padding: 0;
+	  	right: 0;
+	  	transition: ease-out all 1s;
+
+	}
+	li{
+		flex: 1;
+		list-style: none;
+	  	display: none;
+	  	transition: ease-in display 1.5s;
+	}
+	.activeTeam {
+	  		
+  			display: block;
+  	}
+}
+
+
+>>>>>>> Backend
 @media screen and (orientation: landscape) {
 	#meetthe {
 		.diamantes {
@@ -183,12 +251,10 @@
 	}
 	#meetthe {
 		ul {	
-			.content {
-				width: 40%;
-				img {
-					width: 70%;
-				}
+			.contentTeam {
+					width: 70%;	
 			}
+			
 		}
 	}
 	.face {
@@ -203,15 +269,16 @@
 		  top: 40px;
 	}
 	#meetthe {
-		ul li {
-			overflow-y: scroll;
-  			height: 65%;
+		ul {
+			.contentTeam {
+					width: 90%;	
+			}
 		}
 	}
 }
 
 //  ***********
-@media screen and (max-width: 376px) and (orientation: portrait) {
+@media screen and (max-width: 415px) and (orientation: portrait) {
 	.lightbox {
 		  top: 1em;
 		  .content {
@@ -225,10 +292,44 @@
 				width: 25%;
   				height: 35%;
 			}
+			.contentTeam {
+					width: 70%;	
+			}
 		} 
+	}
+
+	#howitworks {
+	  height: 38px;
+	  width: 230px;
+	}
+
+	#metthekids {
+		  height: 41px;
+		  width: 233px;
+	}
+
+	#videoLightBox {
+		iframe {
+			margin: 0 auto;
+			display: block;
+			width: 200px;
+			height: 112px;
+		}
 	}
 }
 
+@media screen and (max-width: 376px) and (orientation: portrait) {
+
+	#gallerybutton {
+			.content {
+				padding: 5.5em 0;
+			}
+			.lightbox {
+				top: 6em;
+			}
+		}
+
+}
 @media screen and (max-width: 637px) and (orientation: landscape) {
 	#meetthe {
 		.diamantes {
@@ -240,11 +341,3 @@
 	}
 }
 
-@media screen and (min-width: 1025px) and (orientation: landscape) {
-	#meetthe {
-		background-size: 63%;
-		ul {
-			top: 10%;
-		}
-	}
-}

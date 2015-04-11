@@ -94,16 +94,45 @@
             }
       };
 
+
       $scope.shareFacebook =function(messageNumber) {
+
+      var $pic = $('.numberdays').attr('data-day');
 
         Facebook.ui({
           method: 'feed',
-          picture: 'http://www.onedollaritem.org/images/200.png',
+          picture: 'http://www.onedollaritem.org/images/'+$pic+'.png',
           link: 'http://onedollaritem.org',
           caption: 'A non-profit initiative powered by Patrick Switzer.',
           description: message[messageNumber]
         }, function(response){});
       };
       
+    }])
+    .controller('emailCtrl',['$scope','emailSrv','$cookies', function($scope, emailSrv, $cookies) {
+      $scope.user = {};
+
+      $scope.showModal = function(type){
+        $('.modal').show();
+      }
+
+      $scope.hideModal = function (){
+         $('.modal').fadeOut();
+      };
+
+      $scope.send = function(flag) {
+        if (flag){
+         $scope.user.authenticity_token = $cookies['XSRF-TOKEN'];
+
+         emailSrv.post($scope.user).then(function(data) {
+          $scope.user = {};
+           $scope.hideModal();
+         }, 
+          function(data){
+            console.log('NotCool');
+          });
+        }
+
+      };
     }]);
 })();

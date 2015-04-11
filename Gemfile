@@ -31,6 +31,12 @@ gem 'rails_12factor', group: :production
 gem 'angular-rails-templates'
 ## gem for prefix
 gem "autoprefixer-rails"
+##Figaro for env variables
+gem "figaro"
+## cache page gem
+gem 'actionpack-page_caching'
+## gzip enable for heroku
+gem 'rack-zippy'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
