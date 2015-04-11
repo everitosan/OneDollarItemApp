@@ -33,15 +33,13 @@
 	opacity: 0;
 }
 
-@mixin buttonLightBox ($url, $urlHover) {
+@mixin buttonLightBox ($url) {
 	background:image-url($url);
 	background-size: 100%;
-	background-position: center;
+	background-position: center top;
 	background-repeat: no-repeat;
 	&:hover {
-		background:image-url($urlHover);
-		background-size: 108%;
-		background-position: center;
-		background-repeat: no-repeat;
+		background-position: center 100%;
+		background-size: 106%;
 	}
 }

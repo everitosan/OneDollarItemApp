@@ -61,6 +61,11 @@
 			}
 		.lightboxbutton {
 			cursor: pointer;
+			margin: 0 auto;
+		}
+	}
+	#photoLightBox {
+		ul li img {
 			width: 100%;
 		}
 	}
@@ -86,17 +91,6 @@
   }
 }
 
-@media screen and  (min-width: 1151px) and (max-width: 1260px) {
-	#team{
-		.text{
-			.lightboxbutton {
-				width: 80%;
-				display: block;
-				margin: 0 auto;
-			}
-		}
-	}
-}
 @media screen and (max-width: 1150px) {
 
   #team {

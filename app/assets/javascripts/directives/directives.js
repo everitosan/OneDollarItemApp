@@ -62,10 +62,6 @@
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        //$animatedElements.push({element: $elem, EA:'#counter', top:0});
-        //$animatedElements.push({element: $elem, EA:'#counter .ornamental', top:150});
-        //$animatedElements.push({element: $elem, EA:'#counter .whiteroll', top:200});
-        //$animatedElements.push({element: $elem, EA:'#counter .itemsGreen', top:250});
       }
 
       var definitionObject = {
@@ -289,11 +285,21 @@
       }
 
       function showlight(event) {
+        var $padre = $( event.data.element.find('ul'));
+        var $hijos = $padre.children();
+
         $('.lightboxbutton').css('z-index', 0);
         $('#menu').css('z-index','0');
         $( event.data.element.find('.containerLightBox') ).fadeIn();
         $( event.data.element.find('.closelightbox') ).fadeIn();
+
         lightBoxActive = true;
+
+        console.log('padre width: '+parseInt($padre.css('width')) );
+        if($padre.css('width') < window.innerWidth) {
+          $hijos.css('width', $padre.css('width'));
+          $padre.css( 'width', parseInt($padre.css('width'))*$hijos.length);
+        }
       }
 
 
@@ -338,6 +344,7 @@
 
         $($elem.find('.next')).on('click', {element: $elem}, nextKid);
         $($elem.find('.prev')).on('click', {element: $elem}, prevKid);
+
 
 
       }     
