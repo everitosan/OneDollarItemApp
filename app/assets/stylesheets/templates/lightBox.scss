@@ -276,7 +276,7 @@
 }
 
 //  ***********
-@media screen and (max-width: 376px) and (orientation: portrait) {
+@media screen and (max-width: 415px) and (orientation: portrait) {
 	.lightbox {
 		  top: 1em;
 		  .content {
@@ -295,14 +295,17 @@
 			}
 		} 
 	}
-	#gallerybutton {
-		.content {
-			padding: 5.5em 0;
-		}
-		.lightbox {
-			top: 6em;
-		}
+
+	#howitworks {
+	  height: 38px;
+	  width: 230px;
 	}
+
+	#metthekids {
+		  height: 41px;
+		  width: 233px;
+	}
+
 	#videoLightBox {
 		iframe {
 			margin: 0 auto;
@@ -313,6 +316,18 @@
 	}
 }
 
+@media screen and (max-width: 376px) and (orientation: portrait) {
+
+	#gallerybutton {
+			.content {
+				padding: 5.5em 0;
+			}
+			.lightbox {
+				top: 6em;
+			}
+		}
+
+}
 @media screen and (max-width: 637px) and (orientation: landscape) {
 	#meetthe {
 		.diamantes {
