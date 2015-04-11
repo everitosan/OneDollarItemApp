@@ -4,6 +4,6 @@
 (function(){
 	'use strict';
 
-	angular.module('odiApp', ['ngRoute', 'odiApp.services', 'odiApp.directives', 'odiApp.controllers']);
+	var app = angular.module('odiApp', ['ngRoute', 'odiApp.services', 'odiApp.directives', 'odiApp.controllers']);
 
 })();
