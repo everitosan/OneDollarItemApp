@@ -43,3 +43,16 @@
 		background-size: 106%;
 	}
 }
+
+@mixin animationLoaderLiner ($animation, $delay) {
+	$base : 1s;
+	$delay : $delay * $base + .5; 
+	animation: {
+            	name: $animation;
+            	duration: $base;
+            	delay : $delay;
+            	iteration-count: 1;
+            	fill-mode: forwards;
+            	timing-function: ease-out;
+            }
+}
