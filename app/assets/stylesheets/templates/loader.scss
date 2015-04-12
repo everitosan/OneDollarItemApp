@@ -18,29 +18,29 @@
         #contornoTotal {
             stroke-dasharray: 118750;
             stroke-dashoffset: 118750;
-            @include animationLoaderLiner("fillIn", 0);
+            @include animationLoaderLiner(fillIn, 0);
         }
 
         #contorno {
 
             stroke-dasharray: 116000;
             stroke-dashoffset: 116000;
-            @include animationLoaderLiner("fillIn", 0);
+            @include animationLoaderLiner(fillIn, 0);
         }
 
 
         #circleFull {
             stroke-dasharray: 25990;
             stroke-dashoffset: 25990;
-        	@include animationLoaderLiner("fillIn", 1);
+        	@include animationLoaderLiner(fillIn, 1);
         }
         .baseTruck {
-			@include animationLoaderLiner("fillIn", 1);
+			@include animationLoaderLiner(fillIn, 1);
             stroke-dasharray: 14500;
             stroke-dashoffset: 14500;
         }
         .llanta1{
-        	@include animationLoaderLiner("fillIn", 1);
+        	@include animationLoaderLiner(fillIn, 1);
             stroke-dasharray: 17040;
             stroke-dashoffset: 17040;
         }
@@ -48,19 +48,19 @@
         .llantaInterior{
             stroke-dasharray: 11;
             stroke-dashoffset: 11;
-            @include animationLoaderLiner("fillIn", 1.5);
+            @include animationLoaderLiner(fillIn, 1.5);
         }
 
         .rellenoLlanta1{
             stroke-dasharray: 7130;
             stroke-dashoffset: 7130;
-            @include animationLoaderLiner("fillIn", 1.5);
+            @include animationLoaderLiner(fillIn, 1.5);
         }
 
         .centerTuerca {
             stroke-dasharray: 482;
             stroke-dashoffset: 482;
-            @include animationLoaderLiner("fillIn", 2);
+            @include animationLoaderLiner(fillIn, 2);
         }
 
 /***************************************  *******/
@@ -75,18 +75,18 @@
             
         }
         .letrasDelgadas {
-            @include animationLoaderLiner("fillIn", 4);
+            @include animationLoaderLiner(fillIn, 4);
             stroke-dasharray: 116000;
             stroke-dashoffset: 116000;
         }
 
         #detalleTruckIzq {
-            @include animationLoaderLiner("fillIn", 2.5);
+            @include animationLoaderLiner(fillIn, 2.5);
             stroke-dasharray: 11300;
             stroke-dashoffset: 11300;
         }
         #circDer, #circIzq {
-            @include animationLoaderLiner("fillIn", 2.5);
+            @include animationLoaderLiner(fillIn, 2.5);
             stroke-dasharray: 6120;
             stroke-dashoffset: 6120;
         }
@@ -100,70 +100,70 @@
         #lineWhite {
             stroke-dasharray: 99000;
             stroke-dashoffset: 99000;
-            @include animationLoaderLiner("fillIn", 4);
+            @include animationLoaderLiner(fillIn, 4);
         }
 
         #rematLeft {
             stroke-dasharray: 5760;
             stroke-dashoffset: 5760;
-            @include animationLoaderLiner("fillIn", 4);
+            @include animationLoaderLiner(fillIn, 4);
         }
 
         #detailBorder {
-        	@include animationLoaderLiner("fillIn", 3.5);
+        	@include animationLoaderLiner(fillIn, 3.5);
             stroke-dasharray: 110670;
             stroke-dashoffset: 110670;
         }
 
         #detailBorder2 {
-        	@include animationLoaderLiner("fillIn", 3.5);
+        	@include animationLoaderLiner(fillIn, 3.5);
             stroke-dasharray: 113000;
             stroke-dashoffset: 113000;
         }
 
         #rematRight {
-        	@include animationLoaderLiner("fillIn", 4);
+        	@include animationLoaderLiner(fillIn, 4);
             stroke-dasharray: 20000;
             stroke-dashoffset: 20000;
         }
 
         .circRight2 {
-        	@include animationLoaderLiner("fillIn", 3.5);
+        	@include animationLoaderLiner(fillIn, 3.5);
             stroke-dasharray: 13000;
             stroke-dashoffset: 13000;
         }
 
         .internollanta {
-        	@include animationLoaderLiner("fillIn", 3);
+        	@include animationLoaderLiner(fillIn, 3);
             stroke-dasharray: 7100;
             stroke-dashoffset: 7100;
         }
 
         .britghtWheel {
-        	@include animationLoaderLiner("fillIn", 4);
+        	@include animationLoaderLiner(fillIn, 4);
             stroke-dasharray: 8990;
             stroke-dashoffset: 8990;
         }
         .tuerca {
-        	@include animationLoaderLiner("fillIn", 2.7);
+        	@include animationLoaderLiner(fillIn, 2.7);
             stroke-width: 60;
             stroke-dasharray: 2240;
             stroke-dashoffset: 2240;
         }
 
         #detalleTruckDer {
-           	@include animationLoaderLiner("fillIn", 2.5);
+           	@include animationLoaderLiner(fillIn, 2.5);
             stroke-dasharray: 24600;
             stroke-dashoffset: 24600;
         }
         #detailTruckIzq2 {
-            @include animationLoaderLiner("fillIn", 2.5);
+            @include animationLoaderLiner(fillIn, 2.5);
             stroke-dasharray: 93000;
             stroke-dashoffset: 93000;
         }
 
         #letrasRellerno {
-            @include animationLoaderLiner("fillIn", 4);
+            @include animationLoaderLiner(fillIn, 4);
               stroke-dasharray: 79500;
               stroke-dashoffset: 79500;
 
@@ -179,7 +179,7 @@
         }
         
         .truckDer {
-        	@include animationLoaderLiner("fillIn", 0);
+        	@include animationLoaderLiner(fillIn, 0);
             stroke-width: 40;
             stroke-dasharray: 32000;
             stroke-dashoffset: 32000;
@@ -188,21 +188,21 @@
 
         #dollar {
         	fill: black !important;
-        	@include animationLoaderLiner("fillIn", 4.7);
+        	@include animationLoaderLiner(fillIn, 4.7);
             stroke-dasharray: 190340;
             stroke-dashoffset: 190340;
         }
 
         #one {
         	fill: black !important;
-        	@include animationLoaderLiner("fillIn", 4.7);
+        	@include animationLoaderLiner(fillIn, 4.7);
             stroke-dasharray: 80000;
             stroke-dashoffset: 80000;
         }
 
         #item {
         	fill: black !important;
-        	@include animationLoaderLiner("fillIn", 4.3);
+        	@include animationLoaderLiner(fillIn, 4.3);
             stroke-dasharray: 80000;
             stroke-dashoffset: 80000;
         }
@@ -216,7 +216,7 @@
         	fill-rule:nonzero;}
 
         #odi {
-        	@include animationLoaderLiner("fillIn", 3.9);
+        	@include animationLoaderLiner(fillIn, 3.9);
             stroke-width: 40;
             stroke-dasharray: 300000;
             stroke-dashoffset: 300000;
@@ -229,14 +229,14 @@
         }
 
         #bord{
-        	@include animationLoaderLiner("fillIn", 2);
+        	@include animationLoaderLiner(fillIn, 2);
             stroke-width: 20;
             stroke-dasharray: 1000000;
             stroke-dashoffset: 1000000;
         }
 
         #bordecirc {
-        	@include animationLoaderLiner("fillIn", 2);
+        	@include animationLoaderLiner(fillIn, 2);
         	fill: white !important;
             stroke-width: 20;
             stroke-dasharray: 67200;
@@ -244,14 +244,14 @@
         }
 
         #bordecircint {
-        	@include animationLoaderLiner("fillIn", 2);
+        	@include animationLoaderLiner(fillIn, 2);
         	fill: white !important;
             stroke-width: 20;
             stroke-dasharray: 63200;
             stroke-dashoffset: 63200; 
         }
         #dollar2 {
-        	@include animationLoaderLiner("fillIn", 4.2);
+        	@include animationLoaderLiner(fillIn, 4.2);
         	fill: white !important;
             stroke-width: 40;
             stroke-dasharray: 120900;
@@ -259,14 +259,14 @@
 
         }
         #dollarBorder {
-        	@include animationLoaderLiner("fillIn", 4);
+        	@include animationLoaderLiner(fillIn, 4);
         	fill: white !important;
             stroke-width: 40;
             stroke-dasharray: 118000;
             stroke-dashoffset: 118000;
         }
          #one2 {
-            @include animationLoaderLiner("fillIn", 4.2);
+            @include animationLoaderLiner(fillIn, 4.2);
         	fill: white !important;
             stroke-width: 40;
             stroke-dasharray: 120900;
@@ -274,7 +274,7 @@
 
         }
         #oneborder {
-            @include animationLoaderLiner("fillIn", 4);
+            @include animationLoaderLiner(fillIn, 4);
         	fill: white !important;
             stroke-width: 40;
             stroke-dasharray: 118000;
@@ -284,7 +284,7 @@
 /*************************************** FIL6 *******/
 
 		.fil6 {
-			@include animationLoaderLiner("fillIn", 4);
+			@include animationLoaderLiner(fillIn, 4);
 			fill: black !important;
 		}
 		#fondoDetalle {
@@ -299,7 +299,7 @@
             stroke:white;
             stroke-width:7.62;
             fill: black !important;
-            @include animationLoaderLiner("fillIn", 4.5);
+            @include animationLoaderLiner(fillIn, 4.5);
 		}
 
 
