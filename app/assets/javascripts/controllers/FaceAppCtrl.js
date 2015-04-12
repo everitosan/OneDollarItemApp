@@ -3,11 +3,12 @@
 
   angular.module('odiApp.controllers', ['facebook', 'ngCookies'])
     .config(function(FacebookProvider) {
-      FacebookProvider.init(init({
+      
+      FacebookProvider.init({
           appId      : '1560451627557497',
           xfbml      : true,
           version    : 'v2.3'
-        }););
+        });
       //FacebookProvider.init('1560451627557497');
     })
 

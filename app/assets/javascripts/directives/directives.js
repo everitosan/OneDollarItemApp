@@ -244,7 +244,6 @@
       function ressize(event) {
         var $form = $('.modal form');
         var margin = (window.innerHeight -parseInt($form.css('height')) ) /2;
-        console.log(margin);
         $form.css('margin-top', margin);
       }
 
