@@ -3,7 +3,12 @@
 
   angular.module('odiApp.controllers', ['facebook', 'ngCookies'])
     .config(function(FacebookProvider) {
-      FacebookProvider.init('1560451627557497');
+      FacebookProvider.init(init({
+          appId      : '1560451627557497',
+          xfbml      : true,
+          version    : 'v2.3'
+        }););
+      //FacebookProvider.init('1560451627557497');
     })
 
     .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', function($scope, UserSrv, PostDataSrv, $cookies){
