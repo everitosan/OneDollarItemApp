@@ -241,19 +241,17 @@
     }])
     .directive('apContactDirective', [function ContactDirective() {
     
-      function ressize() {
-        if(window.innerWidth<820) {
-          porcentajeEscala("#formu",0.45,'padding-top');
-        }
-        else
-        {
-          porcentajeEscala("#formu",0.29,'padding-top');
-        }
+      function ressize(event) {
+        var $form = $('.modal form');
+        var margin = (window.innerHeight -parseInt($form.css('height')) ) /2;
+        console.log(margin);
+        $form.css('margin-top', margin);
       }
 
       function link(scope, element) {
-      $(window).on('resize', ressize);
-      
+        var $elem = element;
+        $(window).on('resize', ressize);
+        $('.link .contact').on('click', ressize);
       }
 
       var definitionObject = {
