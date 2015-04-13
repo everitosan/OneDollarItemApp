@@ -310,8 +310,7 @@
         var nPhotos = $('#photoLightBox ul').children().length;
         nPhotos=nPhotos-1;
 
-        console.log(nPhotos);
-        console.log(arrPhotos.length );
+
         if ( (nPhotos+1) <= arrPhotos.length )
         {
           $('#photoLightBox ul').append('<li> <img src="/images/photos/'+arrPhotos[nPhotos]+'" alt="" /> </li>');
@@ -343,7 +342,7 @@
       function prevKid(event) {
         var $ul = $(event.data.element.find('ul'));
         var $active = $($ul.find('.activeTeam'));
-         console.log($active);
+        
 
         $active.prev().addClass('activeTeam');
         $active.removeClass('activeTeam');
