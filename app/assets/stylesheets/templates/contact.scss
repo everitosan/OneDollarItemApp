@@ -28,7 +28,7 @@
 
 
 	label {
-		font-size: 1.3em;
+		font-size: 1.1em;
 		text-align: left;
 	}
 	input, textarea {
@@ -38,7 +38,7 @@
 		width: 100%;
 	}
 	input {
-		height: 27px;
+		height: 18px;
 	}
 
 	#send {
@@ -47,10 +47,27 @@
 }
 
 
+@media screen and (min-width: 1300px) {
+	#formu {
+		background: image-url("formulario-retina.png");
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		padding: 22em 0;
+		width: 1255px;
+		height: 918px;
+	}
+}
 
 @media screen and (max-width: 800px) {
 	#formu {
-		padding: 7.5em 0;
+		background: image-url("formulario-tablet.png");
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		padding: 9em 0;
+		height: 413px;
+		width: 565px;
 		#send {
 			width: 40%;
 		}
@@ -62,11 +79,14 @@
 		}
 	}
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 570px) {
 	#formu {
 		padding: 10em 0;
 		#send {
 			width: 50%;
+		}
+		div {
+			margin: 0.2em auto;
 		}
 	}
 }
@@ -75,8 +95,5 @@
 		padding: 4em 0;
 		width: 301px;
 		height: 220px;
-		div {
-			margin: 0.2em auto;
-		}
 	}
 }
