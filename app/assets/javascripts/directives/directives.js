@@ -273,6 +273,9 @@
       return definitionObject;
     }])
     .directive('apLightboxDirective', [function LightboxDirective() {
+
+      var arrPhotos = ['_DSC1915.jpg','_MG_0189.jpg','_MG_0226.jpg','_MG_0339.jpg','_MG_0362.jpg','_MG_0389.jpg','_MG_0393.jpg','_MG_0493.jpg','_MG_0497.jpg','_MG_0520.jpg','_MG_0548.jpg','_MG_0558.jpg','_MG_0563.jpg','_MG_0567.jpg','_MG_0584.jpg','_MG_0614.jpg','_MG_0622.jpg','_MG_0635.jpg','_MG_0644.jpg','_MG_0657.jpg','_MG_0662.jpg','_MG_1915.jpg','_MG_1926.jpg','IMG_0901.jpg','IMG_4036.jpg','IMG_4115.jpg','IMG_4127.jpg','IMG_4150.jpg','IMG_4174.jpg','IMG_4196.jpg','P1050379.jpg'];
+      
       function hidelight(event) {
         $('.lightboxbutton').css('z-index', 6);
         $('#menu').css('z-index','100');
@@ -292,10 +295,26 @@
 
         lightBoxActive = true;
 
-        console.log('padre width: '+parseInt($padre.css('width')) );
+ 
         if($padre.css('width') < window.innerWidth) {
           $hijos.css('width', $padre.css('width'));
           $padre.css( 'width', parseInt($padre.css('width'))*$hijos.length);
+        }
+
+        if(event.data.element.attr('but') === "photo") {
+           loadNextImg();
+        }
+      }
+
+      function loadNextImg() {
+        var nPhotos = $('#photoLightBox ul').children().length;
+        nPhotos=nPhotos-1;
+
+        console.log(nPhotos);
+        console.log(arrPhotos.length );
+        if ( (nPhotos+1) <= arrPhotos.length )
+        {
+          $('#photoLightBox ul').append('<li> <img src="/public/images/photos/'+arrPhotos[nPhotos]+'" alt="" /> </li>');
         }
       }
 
@@ -310,6 +329,10 @@
  
         
         $( event.data.element.find('.prev')).fadeIn();
+
+        if(event.data.element.attr('but') === "photo") {
+           loadNextImg();
+        }
         
         if($active.next().next().length===0)
         {
