@@ -314,7 +314,7 @@
         console.log(arrPhotos.length );
         if ( (nPhotos+1) <= arrPhotos.length )
         {
-          $('#photoLightBox ul').append('<li> <img src="/public/images/photos/'+arrPhotos[nPhotos]+'" alt="" /> </li>');
+          $('#photoLightBox ul').append('<li> <img src="/images/photos/'+arrPhotos[nPhotos]+'" alt="" /> </li>');
         }
       }
 
