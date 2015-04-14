@@ -30,9 +30,9 @@ class OdiController < ApplicationController
     date = Time.new
 
     if date.day < 16 && date.month <= 4 && date.year == 2015 # && sections.at(sections.size - 1) != "preview"
-      return 'preview'
-    elsif date.day == 16 && date.month == 4 && date.year == 2015# && sections.at(sections.size - 1) != "tender"
       return 'tender'
+    elsif date.day == 16 && date.month == 4 && date.year == 2015# && sections.at(sections.size - 1) != "tender"
+      return 'preview'
     else
       return 'results'
     end    

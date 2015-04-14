@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :description
       t.references :condition, index: true
       t.string :img
+      t.float :amount
 
       t.timestamps null: false
     end

@@ -19,16 +19,16 @@ class DonatorController < ApplicationController
   		@NewUser.email = params[:email]
   		@NewUser.first_n = params[:first_name]
   		@NewUser.last_n = params[:last_name]
-  		@NewUser.locate = params[:locale]
+      @NewUser.locate = params[:locale]
+  		@NewUser.emailPayment = params[:emailPayment]
   		@NewUser.save
   		@User = User.last
+    else
+      if @User.emailPayment != params[:emailPayment]
+        @User.emailPayment = params[:emailPayment]
+        @User.save
+      end
   	end
-  	@idItem = params[:item_id]
-  	
-  	@CurrentItem = Item.find(@idItem)
-  	@CurrentItem.user = @User
-  	@CurrentItem.save
-
 
   	render json: { status: :ok, owner: @User.name}
 

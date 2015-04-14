@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150317150859) do
     t.string   "description"
     t.integer  "condition_id"
     t.string   "img"
+    t.float    "amount"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -41,8 +42,9 @@ ActiveRecord::Schema.define(version: 20150317150859) do
     t.string   "last_n"
     t.string   "locate"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "emailPayment"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
