@@ -24,8 +24,12 @@
 						
 					<%=item.img %>
 					<div ng-click="CloseLightBox( <%=item.id %> )"> Change </div>
+
+					<input type="email" ng-model="donateData.email">
+
+					<div ng-click="Checkout('<%= item.description %>', '<%= newOwner_url %>')" >Checkout</div>
 					
-					<%= link_to "Checkout", paypal_url( item.id, item.description )%>
+					
 				
 
 				</div>

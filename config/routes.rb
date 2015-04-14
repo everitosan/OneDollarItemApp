@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   post 'mailer/contact'
 
+  post 'ipn/newOwner' => 'ipn#newOwner', as: :newOwner
+
   mount RailsAdmin::Engine => '/same', as: 'rails_admin'
   root to: 'odi#time'
 
