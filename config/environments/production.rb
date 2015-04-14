@@ -95,5 +95,5 @@ Rails.application.configure do
   config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
 
    ##gzip enable 
-  config.serve_static_assets = true
+  config.serve_static_files = true
 end
