@@ -111,6 +111,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.11.0)
     nested_form (0.3.2)
+    newrelic_rpm (3.11.2.286)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     paypal-sdk-rest (1.1.2)
@@ -240,6 +241,7 @@ DEPENDENCIES
   half-pipe!
   jbuilder (~> 2.0)
   jquery-rails
+  newrelic_rpm
   paypal-sdk-rest
   pg
   rack-zippy

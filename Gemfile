@@ -39,6 +39,8 @@ gem 'actionpack-page_caching'
 gem 'rack-zippy'
 ##PaypalGem
 gem 'paypal-sdk-rest'
+##new Rlic gem
+gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
