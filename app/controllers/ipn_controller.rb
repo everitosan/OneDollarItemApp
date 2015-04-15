@@ -9,7 +9,7 @@ class IpnController < ApplicationController
 	end
 
 	def setOwner (status, owner, item)
-		if status == "Complete"
+		if status == "Completed"
 			@currUser = User.find_by(emailPayment: owner)
 		  	@currentItem = Item.find_by_description(item)
 		  	
