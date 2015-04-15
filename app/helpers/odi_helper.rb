@@ -1,16 +1,17 @@
 module OdiHelper
 
-	def paypal_encrypted(des_item) 
+	def paypal_encrypted(des_item, fb_name) 
 	values = {      
       :business => APP_CONFIG['paypal_email'],
       :cmd => '_donations',
       :upload => 1,
-      :return => APP_CONFIG['paypal_email'],
+      :return => APP_CONFIG['return_url'],
       :amount => '1.34', 
       :item_name => des_item,
       :address_override => 1,
       :notify_url => APP_CONFIG['notify_url'],
       :paypal_secret =>  APP_CONFIG['paypal_secret'],
+      :facebook_name => fb_name,
       :cert_id => APP_CONFIG['cert_id']
     }
    
