@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_n
       t.string :locate
       t.string :email
-      t.string :emailPayment
 
       t.timestamps null: false
     end

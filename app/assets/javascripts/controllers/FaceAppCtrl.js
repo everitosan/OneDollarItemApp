@@ -12,24 +12,27 @@
       //FacebookProvider.init('1560451627557497');
     })
 
-    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$window', function($scope, UserSrv, PostDataSrv, $cookies, $window){
-      $scope.donateData = {};
+    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$window', '$element', function($scope, UserSrv, PostDataSrv, $cookies, $window, $element){
       
-      $scope.Checkout= function() {
-        CreateUser();
+      $scope.Checkout= function(item) {
+        var $form = $($element.find('form'));
+        var $encypt = $($form.find('#encrypted'));
+
+        UserSrv.data.item = item;
+        PostUser(UserSrv.data, $form, $encypt);
+
       };
 
-      var CreateUser = function (){
-        UserSrv.data.emailPayment = $scope.donateData.email;
-        PostUser(UserSrv.data);
-      };
 
-      var PostUser = function (data){
+      var PostUser = function (data, form, input){
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
 
         PostDataSrv.postD(data).then(function(dataReturn) {
-          console.log(dataReturn);
+          input.attr('value',dataReturn.cryp);
+          form.attr("action", "https://www.sandbox.paypal.com/cgi-bin/webscr?");
+          form.submit();
+
         }, function (reason){
           console.log('Reason: '+reason);
         });        
