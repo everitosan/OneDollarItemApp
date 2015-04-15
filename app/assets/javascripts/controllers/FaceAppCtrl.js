@@ -15,19 +15,18 @@
     .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$window', function($scope, UserSrv, PostDataSrv, $cookies, $window){
       $scope.donateData = {};
       
-
+/*
       $scope.CloseLightBox = function (id_item){
-        $scope.PaymentPlataform='';
         UserSrv.data.item_id= id_item;
         PostData(UserSrv.data);
       };
-
+*/
       $scope.Checkout= function(des, ipn_url) {
         var values = {
             "business" : 'eve.smda-facilitator@gmail.com',
             "cmd" : '_donations',
             "upload" : 1,
-            "return" : 'http://localhost:3000/',
+            "return" : 'http://www.onedollaritem.org',
             "amount" : '1.34',
             "quantity": 1, 
             "item_name" : des,
@@ -36,10 +35,17 @@
             "notify_url": ipn_url
         };
 
+        CreateUser();
         $window.location.href = "https://www.sandbox.paypal.com/cgi-bin/webscr?"+  $.param(values);
+
+      };
+      
+      var CreateUser = function (){
+        UserSrv.data.emailPayment = $scope.donateData.email;
+        PostUser(UserSrv.data);
       };
 
-      var PostData = function (data){
+      var PostUser = function (data){
         var TOKEN = $cookies['XSRF-TOKEN'];
         data.authenticity_token = TOKEN;
 

@@ -2,12 +2,12 @@ class IpnController < ApplicationController
 	protect_from_forgery :excet => [:newOwner]
 
 	def newOwner
-		status = params[:payment_status]
-		owner = params[:payer_email]
-		item = params[:item_name]
+		status = 
+		owner = 
+		item = 
 		
 		
-		setOwner(status, owner, item)
+		setOwner(params[:payment_status], params[:payer_email], params[:item_name])
 		
 
 		render :nothing => true
@@ -15,11 +15,11 @@ class IpnController < ApplicationController
 
 	def setOwner (status, owner, item)
 		if status == "Complete"
-			@currUser = User.find_by_emailPayment(owner)
+			@currUser = User.find_by(emailPayment: owner)
 		  	@currentItem = Item.find_by_description(item)
 		  	
 		  	
-		  	@currentItem.amount = @currentItem.amount + 1
+		  	@currentItem.amount +=  1
 		  	@currentItem.user = @currUser
 		  	@currentItem.save
 		  	
