@@ -29,7 +29,7 @@
 					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr?" method="post">
 						<input type="hidden" name="cmd" id="cmd" value="_s-xclick">
 						<input type="email" name="email" id="email">
-						<input type="hidden" name="encrypted" id="encrypted" value="<%= paypal_encrypted(item.description) %>">
+						<input type="hidden" name="encrypted" id="encrypted" ng-model="donateData.email" value="<%= paypal_encrypted(item.description) %>">
 						<p>
 							<button ng-click="Checkout()">Donate</button>
 						</p>
