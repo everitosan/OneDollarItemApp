@@ -1,0 +1,22 @@
+development:
+    paypal_email: eve.smda-facilitator@gmail.com
+    return_url: http://localhost:3000/odi/tender
+    notify_url: http://localhost:3000/ipn/newOwner
+    cert_id: NH9NSHZJQMDMY
+    paypal_secret: digitalInvaders15
+    paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr?"
+
+production:
+    paypal_email: eve.smda-facilitator@gmail.com
+    return_url: https://one-dollar-item.herokuapp.com/odi/tender
+    notify_url: https://one-dollar-item.herokuapp.com/ipn/newOwner
+    cert_id: NH9NSHZJQMDMY
+    paypal_secret: digitalInvaders15
+    paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr?"
+
+
+test:
+    paypal_email: eve.smda-facilitator@gmail.com
+    return_url: https://one-dollar-item.herokuapp.com/odi/tender
+    notify_url: https://one-dollar-item.herokuapp.com/ipn/newOwner
+    cert_id: NH9NSHZJQMDMY

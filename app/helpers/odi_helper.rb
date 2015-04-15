@@ -2,15 +2,16 @@ module OdiHelper
 
 	def paypal_encrypted(des_item) 
 	values = {      
-      :business => 'eve.smda-facilitator@gmail.com',
+      :business => APP_CONFIG['paypal_email'],
       :cmd => '_donations',
       :upload => 1,
-      :return => 'https://one-dollar-item.herokuapp.com/odi/tender',
+      :return => APP_CONFIG['paypal_email'],
       :amount => '1.34', 
       :item_name => des_item,
       :address_override => 1,
-      :notify_url => 'https://one-dollar-item.herokuapp.com/ipn/newOwner',
-      :cert_id => 'NH9NSHZJQMDMY'
+      :notify_url => APP_CONFIG['notify_url'],
+      :paypal_secret =>  APP_CONFIG['paypal_secret'],
+      :cert_id => APP_CONFIG['cert_id']
     }
    
     encrypt_for_paypal(values)
