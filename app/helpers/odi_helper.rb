@@ -5,11 +5,11 @@ module OdiHelper
       :business => 'eve.smda-facilitator@gmail.com',
       :cmd => '_donations',
       :upload => 1,
-      :return => 'https://one-dollar-item.herokuapp.com/odi/tender',
+      :return => 'https://www.onedollaritem.org/odi/tender',
       :amount => '1.34', 
       :item_name => des_item,
       :address_override => 1,
-      :notify_url => 'https://one-dollar-item.herokuapp.com/ipn/newOwner',
+      :notify_url => 'https://www.onedollaritem.org/ipn/newOwner',
       :cert_id => 'NH9NSHZJQMDMY'
     }
    

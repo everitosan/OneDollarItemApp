@@ -3,10 +3,6 @@ class IpnController < ApplicationController
 
 	def newOwner
 
-		logger.debug params[:payment_status]	
-		logger.debug params[:payer_email]	
-		logger.debug params[:item_name]
-			
 		setOwner(params[:payment_status], params[:payer_email], params[:item_name])
 		
 
