@@ -1,4 +1,21 @@
-<div>
+<ap-about-directive 
+	title = "<%= t ('about.title') %>" 
+	par1  = "<%= t ('about.p1') %>" 
+	par2  = "<%= t ('about.p2') %>"
+	howq1 = "<%= t ('howitworks.q1') %>"
+	howa1 = "<%= t ('howitworks.a1') %>"
+	howq2 = "<%= t ('howitworks.q2') %>"
+	howa2 = "<%= t ('howitworks.a2') %>"
+	howq3 = "<%= t ('howitworks.q3') %>"
+	howa3 = "<%= t ('howitworks.a3') %>"
+	howq4 = "<%= t ('howitworks.q4') %>"
+	howa4 = "<%= t ('howitworks.a4') %>"
+	howq5 = "<%= t ('howitworks.q5') %>"
+	howa5 = "<%= t ('howitworks.a5') %>">	
+</ap-about-directive>
+
+
+<div id="donation" >
 	<h1>App that connects with Facebook</h1>
 	<div ng-controller="authenticationCtrl" >
 		
@@ -19,7 +36,7 @@
 					</span>
 					<span class="item_belong">
 						<%=item.user.name %>
-						<img src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?type=small" alt="">
+						<img ng-src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?type=small" alt="">
 					</span>
 						
 					<%=item.img %>
