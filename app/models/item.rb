@@ -6,11 +6,17 @@ class Item < ActiveRecord::Base
 	validates :user, 
 			   presence: true
 
-	validates :description, 
+	validates :name,
 		   presence: true
+
+	validates :description, 
+		   presence: true,
+		   uniqueness: true
 
 	validates :condition, 
 		   presence: true
 
-
+	def self.getAvaible
+		return self.where(condition_id: 2)
+	end
 end

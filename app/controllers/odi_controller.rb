@@ -11,7 +11,7 @@ class OdiController < ApplicationController
   end
 
   def tender
-  	@items = Item.all.order(:id)
+  	@items = Item.getAvaible()
   end
 
   def results
