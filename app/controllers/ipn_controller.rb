@@ -12,8 +12,8 @@ class IpnController < ApplicationController
 	def setOwner (status, owner, item, secret, fb)
 		if status == "Completed" && secret == APP_CONFIG[:paypal_secret]
 			logger.debug "/*********************** IPN Notification COMPLETED ********/"
-			logger.debug fb
 			logger.debug secret
+			logger.debug APP_CONFIG[:paypal_secret]
 			@currUser = User.find_by(emailPayment: owner)
 		  	@currentItem = Item.find_by_description(item)
 		  	
