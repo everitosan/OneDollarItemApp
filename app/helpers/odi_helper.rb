@@ -11,7 +11,7 @@ module OdiHelper
       :address_override => 1,
       :notify_url => APP_CONFIG['notify_url'],
       :paypal_secret =>  APP_CONFIG['paypal_secret'],
-      :facebook_name => fb_name,
+      :custom => fb_name,
       :cert_id => APP_CONFIG['cert_id']
     }
    
