@@ -21,7 +21,7 @@
         PostData(UserSrv.data);
       };
 */
-      $scope.Checkout= function(des, ipn_url) {
+      $scope.Checkout= function(des) {
         var values = {
             "business" : 'eve.smda-facilitator@gmail.com',
             "cmd" : '_donations',
@@ -32,14 +32,14 @@
             "item_name" : des,
             "address_override" : 1,
             "email" : $scope.donateData.email,
-            "notify_url": ipn_url
+            "notify_url": 'https://one-dollar-item.herokuapp.com/odi/preview'
         };
 
         CreateUser();
         $window.location.href = "https://www.sandbox.paypal.com/cgi-bin/webscr?"+  $.param(values);
 
       };
-      
+
       var CreateUser = function (){
         UserSrv.data.emailPayment = $scope.donateData.email;
         PostUser(UserSrv.data);
