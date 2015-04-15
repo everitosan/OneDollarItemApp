@@ -15,29 +15,8 @@
     .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$window', function($scope, UserSrv, PostDataSrv, $cookies, $window){
       $scope.donateData = {};
       
-/*
-      $scope.CloseLightBox = function (id_item){
-        UserSrv.data.item_id= id_item;
-        PostData(UserSrv.data);
-      };
-*/
-      $scope.Checkout= function(des) {
-        var values = {
-            "business" : 'eve.smda-facilitator@gmail.com',
-            "cmd" : '_donations',
-            "upload" : 1,
-            "return" : 'http://www.onedollaritem.org',
-            "amount" : '1.34',
-            "quantity": 1, 
-            "item_name" : des,
-            "address_override" : 1,
-            "email" : $scope.donateData.email,
-            "notify_url": 'https://one-dollar-item.herokuapp.com/odi/preview'
-        };
-
+      $scope.Checkout= function() {
         CreateUser();
-        $window.location.href = "https://www.sandbox.paypal.com/cgi-bin/webscr?"+  $.param(values);
-
       };
 
       var CreateUser = function (){

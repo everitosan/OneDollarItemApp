@@ -1,12 +1,7 @@
 class IpnController < ApplicationController
 	protect_from_forgery :excet => [:newOwner]
 
-	def newOwner
-		status = 
-		owner = 
-		item = 
-		
-		
+	def newOwner		
 		setOwner(params[:payment_status], params[:payer_email], params[:item_name])
 		
 

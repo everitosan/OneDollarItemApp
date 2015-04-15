@@ -1,21 +1,4 @@
-<ap-about-directive 
-	title = "<%= t ('about.title') %>" 
-	par1  = "<%= t ('about.p1') %>" 
-	par2  = "<%= t ('about.p2') %>"
-	howq1 = "<%= t ('howitworks.q1') %>"
-	howa1 = "<%= t ('howitworks.a1') %>"
-	howq2 = "<%= t ('howitworks.q2') %>"
-	howa2 = "<%= t ('howitworks.a2') %>"
-	howq3 = "<%= t ('howitworks.q3') %>"
-	howa3 = "<%= t ('howitworks.a3') %>"
-	howq4 = "<%= t ('howitworks.q4') %>"
-	howa4 = "<%= t ('howitworks.a4') %>"
-	howq5 = "<%= t ('howitworks.q5') %>"
-	howa5 = "<%= t ('howitworks.a5') %>">	
-</ap-about-directive>
-
-
-<div id="donation" >
+<div>
 	<h1>App that connects with Facebook</h1>
 	<div ng-controller="authenticationCtrl" >
 		
@@ -44,7 +27,15 @@
 
 					<input type="email" ng-model="donateData.email">
 
-					<div ng-click="Checkout('<%= item.description %>')" >Checkout</div>
+					
+					<form action="https://www.sandbox.paypal.com/cgi-bin/webscr?" method="post">
+						<input type="hidden" name="cmd" id="cmd" value="_s-xclick">
+						<input type="email" name="email" id="email">
+						<input type="hidden" name="encrypted" id="encrypted" value="<%= paypal_encrypted(item.description) %>">
+						<p>
+							<button ng-click="Checkout()">Donate</button>
+						</p>
+					</form>
 					
 					
 				
