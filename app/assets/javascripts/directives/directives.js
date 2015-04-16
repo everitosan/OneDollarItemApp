@@ -94,7 +94,7 @@
         {
           count=0;
         }
-        $ul.css('left',(ancho*count) );
+        $ul.css('left',-(ancho*count) );
       }
 
       function nextItem() {
@@ -105,7 +105,7 @@
           count++;
         }
 
-        $ul.css('left',- (count*ancho) );
+        $ul.css('left', -(count*ancho) );
       }
 
       function step2 () {
