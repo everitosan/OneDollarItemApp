@@ -17,6 +17,6 @@ class Item < ActiveRecord::Base
 		   presence: true
 
 	def self.getAvaible
-		return self.where(condition_id: 2).order(:id)
+		return self.where(condition_id: 2).order(:amount)
 	end
 end
