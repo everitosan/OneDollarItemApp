@@ -107,9 +107,17 @@
 
       var $pic = $('.numberdays').attr('data-day');
 
+      if ($pic === undefined)
+      {
+        $pic="imagen_face.jpg";
+      }
+      else {
+        $pic= $pic + '.png';
+      }
+
         Facebook.ui({
           method: 'feed',
-          picture: 'http://www.onedollaritem.org/images/'+$pic+'.png',
+          picture: 'http://www.onedollaritem.org/images/'+$pic,
           link: 'http://onedollaritem.org',
           caption: 'A non-profit initiative powered by Patrick Switzer.',
           description: message[messageNumber]
