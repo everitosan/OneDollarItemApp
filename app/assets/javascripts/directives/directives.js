@@ -77,23 +77,39 @@
     .directive('apDonationDirective', [function DonationDirective (){
       function ressize() {
         porcentajeEscala('#donation', 1);
-
         var $ul = $('#itemsFlow');
         var children = $ul.children().length;
-
         $ul.css('width', parseInt($ul.parent().css('width')) * children );
       }
 
+      function prevItem() {
+        var $ul = $('#itemsFlow');
+        var ancho = parseInt($ul.parent().css('width'));
+
+        $ul.css('left',parseInt($ul.css('left'))+ ancho);
+      }
+
+      function nextItem() {
+        var $ul = $('#itemsFlow');
+        var ancho = parseInt($ul.parent().css('width'));
+
+        $ul.css('left',parseInt($ul.css('left'))- ancho);
+      }
+
       function step2 () {
-        $('#donation').removeClass('step1').addClass('step2');
-        $('#container_app').css('margin-top','35%');
+        setTimeout(function(){
+          $('#donation').removeClass('step1').addClass('step2');
+          $('#container_app').css('margin-top','35%');
+        },500);
       }
 
       function link (scope, element) {
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
-        $('#DonateFacebook').on('click', step2);
+        $('#DonateFacebook').on('mousedown', step2);
+        $('#buttonItems .next').on('click', nextItem);
+        $('#buttonItems .prev').on('click', prevItem);
         $animatedElements.push({element: $elem, EA:'#donation .title', top:400});
         $animatedElements.push({element: $elem, EA:'#donation .fondo', top:500});
         $animatedElements.push({element: $elem, EA:'#donation .ornamental', top:600});

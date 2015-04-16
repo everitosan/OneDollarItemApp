@@ -35,8 +35,8 @@
 		display: flex;
 		margin: 0;
 		padding: 0;
-		position: relative;
-		right: 0;
+		position: absolute;
+		left: 0;
 		transition: ease-out 1.5s all;
   	}
 
@@ -113,6 +113,30 @@
 	#DonateJust {
 		width: 165px;
 	}
+
+	#buttonItems {
+		position: absolute;
+		bottom: 50%;
+		width: 100%;
+		.prev{
+			transform: rotateZ(-90deg);
+			float: left;
+			&:hover {
+				width: 67px;
+			}
+		}
+		.next {
+			transform: rotateZ(90deg);
+			float: right;
+			&:hover {
+				width: 67px;
+			}
+		}
+		img {
+			transition: ease-out .3s width;
+			width: 65px;
+		}
+	}
 }
 
 //********* STEPSS
@@ -125,6 +149,9 @@
 		.copy {
 			width: 60%;
 		}
+	}
+	#buttonItems {
+		display: none;
 	}
 }
 
@@ -227,6 +254,12 @@
 		}
 		#DonateJust {
 			width: 85px;
+		}
+		#buttonItems img {
+			width: 40px;
+			&:hover {
+				width: 32px;
+			}
 		}
 	}
 }
