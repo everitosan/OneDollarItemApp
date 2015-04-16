@@ -43,7 +43,7 @@ class DonatorController < ApplicationController
         :cmd => '_donations',
         :upload => 1,
         :return => APP_CONFIG['return_url'],
-        :amount => '1.34', 
+        :amount => '1.36', 
         :item_name => des_item,
         :address_override => 1,
         :notify_url => APP_CONFIG['notify_url'],
