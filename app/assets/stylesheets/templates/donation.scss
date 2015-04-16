@@ -24,7 +24,6 @@
   			text-align: center;
 			margin: 0 auto;
   			font-size: 1.2em;
-			width: 60%;
   		}
   		.buttonCont {
   			text-align: center;
@@ -52,8 +51,8 @@
   			background-size: 100%;
   			display: inline-block;
   			vertical-align: middle;
-  			width: 150px;
-  			height: 150px;
+  			width: 140px;
+  			height: 140px;
   			img {
 				border-radius: 50%;
 				margin-top: 20%;
@@ -92,9 +91,27 @@
 			background-size: 68% 67%;
 			background-repeat: no-repeat;
   		}
+  		#buyy {
+  			p {
+  				margin: 0;
+  			}
+  			.click {
+  				width: 180px;
+  				&:hover {
+  					width: 185px;
+  				}
+  			}
+  		}
   	}
 	form {
 		text-align: center;
+	}
+
+	#DonateFacebook img{
+		width: 287px;
+	}
+	#DonateJust {
+		width: 165px;
 	}
 }
 
@@ -104,12 +121,21 @@
 	.fondo {
     	@include back("donationbg.png");
 	}
+	#container_app {
+		.copy {
+			width: 60%;
+		}
+	}
 }
 
 .step2 {
 	.fondo {
     	@include back("donatebgStep2.png");
-    	
+	}
+	#container_app {
+		.copy {
+			width: 70%;
+		}
 	}
 
 }
@@ -138,25 +164,69 @@
   }
 }
 
-@media screen and (max-width: 950px)  {
+@media screen and (max-width: 1150px) {
 	#donation {
-
-		#container_app .copy {
-			font-size: 1em;
-		}
-
 		.item {
 			figure {
 				height: 100px;
 				width: 100px;
 			}
+			.itemView {
+				background-size: 58% 72%;
+				font-size: 0.7em;
+			}
 		}
-		.itemView {
-			background-size: 63% 72%;
-			font-size: 0.7em;
+		#container_app .copy {
+			font-size: 1em;
 		}
+
+		#DonateFacebook img{
+			width: 237px;
+		}
+		#DonateJust {
+			width: 125px;
+		}
+	}
+}
+
+@media screen and (max-width: 950px)  {
+	#donation {
+
 		#buyy .click {
 			width: 160px;
+		}
+	}
+}
+@media screen and (max-width: 550px)  {
+	#donation {
+		#container_app .copy {
+			font-size: .3em;
+		}
+		.item  {
+			figure {
+				height: 70px;
+		  		width: 70px;
+			}
+			.itemView {
+				font-size: 0.2em;
+			}
+			.infoItem {
+				p:not(.item_name) { 
+					max-height: 9px;
+				}
+				.item_name {
+					line-height: 12px;
+				}
+			}
+			#buyy .click {
+				width: 90px;
+			}
+		}
+		#DonateFacebook img{
+			width: 167px;
+		}
+		#DonateJust {
+			width: 85px;
 		}
 	}
 }
