@@ -80,14 +80,20 @@
 
         var $ul = $('#itemsFlow');
         var children = $ul.children().length;
-        
-        $ul.css('width', parseInt($ul.css('width')) * children );
+        console.log(children);
+        $ul.css('width', parseInt($ul.parent().css('width')) * children );
+      }
+
+      function step2 () {
+        $('#donation').removeClass('step1').addClass('step2');
+        $('#container_app').css('margin-top','35%');
       }
 
       function link (scope, element) {
         var $elem = $(element);
         $(window).on('resize', ressize);
         ressize();
+        $('#DonateFacebook').on('click', step2);
         $animatedElements.push({element: $elem, EA:'#donation .title', top:400});
         $animatedElements.push({element: $elem, EA:'#donation .fondo', top:500});
         $animatedElements.push({element: $elem, EA:'#donation .ornamental', top:600});
@@ -413,6 +419,13 @@
   var minMinMobile = 374;
 
  //***// Loader
+setTimeout(function(){
+  console.log('ala');
+    $(window).load(function(){
+      console.log('post5000');
+    });
+},5000);
+
   $(window).load(function() {
      $('#deck').removeClass('unloaded').addClass('loaded');
      $('#menu').removeClass('unloaded').addClass('loaded');

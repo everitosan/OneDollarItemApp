@@ -115,13 +115,17 @@
 
 
 @media screen and (min-width: 1151px) and (orientation: landscape) {
+  #donation {
+  	.title {
+    	width: 100%;
+    }
+  }
+
   .step1 {
     .fondo {
       @include animateElementBg("donationbgOff.png");
     }
-    .title {
-    	width: 100%;
-    }
+    
     .ornamental {
       @include animateElementBg("donationbgOff1.png");
     }
