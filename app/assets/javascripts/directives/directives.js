@@ -241,8 +241,8 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem =  $(element);
-        $animatedElements.push({element: $elem, EA:'#team .title', top: 1000});
-        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 1100});
+        $animatedElements.push({element: $elem, EA:'#team .title', top: 900});
+        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 980});
         $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1350});
         $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1470});
         $animatedElements.push({element: $elem, EA:'#team .kid', top: 1500});
