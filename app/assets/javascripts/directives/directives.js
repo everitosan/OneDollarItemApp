@@ -75,6 +75,7 @@
       return definitionObject;
     }])
     .directive('apDonationDirective', [function DonationDirective (){
+      var count = 0;
       function ressize() {
         porcentajeEscala('#donation', 1);
         var $ul = $('#itemsFlow');
@@ -85,22 +86,35 @@
       function prevItem() {
         var $ul = $('#itemsFlow');
         var ancho = parseInt($ul.parent().css('width'));
-
-        $ul.css('left',parseInt($ul.css('left'))+ ancho);
+        if(count>0)
+        {
+          count--;
+        }
+        else if (count<0)
+        {
+          count=0;
+        }
+        $ul.css('left',(ancho*count) );
       }
 
       function nextItem() {
         var $ul = $('#itemsFlow');
         var ancho = parseInt($ul.parent().css('width'));
+        if( count < ($ul.children().length -1) )
+        {
+          count++;
+        }
 
-        $ul.css('left',parseInt($ul.css('left'))- ancho);
+        $ul.css('left',- (count*ancho) );
       }
 
       function step2 () {
+        $('#donation').css('opacity', 0);
         setTimeout(function(){
+          $('#donation').css('opacity', 1);
           $('#donation').removeClass('step1').addClass('step2');
           $('#container_app').css('margin-top','35%');
-        },500);
+        },1000);
       }
 
       function link (scope, element) {

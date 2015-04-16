@@ -4,6 +4,7 @@
 	margin: 0 auto;
     overflow: hidden;
 	position: relative;
+	transition: ease-out .5s opacity;
 	height:600px;
 	.fondo {
 		height: 100%;
