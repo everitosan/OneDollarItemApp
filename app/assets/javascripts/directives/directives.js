@@ -80,7 +80,7 @@
 
         var $ul = $('#itemsFlow');
         var children = $ul.children().length;
-        console.log(children);
+
         $ul.css('width', parseInt($ul.parent().css('width')) * children );
       }
 
@@ -419,20 +419,15 @@
   var minMinMobile = 374;
 
  //***// Loader
-setTimeout(function(){
-  console.log('ala');
-    $(window).load(function(){
-      console.log('post5000');
-    });
-},5000);
-
   $(window).load(function() {
      $('#deck').removeClass('unloaded').addClass('loaded');
      $('#menu').removeClass('unloaded').addClass('loaded');
 
     
      setTimeout(function(){  $('#loader').fadeOut(); }, 2000);
+     
      var $counter = $('#counter');
+
      if ($counter.length != 0) {
        setTimeout(function(){$('#counter').css('opacity', 1);}, 3000);
        setTimeout(function(){$('#counter .ornamental').css('opacity', 1);}, 3300);
