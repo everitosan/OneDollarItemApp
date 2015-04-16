@@ -16,9 +16,10 @@ class IpnController < ApplicationController
 			@currUser = User.find(user_id)
 		  	@currentItem = Item.find_by_description(item)
 		  	
+		  	@currentItem.user = @currUser
+		  	@currentItem.save
 		  	
 		  	@currentItem.amount +=  1
-		  	@currentItem.user = @currUser
 		  	@currentItem.save
 		  	
 		end

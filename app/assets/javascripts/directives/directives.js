@@ -241,12 +241,12 @@
         $(window).on('resize', ressize);
         ressize();
         var $elem =  $(element);
-        $animatedElements.push({element: $elem, EA:'#team .title', top: 1400});
-        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 1500});
-        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1700});
-        $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1720});
-        $animatedElements.push({element: $elem, EA:'#team .kid', top: 1750});
-        $animatedElements.push({element: $elem, EA:'#team .text', top:1850});
+        $animatedElements.push({element: $elem, EA:'#team .title', top: 1300});
+        $animatedElements.push({element: $elem, EA:'#team .fondo', top: 1400});
+        $animatedElements.push({element: $elem, EA:'#team .ornamental', top: 1500});
+        $animatedElements.push({element: $elem, EA:'#team #gallerybutton', top:1520});
+        $animatedElements.push({element: $elem, EA:'#team .kid', top: 1550});
+        $animatedElements.push({element: $elem, EA:'#team .text', top:1650});
 
       }
 
