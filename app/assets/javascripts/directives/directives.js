@@ -155,11 +155,7 @@
         ressize();
         var $elem=element;
 
-        $animatedElements.push({element: $elem, EA:'#about .title', top:500});
-        $animatedElements.push({element: $elem, EA:'#about .eye', top:600});
-        $animatedElements.push({element: $elem, EA:'#about .fondo', top:700});
-        $animatedElements.push({element: $elem, EA:'#about .kid', top:800});
-        $animatedElements.push({element: $elem, EA:'#about .text', top:950});
+ 
       }
 
       var definitionObject = {

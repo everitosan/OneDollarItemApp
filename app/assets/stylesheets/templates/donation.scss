@@ -18,7 +18,6 @@
     }
 
 	#container_app {
-		margin-top: 35%;
   		position: relative;
   		.copy {
   			font-family: "klavika_bdbold_italic";
@@ -93,7 +92,9 @@
 			background-repeat: no-repeat;
   		}
   	}
-	
+	form {
+		text-align: center;
+	}
 }
 
 //********* STEPSS
