@@ -6,8 +6,7 @@ class OdiController < ApplicationController
   caches_page :preview, :results
 
   def preview
-    date = Time.new
-    @daysLeft = 16 - date.day
+    redirect_to action: 'tender'
   end
 
   def tender
