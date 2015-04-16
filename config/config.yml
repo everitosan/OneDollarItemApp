@@ -7,10 +7,10 @@ development:
     paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr?"
 
 production:
-    paypal_email: eve.smda-facilitator@gmail.com
+    paypal_email: martin.5tocolor@hotmail.com
     return_url: https://one-dollar-item.herokuapp.com/odi/tender
     notify_url: https://one-dollar-item.herokuapp.com/ipn/newOwner
-    cert_id: NH9NSHZJQMDMY
+    cert_id: 8TBDGQA5TG5ZU
     paypal_secret: digitalInvaders15
     paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr?"
 

@@ -74,6 +74,37 @@
 
       return definitionObject;
     }])
+    .directive('apDonationDirective', [function DonationDirective (){
+      function ressize() {
+        porcentajeEscala('#donation', 1);
+
+        var $ul = $('#itemsFlow');
+        var children = $ul.children().length;
+        
+        $ul.css('width', parseInt($ul.css('width')) * children );
+      }
+
+      function link (scope, element) {
+        var $elem = $(element);
+        $(window).on('resize', ressize);
+        ressize();
+        $animatedElements.push({element: $elem, EA:'#donation .title', top:400});
+        $animatedElements.push({element: $elem, EA:'#donation .fondo', top:500});
+        $animatedElements.push({element: $elem, EA:'#donation .ornamental', top:600});
+
+      }
+
+      var definitionObject = {
+        restrict: 'E',
+        scope: { days:'@' },
+        replace:true,
+        transclude: true,
+        templateUrl:'donation.html',
+        link: link
+      };
+
+      return definitionObject;
+    }])
     .directive('apAboutDirective', [function AboutDirective() {
       var porcentual = 1.235;
       var porcentualPaddingText = 0.658;
@@ -159,9 +190,6 @@
       var porcentual = 1.268;
       var porcentualPaddingText = 0.839;
       function ressize() {
-
-
-
         if(window.innerWidth >= minMobile) {
           porcentajeEscala('#team', porcentual);
         }
@@ -395,11 +423,20 @@
 
     
      setTimeout(function(){  $('#loader').fadeOut(); }, 2000);
-
-     setTimeout(function(){$('#counter').css('opacity', 1);}, 3000);
-     setTimeout(function(){$('#counter .ornamental').css('opacity', 1);}, 3300);
-     setTimeout(function(){$('#counter .whiteroll').css('opacity', 1);}, 3450);
-     setTimeout(function(){$('#counter .itemsGreen').css('opacity', 1);}, 3800);
+     var $counter = $('#counter');
+     if ($counter.length != 0) {
+       setTimeout(function(){$('#counter').css('opacity', 1);}, 3000);
+       setTimeout(function(){$('#counter .ornamental').css('opacity', 1);}, 3300);
+       setTimeout(function(){$('#counter .whiteroll').css('opacity', 1);}, 3450);
+       setTimeout(function(){$('#counter .itemsGreen').css('opacity', 1);}, 3800);   
+     }
+     else {
+       setTimeout(function(){$('#about .title').css('opacity', 1);}, 3000);
+       setTimeout(function(){$('#about .eye').css('opacity', 1);}, 3300);
+       setTimeout(function(){$('#about .fondo').css('opacity', 1);}, 3450);
+       setTimeout(function(){$('#about .kid').css('opacity', 1);}, 3800);
+       setTimeout(function(){$('#about .text').css('opacity', 1);}, 4000);
+     }
 
 
 });

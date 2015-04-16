@@ -1,0 +1,133 @@
+@import 'mixings';
+
+#donation {
+	margin: 0 auto;
+    overflow: hidden;
+	position: relative;
+	height:600px;
+	.fondo {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+    .title {
+      width: 90%;
+      opacity: 0;
+    }
+
+	#container_app {
+		margin-top: 35%;
+  		position: relative;
+  		.copy {
+  			font-family: "klavika_bdbold_italic";
+  			text-align: center;
+			margin: 0 auto;
+  			font-size: 1.2em;
+			width: 60%;
+  		}
+  		.buttonCont {
+  			text-align: center;
+  			margin: 0;
+  		}
+  	}
+
+  	#itemsFlow {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		right: 0;
+		transition: ease-out 1.5s all;
+  	}
+
+  	.item {
+  		flex: 1;
+  		text-align: center;
+  		list-style: none;
+  		figure {
+  			background: image-url("donatebgit-us.png");
+  			background-position: center;
+  			background-size: 100%;
+  			display: inline-block;
+  			vertical-align: middle;
+  			width: 150px;
+  			height: 150px;
+  			img {
+				border-radius: 50%;
+				margin-top: 30px;
+				width: 90px;
+  			}		
+  		}
+  		.infoItem {
+  			text-transform: uppercase;
+  			display: inline-block;
+  			vertical-align: middle;
+  			width: 30%;
+  			p{
+  				margin: 0;
+  				font-family: "klavika_bdbold_italic";
+  				overflow: hidden;
+  				&:not(.item_name) {
+  					max-height: 19px;
+  				}
+  			}
+			.itemSpec, .ownerSpec{
+				margin: 3px 0;
+			}
+
+  			.item_name {
+  				font-size: 1.6em;
+  				line-height: 22px;
+  			}
+  			.green {
+  				color: #30806a;
+  			}
+  		}
+  		.itemView{
+			background: image-url("donatebgtext.png");
+			background-size: 100%;
+			background-position: center;
+			background-size: 68% 67%;
+			background-repeat: no-repeat;
+  		}
+  	}
+	
+}
+
+//********* STEPSS
+
+.step1 {
+	.fondo {
+    	@include back("donationbg.png");
+	}
+}
+
+.step2 {
+	.fondo {
+    	@include back("donatebgStep2.png");
+    	
+	}
+
+}
+
+
+@media screen and (min-width: 1151px) and (orientation: landscape) {
+  .step1 {
+    .fondo {
+      @include animateElementBg("donationbgOff.png");
+    }
+    .title {
+    	width: 100%;
+    }
+    .ornamental {
+      @include animateElementBg("donationbgOff1.png");
+    }
+  }
+  .step2 {
+	.fondo {
+		@include animateElementBg("donatebgStep2.png");
+	}
+  }
+}

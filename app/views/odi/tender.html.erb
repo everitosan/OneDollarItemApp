@@ -14,53 +14,85 @@
 	howa5 = "<%= t ('howitworks.a5') %>">	
 </ap-about-directive>
 
-<section id="donation">
+<section id="donation" class="step1">
+	<div class="fondo"></div>
+	<div class="ornamental"></div>
 
-	<div ng-controller="authenticationCtrl" >
-		
-		<button ng-show="!loggedIn" ng-click="IntentLog()">Facebook</button>
-		<div id="status">
-		</div>
-		<div ng-show="loggedIn">
-			<!-- <img  id="photoUrl" src="" alt=""> -->
-			<div ng-controller="paymentCtrl">  
-	
-			<% @items.each do |item| %>
-				<div class="item">	
-					<span class="item_des">
-						<%=item.description %>
-					</span>				
-					<span class="item_condition">
-						<%=item.condition.description %>
-					</span>
-					<span class="item_belong">
-						<%=item.user.name %>
-						<img ng-src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?type=small" alt="">
-					</span>
-						
-					<%=item.img %>
-					<div ng-click="CloseLightBox( <%=item.id %> )"> Change </div>
+	<ap-donation-directive>
+		<div id="container_app" ng-controller="authenticationCtrl" >
+		<span  ng-show="!loggedIn">
+			<%= image_tag 'donationbgOff2.png', :class => 'title' %>
+		</span>
 
-					
-					<form id="buyy" method="post" name="buyy">
-						<input type="hidden" name="cmd" id="cmd" value="_s-xclick">
-						<input type="hidden" name="encrypted" id="encrypted">
-						<p>
-							<button ng-click="Checkout( '<%= item.description %>' )">Donate</button>
-						</p>
-					</form>
-					
-					
-
-				</div>
-			<% end %>
-
-
+			<div ng-show="!loggedIn"> 
+				<p class="copy" ><%= t ('donate.copy1') %></p>
+				<p id="DonateFacebook" class="buttonCont" ng-click="IntentLog()">
+					<%= image_tag 'donationbuttonfb.png', :class => 'click' %>
+				</p>
+				<p class="buttonCont" >
+					<%= image_tag 'donationbutton.png', :class => 'click' %>
+				</p>
 			</div>
 
-		</div>
+			
+			<div ng-show="loggedIn">
+				<p class="copy" ><%= t ('donate.copy2') %></p>
+				<div ng-controller="paymentCtrl">  
+				
+				<ul id="itemsFlow">
+				
+				<% @items.each do |item| %>
+					<li class="item">	
+						
+						<div class="itemView">
+							<figure>
+								<%= image_tag item.img %>
+								
+							</figure>
+							<div class="infoItem">
+							
+								<div class="itemSpec">	
+									<p class="item_name green">
+										<%=item.name %>
+									</p>	
+									<p class="item_des">
+										<%=item.description %>
+									</p>		
+								</div>
+								<div class="ownerSpec">
+									<p class="green"><%= t ('donate.owner') %></p>
+									<p><%=item.user.name %></p>	
+								</div>
+							</div>
+
+							<figure>
+								<img ng-src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?width=100&height=100" alt="">
+							</figure>
+							
+						</div>
+
+						<form id="buyy" method="post" name="buyy">
+							<input type="hidden" name="cmd" id="cmd" value="_s-xclick">
+							<input type="hidden" name="encrypted" id="encrypted">
+							<p>
+								<span ng-click="Checkout( '<%= item.description %>' )">
+									<%= image_tag 'donatebutton.png'%>
+									
+								</span>
+							</p>
+						</form>
 		
-	</div>
+					</li>
+
+				<% end %>
+				</ul>
+
+				</div>
+
+			</div>
+		</div>
+	</ap-donation-directive>
+
 </section>
 	
 

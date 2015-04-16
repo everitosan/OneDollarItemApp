@@ -30,7 +30,7 @@
 
         PostDataSrv.postD(data).then(function(dataReturn) {
           input.attr('value',dataReturn.cryp);
-          form.attr("action", "https://www.sandbox.paypal.com/cgi-bin/webscr?");
+          form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
           form.submit();
 
         }, function (reason){
