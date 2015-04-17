@@ -10,6 +10,10 @@ class OdiController < ApplicationController
   end
 
   def tender
+    if request.base_url() == "https://one-dollar-item.herokuapp.com"
+      redirect_to "http://www.onedollaritem.org"
+    end
+
   	@items = Item.getAvaible()
   end
 
