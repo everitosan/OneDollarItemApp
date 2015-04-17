@@ -18,15 +18,14 @@ class DonatorController < ApplicationController
     @User = User.find_by_fb_id(params[:id])
 
     if @User.nil?
-      @NewUser = User.new
-      @NewUser.fb_id = params[:id]
-      @NewUser.name = params[:name]
-      @NewUser.email = params[:email]
-      @NewUser.first_n = params[:first_name]
-      @NewUser.last_n = params[:last_name]
-      @NewUser.locate = params[:locale]
-      @NewUser.save
-      @User = User.last
+      @User = User.new
+      @User.fb_id = params[:id]
+      @User.name = params[:name]
+      @User.email = params[:email]
+      @User.first_n = params[:first_name]
+      @User.last_n = params[:last_name]
+      @User.locate = params[:locale]
+      @User.save
     end
 
     crypChain = paypal_encrypted(params[:item], @User.id)

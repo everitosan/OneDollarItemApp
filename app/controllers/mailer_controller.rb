@@ -6,7 +6,7 @@ class MailerController < ApplicationController
 	end
 
 	def notifySteal (owner_name, owner_email, item_name, item_des)
-		ContactEmail.notify_email(owner_name, owner_email, item_name, item_des).deliver_later
+		ContactEmail.notify_email(owner_name, owner_email, item_name, item_des).deliver_now
 		render :nothing =>true
 	 end
 
