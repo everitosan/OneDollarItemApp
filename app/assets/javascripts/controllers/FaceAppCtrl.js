@@ -46,7 +46,7 @@
 
       var shareMyItem = function () {
         var owner = UserSrv.getSession();
-        if(owner) {
+        if(owner && owner.name) {
           $scope.userSession = owner.name;
           if(owner.open) {
             $scope.loggedIn = true;
