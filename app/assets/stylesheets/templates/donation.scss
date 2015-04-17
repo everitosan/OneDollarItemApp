@@ -6,11 +6,7 @@
 	position: relative;
 	transition: ease-out .5s opacity;
 	height:600px;
-	#container_app {
-		div, .title {
-			opacity: 0;
-		}
-	}
+	
 	.fondo {
 		height: 100%;
 		position: absolute;
@@ -192,6 +188,11 @@
   	.title {
     	width: 100%;
     }
+    #container_app {
+		div, .title {
+			opacity: 0;
+		}
+	}
   }
 
   .step1 {
