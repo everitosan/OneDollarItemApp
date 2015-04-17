@@ -103,7 +103,7 @@
       
       var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
                       'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
-                      'TestItem'];
+                      'Congratulations! You are the actual owner of this item.Thanks to you, the crew of Venados Longboarding are one step closer to go and compete in the Maryhill Festival of Speed 2015.'];
 
       $scope.lang = function(lan) {
           if(lan === 'es')
