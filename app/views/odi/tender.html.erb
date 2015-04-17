@@ -14,12 +14,12 @@
 	howa5 = "<%= t ('howitworks.a5') %>">	
 </ap-about-directive>
 
-<section id="donation" class="step1">
+<section id="donation" ng-controller="authenticationCtrl"  ng-class="{'step1': !loggedIn, 'step2': loggedIn } ">
 	<div class="fondo"></div>
 	<div class="ornamental"></div>
 
 	<ap-donation-directive>
-		<div id="container_app" ng-controller="authenticationCtrl" >
+		<div id="container_app" >
 		<span  ng-show="!loggedIn">
 			<%= image_tag 'donationbgOff2.png', :class => 'title' %>
 		</span>
@@ -47,7 +47,7 @@
 				<ul id="itemsFlow">
 				
 				<% @items.each do |item| %>
-					<li class="item">	
+					<li class="item" >	
 						
 						<div class="itemView">
 							<figure>
@@ -71,12 +71,12 @@
 							</div>
 
 							<figure>
-								<img ng-src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?width=100&height=100" alt="">
+								<img  id="userImage" ng-src="http://graph.facebook.com/<%=item.user.fb_id %>/picture?width=100&height=100" alt="">
 							</figure>
 							
 						</div>
 
-						<form id="buyy" method="post" name="buyy">
+						<form id="buyy" method="post" name="buyy" ng-if="userSession != <%=item.user.fb_id %>">
 							<input type="hidden" name="cmd" id="cmd" value="_s-xclick">
 							<input type="hidden" name="encrypted" id="encrypted">
 							<p>
@@ -86,6 +86,10 @@
 								</span>
 							</p>
 						</form>
+						<span ng-controller="shareMenuCtrl" ng-if="userSession == <%=item.user.fb_id %> ">
+							<span ng-click="shareFacebook(2, '<%= item.img %>' )"> Share </span>
+							
+						</span>
 		
 					</li>
 

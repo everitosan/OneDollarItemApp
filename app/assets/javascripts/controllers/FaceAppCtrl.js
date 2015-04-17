@@ -12,7 +12,7 @@
       //FacebookProvider.init('1560451627557497');
     })
 
-    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$window', '$element', function($scope, UserSrv, PostDataSrv, $cookies, $window, $element){
+    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$element', function($scope, UserSrv, PostDataSrv, $cookies, $element){
       
       $scope.Checkout= function(item) {
         var $form = $($element.find('form'));
@@ -20,9 +20,8 @@
 
         UserSrv.data.item = item;
         PostUser(UserSrv.data, $form, $encypt);
-
+        UserSrv.setSession(UserSrv.data.id);
       };
-
 
       var PostUser = function (data, form, input){
         var TOKEN = $cookies['XSRF-TOKEN'];
@@ -43,6 +42,18 @@
     
     .controller('authenticationCtrl',['$scope', 'Facebook', 'UserSrv', function($scope, Facebook, UserSrv) {
       $scope.loggedIn = false;
+      $scope.userSession = '';
+
+      var shareMyItem = function () {
+        var owner = UserSrv.getSession();
+        if(owner) {
+          $scope.userSession = owner.name;
+          if(owner.open) {
+            $scope.loggedIn = true;
+            UserSrv.destroyOpenSession(owner);
+          }
+        }
+      };
 
       $scope.IntentLog = function () {
         login();
@@ -86,11 +97,13 @@
         });
       }; 
 
+      shareMyItem();
     }])
     .controller('shareMenuCtrl',['$scope','$window', 'Facebook' , function($scope, $window, Facebook){
       
       var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
-                      'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.'];
+                      'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
+                      'TestItem'];
 
       $scope.lang = function(lan) {
           if(lan === 'es')
@@ -103,13 +116,13 @@
       };
 
 
-      $scope.shareFacebook =function(messageNumber) {
+      $scope.shareFacebook =function(messageNumber, pic) {
 
       var $pic = $('.numberdays').attr('data-day');
 
       if ($pic === undefined)
       {
-        $pic="imagen_face.jpg";
+        $pic = pic || "imagen_face.jpg";
       }
       else {
         $pic= $pic + '.png';

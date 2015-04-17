@@ -112,8 +112,7 @@
         $('#donation').css('opacity', 0);
         setTimeout(function(){
           $('#donation').css('opacity', 1);
-          $('#donation').removeClass('step1').addClass('step2');
-          $('#container_app').css('margin-top','35%');
+         // $('#donation').removeClass('step1').addClass('step2');
         },1000);
       }
 
@@ -334,7 +333,7 @@
     }])
     .directive('apLightboxDirective', [function LightboxDirective() {
 
-      var arrPhotos = ['_DSC1915.jpg','_MG_0189.jpg','_MG_0226.jpg','_MG_0339.jpg','_MG_0362.jpg','_MG_0389.jpg','_MG_0393.jpg','_MG_0493.jpg','_MG_0497.jpg','_MG_0520.jpg','_MG_0548.jpg','_MG_0558.jpg','_MG_0563.jpg','_MG_0567.jpg','_MG_0584.jpg','_MG_0614.jpg','_MG_0622.jpg','_MG_0635.jpg','_MG_0644.jpg','_MG_0657.jpg','_MG_0662.jpg','_MG_1915.jpg','_MG_1926.jpg','IMG_0901.jpg','IMG_4036.jpg','IMG_4115.jpg','IMG_4127.jpg','IMG_4150.jpg','IMG_4174.jpg','IMG_4196.jpg','P1050379.jpg'];
+      var arrPhotos = ['2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.jpg','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg'];
       
       function hidelight(event) {
         $('.lightboxbutton').css('z-index', 6);
