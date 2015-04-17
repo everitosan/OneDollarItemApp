@@ -30,11 +30,12 @@ class DonatorController < ApplicationController
     end
 
     crypChain = paypal_encrypted(params[:item], @User.id)
-
+    logger.debug "//********************PREPOSTINFO*************//"
     logger.debug "APP id: " 
     logger.debug @User.id
     logger.debug "Facebook id: " 
     logger.debug params[:id] 
+    logger.debug "//********************PREPOSTINFO-ENDS*************//"
     logger.debug crypChain 
 
     render json: { status: :ok, owner: @User.id, item: params[:item], cryp: crypChain}
