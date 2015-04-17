@@ -82,12 +82,13 @@
 							<p>
 								<span ng-click="Checkout( '<%= item.description %>' )">
 									<%= image_tag 'donatebutton.png', :class => 'click' %>
-									
 								</span>
 							</p>
 						</form>
 						<span ng-controller="shareMenuCtrl" ng-if="userSession == <%=item.user.fb_id %> ">
-							<span ng-click="shareFacebook(2, '<%= item.img %>' )"> Share </span>
+							<span ng-click="shareFacebook(2, '<%= item.img %>' )">
+									<%= image_tag 'donatesharebutton.png', :class => 'click shareMyItem' %> 
+							</span>
 							
 						</span>
 		

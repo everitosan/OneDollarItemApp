@@ -82,13 +82,13 @@
   			p {
   				margin: 0;
   			}
-  			.click {
-  				width: 180px;
-  				&:hover {
-  					width: 185px;
-  				}
-  			}
   		}
+  		.click, .shareMyItem {
+			width: 180px;
+			&:hover {
+				width: 185px;
+			}
+		}
   	}
 	form {
 		text-align: center;
@@ -232,10 +232,9 @@
 
 @media screen and (max-width: 950px)  {
 	#donation {
-
-		#buyy .click {
+		.click, .shareMyItem {
 			width: 160px;
-		}
+		}	
 	}
 }
 @media screen and (max-width: 550px)  {
@@ -259,7 +258,7 @@
 					line-height: 12px;
 				}
 			}
-			#buyy .click {
+			.click, .shareMyItem {
 				width: 90px;
 			}
 		}
