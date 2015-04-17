@@ -95,11 +95,19 @@
 		text-align: center;
 	}
 
-	#DonateFacebook img{
-		width: 287px;
+	#DonateFacebook {
+		img {
+			width: 287px;
+			&:hover {
+				width: 290px;
+			}
+		}
 	}
 	#DonateJust {
 		width: 165px;
+		&:hover {
+				width: 168px;
+			}
 	}
 
 	#buttonItems {
