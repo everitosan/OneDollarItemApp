@@ -124,9 +124,10 @@
         $('#DonateFacebook').on('mousedown', step2);
         $('#buttonItems .next').on('click', nextItem);
         $('#buttonItems .prev').on('click', prevItem);
-        $animatedElements.push({element: $elem, EA:'#donation .title', top:400});
-        $animatedElements.push({element: $elem, EA:'#donation .fondo', top:500});
-        $animatedElements.push({element: $elem, EA:'#donation .ornamental', top:600});
+        $animatedElements.push({element: $elem, EA:'#donation #container_app .title', top:700});
+        $animatedElements.push({element: $elem, EA:'#donation .fondo', top:720});
+        $animatedElements.push({element: $elem, EA:'#donation .ornamental', top:760});
+        $animatedElements.push({element: $elem, EA:'#donation #container_app div', top:900});
 
       }
 
@@ -334,7 +335,7 @@
     }])
     .directive('apLightboxDirective', [function LightboxDirective() {
 
-      var arrPhotos = ['2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.jpg','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg'];
+      var arrPhotos = ['02.jpg','03.jpg','04.jpg','05.jpg','06.jpg','07.jpg','08.jpg','09.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.jpg','25.jpg','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg'];
       
       function hidelight(event) {
         $('.lightboxbutton').css('z-index', 6);
