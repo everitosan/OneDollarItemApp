@@ -30,8 +30,9 @@ class IpnController < ApplicationController
 		  			if currentItem.save
 
 		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
-					  	logger.debug currUser.name
+					  	logger.debug currentItem.user.name
 					  	logger.debug currentItem.description
+					  	logger.debug lastOwner.name
 		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
 					  	
 		  				mail = MailerController.new()
