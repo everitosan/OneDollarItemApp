@@ -13,7 +13,7 @@ class IpnController < ApplicationController
 			
 		  	currentItem = Item.find_by_description(item)
 			
-			if !currentItem.nil? && item != "Future Killer Rayne Longboard 1"
+			if !currentItem.nil?
 				if currentItem.user.id == user_id
 		  			currentItem.amount = increaseAmount(currentItem.amount)
 		  			if currentItem.save
@@ -34,11 +34,11 @@ class IpnController < ApplicationController
 					  	logger.debug currentItem.description
 					  	logger.debug lastOwner.name
 		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
-					  	
-		  				#mail = MailerController.new()
-					  	#mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
-					  	#mail = nil
-
+#=begin					  	
+		  				mail = MailerController.new()
+					  	mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
+					  	mail = nil
+#=end
 					  	
 		  			end
 			  	end
