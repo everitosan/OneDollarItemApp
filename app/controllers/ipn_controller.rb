@@ -35,9 +35,9 @@ class IpnController < ApplicationController
 					  	logger.debug lastOwner.name
 		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
 					  	
-		  				mail = MailerController.new()
-					  	mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
-					  	mail = nil
+		  				#mail = MailerController.new()
+					  	#mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
+					  	#mail = nil
 
 					  	
 		  			end
