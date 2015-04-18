@@ -70,6 +70,7 @@
         Facebook.login(function(response) {
           if (response.status === 'connected') {
             $scope.loggedIn = true;
+            setUlSize();
             me();
           }
           else if (response.status === 'not_authorized') {
@@ -86,6 +87,12 @@
         Facebook.api('/me', function(response) {
           UserSrv.data = response;
         });
+      };
+
+      var setUlSize= function(){
+        var $ul = $('#itemsFlow');
+        var children = $ul.children().length;
+        $ul.css('width', parseInt($ul.parent().css('width')) * children );
       };
 
       function setPhoto (url){

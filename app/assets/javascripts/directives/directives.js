@@ -112,14 +112,13 @@
         $('#donation').css('opacity', 0);
         setTimeout(function(){
           $('#donation').css('opacity', 1);
-         // $('#donation').removeClass('step1').addClass('step2');
         },1000);
       }
 
       function link (scope, element) {
         var $elem = $(element);
 
-        setTimeout(ressize(), 1000);
+        ressize();
         $(window).on('resize', ressize);
         $('#DonateFacebook').on('mousedown', step2);
         $('#buttonItems .next').on('click', nextItem);
