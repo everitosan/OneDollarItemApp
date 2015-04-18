@@ -3,14 +3,14 @@ class IpnController < ApplicationController
 	
 	def newOwner
 		logger.debug "/*********************** IPN Notification ********/"
-		setOwner(params[:payment_status], params[:item_name], params[:paypal_secret], params[:custom])
+		setOwner(params[:payment_status], params[:item_name], params[:custom])
 		
 
 		#render :nothing => true
 	end
 
-	def setOwner (status, item, secret, user_id)
-		if status == "Completed" && secret == APP_CONFIG[:paypal_secret]
+	def setOwner (status, item, user_id)
+		if status == "Completed"
 			
 			@currUser = User.find(user_id)
 		  	@currentItem = Item.find_by_description(item)

@@ -28,9 +28,18 @@
         data.authenticity_token = TOKEN;
 
         PostDataSrv.postD(data).then(function(dataReturn) {
-          input.attr('value',dataReturn.cryp);
-          form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
-          form.submit();
+
+          console.log(dataReturn.status);
+
+          if( dataReturn.status === "error" ) {
+              alert('Sorry, something went wrong. Please try again.');
+          }
+          else {
+            input.attr('value',dataReturn.cryp);
+            form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
+            form.submit();
+          }
+
 
         }, function (reason){
           console.log('Reason: '+reason);

@@ -25,19 +25,23 @@ class DonatorController < ApplicationController
       @User.first_n = params[:first_name]
       @User.last_n = params[:last_name]
       @User.locate = params[:locale]
-      @User.save
     end
 
-    crypChain = paypal_encrypted(params[:item], @User.id)
-    logger.debug "//********************PREPOSTINFO*************//"
-    logger.debug "APP id: " 
-    logger.debug @User.id
-    logger.debug "Facebook id: " 
-    logger.debug params[:id] 
-    logger.debug "//********************PREPOSTINFO-ENDS*************//"
-    logger.debug crypChain 
+    if @User.save
+      crypChain = paypal_encrypted(params[:item], @User.id)
+      logger.debug "//********************PREPOSTINFO*************//"
+      logger.debug "APP id: " 
+      logger.debug @User.id
+      logger.debug "Facebook id: " 
+      logger.debug params[:id] 
+      logger.debug "//********************PREPOSTINFO-ENDS*************//"
+      logger.debug crypChain 
 
-    render json: { status: :ok, owner: @User.id, item: params[:item], cryp: crypChain}
+      render json: { status: :ok, owner: @User.id, item: params[:item], cryp: crypChain}
+    else
+      render json: { status: 'error'}
+    end
+
 
   end
 
