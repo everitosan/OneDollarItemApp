@@ -29,8 +29,6 @@
 
         PostDataSrv.postD(data).then(function(dataReturn) {
 
-          console.log(dataReturn.status);
-
           if( dataReturn.status === "error" ) {
               alert('Sorry, something went wrong. Please try again.');
           }

@@ -34,8 +34,9 @@ class DonatorController < ApplicationController
       logger.debug @User.id
       logger.debug "Facebook id: " 
       logger.debug params[:id] 
+      logger.debug "Item: " 
+      logger.debug params[:item]
       logger.debug "//********************PREPOSTINFO-ENDS*************//"
-      logger.debug crypChain 
 
       render json: { status: :ok, owner: @User.id, item: params[:item], cryp: crypChain}
     else
