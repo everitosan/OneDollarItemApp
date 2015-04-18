@@ -2,33 +2,48 @@ class IpnController < ApplicationController
 	protect_from_forgery :excet => [:newOwner]
 	
 	def newOwner
-		logger.debug "/*********************** IPN Notification ********/"
 		setOwner(params[:payment_status], params[:item_name], params[:custom])
-		
-
-		#render :nothing => true
+		render :nothing => true
 	end
 
 	def setOwner (status, item, user_id)
 		if status == "Completed"
+
+			user_id = user_id.to_i
 			
-			@currUser = User.find(user_id)
-		  	@currentItem = Item.find_by_description(item)
-		  	@lastOwner = @currentItem.user
+		  	currentItem = Item.find_by_description(item)
+			
+			if !currentItem.nil? 
+				if currentItem.user.id == user_id
+		  			currentItem.amount = increaseAmount(currentItem.amount)
+		  			if currentItem.save
+					  	logger.debug "/*********************** Solo el monto ********/"
+		  			end
+			  	else
+					logger.debug '**////// es dueño diferente /////**'
+			  		lastOwner = currentItem.user
 
-			logger.debug "/*********************** IPN Notification COMPLETED ********/"
-		  	logger.debug @currUser.name
-		  	logger.debug @currentItem.description
+		  			
+		  			currentItem.user = User.find(user_id)
+		  			currentItem.amount = increaseAmount(currentItem.amount)
+		  			
+		  			if currentItem.save
+		  				mail = MailerController.new()
+					  	mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
+					  	mail = nil
+
+					  	logger.debug "/*********************** IPN Notification COMPLETED ********/"
+					  	logger.debug currUser.name
+					  	logger.debug currentItem.description
+		  			end
+			  	end
+		  	else
+		  		#error item not found
+			end		
 		  	
-		  	@currentItem.user = @currUser
-		  	@currentItem.save
-
-		  	@currentItem.amount +=  1
-		  	@currentItem.save
-
-		  	mail = MailerController.new()
-		  	mail.notifySteal(@lastOwner.name, @lastOwner.email, @currentItem.name, @currentItem.description)
-		  	mail = nilu
 		end
+	end
+	def increaseAmount (amount)
+		return amount + 1
 	end
 end
