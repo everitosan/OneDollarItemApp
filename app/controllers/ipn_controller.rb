@@ -28,13 +28,17 @@ class IpnController < ApplicationController
 		  			currentItem.amount = increaseAmount(currentItem.amount)
 		  			
 		  			if currentItem.save
+
+		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
+					  	logger.debug currUser.name
+					  	logger.debug currentItem.description
+		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
+					  	
 		  				mail = MailerController.new()
 					  	mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
 					  	mail = nil
 
-					  	logger.debug "/*********************** IPN Notification COMPLETED ********/"
-					  	logger.debug currUser.name
-					  	logger.debug currentItem.description
+					  	
 		  			end
 			  	end
 		  	else
