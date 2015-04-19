@@ -12,38 +12,15 @@
       //FacebookProvider.init('1560451627557497');
     })
 
-    .controller('paymentCtrl', ['$scope', 'UserSrv', 'PostDataSrv', '$cookies', '$element', function($scope, UserSrv, PostDataSrv, $cookies, $element){
+    .controller('paymentCtrl', ['$scope', 'UserSrv', '$element', '$rootScope', function($scope, UserSrv, $element, $rootScope){
       
-      $scope.Checkout= function(item) {
-        var $form = $($element.find('form'));
-        var $encypt = $($form.find('#encrypted'));
+      $scope.Checkout= function(item, img) {
 
         UserSrv.data.item = item;
-        PostUser(UserSrv.data, $form, $encypt);
-        UserSrv.setSession(UserSrv.data.id);
+        $rootScope.$broadcast('shareBuy', {item:img, element: $element});
       };
 
-      var PostUser = function (data, form, input){
-        var TOKEN = $cookies['XSRF-TOKEN'];
-        data.authenticity_token = TOKEN;
-
-        PostDataSrv.postD(data).then(function(dataReturn) {
-
-          if( dataReturn.status === "error" ) {
-              alert('Sorry, something went wrong. Please try again.');
-          }
-          else {
-            input.attr('value',dataReturn.cryp);
-            form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
-            form.submit();
-          }
-
-
-        }, function (reason){
-          console.log('Reason: '+reason);
-        });        
-
-      };
+      
 
     }])
     
@@ -106,11 +83,14 @@
 
       shareMyItem();
     }])
-    .controller('shareMenuCtrl',['$scope','$window', 'Facebook' , function($scope, $window, Facebook){
-      
+    .controller('shareMenuCtrl',['$scope','$window', 'Facebook', 'UserSrv', '$cookies', 'PostDataSrv' , function($scope, $window, Facebook, UserSrv, $cookies, PostDataSrv){
       var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
                       'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
                       'Congratulations! You are the actual owner of this item.Thanks to you, the crew of Venados Longboarding are one step closer to go and compete in the Maryhill Festival of Speed 2015.'];
+
+      $scope.$on('shareBuy', function(event, data){
+        $scope.shareFacebook(2,data.item, data.element);
+      });
 
       $scope.lang = function(lan) {
           if(lan === 'es')
@@ -122,8 +102,30 @@
             }
       };
 
+      var PostUser = function (data, form, input){
+        var TOKEN = $cookies['XSRF-TOKEN'];
+        data.authenticity_token = TOKEN;
 
-      $scope.shareFacebook =function(messageNumber, pic) {
+        PostDataSrv.postD(data).then(function(dataReturn) {
+
+          if( dataReturn.status === "error" ) {
+              alert('Sorry, something went wrong. Please try again.');
+          }
+          else {
+            input.attr('value',dataReturn.cryp);
+            form.attr("action", "https://www.paypal.com/cgi-bin/webscr");
+            form.submit();
+          }
+
+
+        }, function (reason){
+          console.log('Reason: '+reason);
+        });        
+
+      };
+
+
+      $scope.shareFacebook =function(messageNumber, pic, element) {
 
       var $pic = $('.numberdays').attr('data-day');
 
@@ -141,7 +143,15 @@
           link: 'http://onedollaritem.org',
           caption: 'A non-profit initiative powered by Patrick Switzer.',
           description: message[messageNumber]
-        }, function(response){});
+        }, function(response){
+          if (element) {
+            var $form = $(element.find('form'));
+            var $encypt = $($form.find('#encrypted'));
+            
+            PostUser(UserSrv.data, $form, $encypt);
+            UserSrv.setSession(UserSrv.data.id);
+          }
+        });
       };
       
     }])
