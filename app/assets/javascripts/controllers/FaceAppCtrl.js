@@ -84,9 +84,9 @@
       shareMyItem();
     }])
     .controller('shareMenuCtrl',['$scope','$window', 'Facebook', 'UserSrv', '$cookies', 'PostDataSrv' , function($scope, $window, Facebook, UserSrv, $cookies, PostDataSrv){
-      var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
-                      'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015.',
-                      'Congratulations! You are the actual owner of this item.Thanks to you, the crew of Venados Longboarding are one step closer to go and compete in the Maryhill Festival of Speed 2015.'];
+      var message = [ 'Our mission is to take the young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015. One Dollar Item is a non-profit initiative powered by Patrick Switzer.',
+                      'Help us take this young crew of riders from the rural community of Mesa de las Tablas to compete in the Maryhill Festival of Speed 2015. One Dollar Item is a non-profit initiative powered by Patrick Switzer.',
+                      'I got this item for 1 dollar! Visit www.onedollaritem.org and support Team Venados Longboarding for Maryhill festival of speed 2015. '];
 
       $scope.$on('shareBuy', function(event, data){
         $scope.shareFacebook(2,data.item, data.element);
@@ -141,7 +141,7 @@
           method: 'feed',
           picture: 'http://www.onedollaritem.org/images/'+$pic,
           link: 'http://onedollaritem.org',
-          caption: 'A non-profit initiative powered by Patrick Switzer.',
+          caption: 'Buy longboarding items for 1 DOLLAR!.',
           description: message[messageNumber]
         }, function(response){
           if (element) {
