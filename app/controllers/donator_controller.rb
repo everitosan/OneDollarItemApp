@@ -15,17 +15,14 @@ class DonatorController < ApplicationController
 
   def prepost
 
-    @User = User.find_by_fb_id(params[:id])
-
-    if @User.nil?
-      @User = User.new
-      @User.fb_id = params[:id]
-      @User.name = params[:name]
-      @User.email = params[:email]
-      @User.first_n = params[:first_name]
-      @User.last_n = params[:last_name]
-      @User.locate = params[:locale]
-    end
+    @User = User.find_or_create_by(fb_id: params[:id]) do |new_user|
+              new_user.fb_id = params[:id]
+              new_user.name = params[:name]
+              new_user.email = params[:email]
+              new_user.first_n = params[:first_name]
+              new_user.last_n = params[:last_name]
+              new_user.locate = params[:locale]
+            end
 
     if @User.save
       crypChain = paypal_encrypted(params[:item], @User.id)
