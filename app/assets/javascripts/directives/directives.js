@@ -76,10 +76,12 @@
     }])
     .directive('apDonationDirective', [function DonationDirective (){
       var count = 0;
+
       function ressize() {
         porcentajeEscala('#donation', 1);
         var $ul = $('#itemsFlow');
         var children = $ul.children().length;
+        console.log(children);
         $ul.css('width', parseInt($ul.parent().css('width')) * children );
       }
 
@@ -115,10 +117,10 @@
         },1000);
       }
 
+        ressize();
       function link (scope, element) {
         var $elem = $(element);
 
-        ressize();
         $(window).on('resize', ressize);
         $('#DonateFacebook').on('mousedown', step2);
         $('#buttonItems .next').on('click', nextItem);
