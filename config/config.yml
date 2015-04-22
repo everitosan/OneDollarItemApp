@@ -9,7 +9,7 @@ development:
 production:
     paypal_email: martin.5tocolor@hotmail.com
     return_url: https://one-dollar-item.herokuapp.com/odi/tender
-    notify_url: https://one-dollar-item.herokuapp.com/ipn/newOwner
+    notify_url: http://www.onedollaritem.org/ipn/newOwner
     cert_id: 8TBDGQA5TG5ZU
     paypal_secret: digitalInvaders15
     paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr?"
