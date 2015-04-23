@@ -7,6 +7,9 @@ class IpnController < ApplicationController
 	end
 
 	def setOwner (status, item, user_id)
+
+		logger.debug  "/*********************** IPN Notification START ********/"
+		
 		if status == "Completed"
 
 			user_id = user_id.to_i
