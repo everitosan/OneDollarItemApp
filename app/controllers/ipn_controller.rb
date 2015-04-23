@@ -9,7 +9,7 @@ class IpnController < ApplicationController
 	def setOwner (status, item, user_id)
 
 		logger.debug  "/*********************** IPN Notification START ********/"
-		
+
 		if status == "Completed"
 
 			user_id = user_id.to_i
@@ -36,19 +36,19 @@ class IpnController < ApplicationController
 					  	logger.debug currentItem.user.name
 					  	logger.debug currentItem.description
 					  	logger.debug lastOwner.name
-		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"
-#=begin					  	
+		  				logger.debug "/*********************** IPN Notification COMPLETED ********/"				  	
 		  				mail = MailerController.new()
 					  	mail.notifySteal(lastOwner.name, lastOwner.email, currentItem.name, currentItem.description)
 					  	mail = nil
-#=end
-					  	
+					else
+		  				logger.debug "/*********************** IPN COULD NOT SAVE********/"
 		  			end
 			  	end
 		  	else
-		  		#error item not found
+				logger.debug "******** ITEM NOT FOUND"
 			end		
-		  	
+		else
+			logger.debug "******** NOT COMPLETED"	
 		end
 	end
 	def increaseAmount (amount)
