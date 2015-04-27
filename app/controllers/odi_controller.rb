@@ -37,7 +37,8 @@ class OdiController < ApplicationController
     elsif date.day >= 16 && date.day <= 26 &&  date.month == 4 && date.year == 2015# && sections.at(sections.size - 1) != "tender"
       return 'tender'
     else
-      return 'results'
+      return 'tender'
+      #return 'results'
     end    
   end
 
